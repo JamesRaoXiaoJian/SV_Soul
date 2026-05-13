@@ -1,0 +1,12 @@
+{
+  "Name": "SV_SOUL",
+  "Author": "James",
+  "Version": "1.0.0",
+  "Description": "AI-powered chat NPCs using Claude. Each NPC has persistent memory, personality, and awareness of in-game state.",
+  "UniqueID": "James.SV_SOUL",
+  "EntryDll": "SV_SOUL.dll",
+  "MinimumApiVersion": "4.0.0",
+  "ContentPackFor": null,
+  "Dependencies": [],
+  "UpdateKeys": []
+}

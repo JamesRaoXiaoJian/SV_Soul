@@ -1,0 +1,23 @@
+# Build output
+bin/
+obj/
+
+# IDE
+.vs/
+.vscode/
+*.user
+*.suo
+*.csproj.user
+
+# macOS
+.DS_Store
+
+# Game data (player saves, runtime data)
+data/
+
+# Claude Code local settings
+.claude/settings.local.json
+
+# NuGet
+*.nupkg
+packages/
