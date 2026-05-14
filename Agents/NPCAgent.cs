@@ -63,8 +63,9 @@ public class NPCAgent
             parts.Add(memories);
         }
 
+        var lang = _config.Language?.ToLower() == "en" ? "English" : "Chinese (中文)";
         parts.Add("");
-        parts.Add("Stay in character at all times. Respond as this NPC would, referencing the current game state and your memories naturally. Keep responses concise (1-3 sentences unless the conversation calls for more). Do not break the fourth wall or reference being an AI.");
+        parts.Add($"Stay in character at all times. You MUST respond in {lang}. Respond as this NPC would, referencing the current game state and your memories naturally. Keep responses concise (1-3 sentences unless the conversation calls for more). Do not break the fourth wall or reference being an AI.");
 
         return string.Join("\n", parts);
     }

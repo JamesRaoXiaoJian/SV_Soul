@@ -10,5 +10,6 @@ public class ModConfig
     public int MaxHistoryTurns { get; set; } = 50;
     public string? TriggerKey { get; set; } = null;
     public string Model { get; set; } = "mimo-v2.5-pro";
+    public string Language { get; set; } = "zh";
     public bool DebugMode { get; set; } = false;
 }

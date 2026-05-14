@@ -26,8 +26,17 @@ public class StorageManager
         if (!File.Exists(path))
             return new List<ConversationTurn>();
 
-        var json = File.ReadAllText(path);
-        return JsonSerializer.Deserialize<List<ConversationTurn>>(json, JsonOptions) ?? new List<ConversationTurn>();
+        try
+        {
+            var json = File.ReadAllText(path);
+            if (string.IsNullOrWhiteSpace(json))
+                return new List<ConversationTurn>();
+            return JsonSerializer.Deserialize<List<ConversationTurn>>(json, JsonOptions) ?? new List<ConversationTurn>();
+        }
+        catch
+        {
+            return new List<ConversationTurn>();
+        }
     }
 
     public void SaveHistory(string npcName, List<ConversationTurn> turns)
@@ -43,8 +52,17 @@ public class StorageManager
         if (!File.Exists(path))
             return new NPCMemory();
 
-        var json = File.ReadAllText(path);
-        return JsonSerializer.Deserialize<NPCMemory>(json, JsonOptions) ?? new NPCMemory();
+        try
+        {
+            var json = File.ReadAllText(path);
+            if (string.IsNullOrWhiteSpace(json))
+                return new NPCMemory();
+            return JsonSerializer.Deserialize<NPCMemory>(json, JsonOptions) ?? new NPCMemory();
+        }
+        catch
+        {
+            return new NPCMemory();
+        }
     }
 
     public void SaveMemories(string npcName, NPCMemory memory)

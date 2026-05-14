@@ -7,7 +7,6 @@ using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using StardewModdingAPI;
 using StardewValley;
-using StardewValley.BellsAndWhistles;
 using StardewValley.Menus;
 using SV_SOUL.Agents;
 
@@ -26,12 +25,17 @@ public class ChatMenu : IClickableMenu
     private int _scrollOffset;
     private int _totalContentHeight;
     private bool _textInputFocused;
-    private KeyboardState _prevKeyState;
 
-    private const int BubbleSpacing = 12;
-    private const int InputHeight = 55;
+    private static readonly SpriteFont Font = Game1.smallFont;
+    private static readonly Vector2 CharSize = Font.MeasureString("Xg");
+
+    private const int InputBoxHeight = 65;
+    private const int BottomMargin = 20;
+    private const int BoxSpacing = 8;
     private const int PortraitSize = 64;
-    private const int InputGap = 8;
+    private const int ContentPadding = 20;
+    private const int BubbleSpacing = 14;
+    private static readonly int LineHeight = (int)CharSize.Y + 6;
 
     public ChatMenu(NPCAgent agent, Texture2D? portrait, IMonitor monitor, Action<string, string> onPlayerSubmit)
         : base(0, 0, 0, 0, true)
@@ -44,29 +48,40 @@ public class ChatMenu : IClickableMenu
         _textInput = new TextInputBox();
         _textInput.OnSubmit = OnPlayerMessage;
 
+        // Hook IME input
+        Game1.game1.Window.TextInput += OnTextInput;
+
         _monitor.Log($"ChatMenu opened for {agent.DisplayName}", LogLevel.Debug);
 
-        // Full screen overlay
-        width = Game1.uiViewport.Width - 80;
-        height = Game1.uiViewport.Height - 80;
-        xPositionOnScreen = 40;
-        yPositionOnScreen = 40;
+        // Position at bottom center: 80% width, double height
+        var viewW = Game1.uiViewport.Width;
+        var viewH = Game1.uiViewport.Height;
+        width = (int)(viewW * 0.8);
+        height = 600;
+        xPositionOnScreen = (viewW - width) / 2;
+        yPositionOnScreen = viewH - height - InputBoxHeight - BoxSpacing - BottomMargin;
 
         UpdateLayout();
 
-        // Add greeting
-        AddBubble(agent.DisplayName, $"Hey there! What's on your mind?", false);
+        AddBubble(agent.DisplayName, "Hey there! What's on your mind?", false);
     }
 
     private void UpdateLayout()
     {
-        // Input box sits below the main dialogue box
         _textInput.Bounds = new Rectangle(
             xPositionOnScreen,
-            yPositionOnScreen + height + InputGap,
+            yPositionOnScreen + height + BoxSpacing,
             width,
-            InputHeight
+            InputBoxHeight
         );
+    }
+
+    private void OnTextInput(object? sender, TextInputEventArgs e)
+    {
+        if (_textInputFocused && e.Character >= 32)
+        {
+            _textInput.HandleTextInput(e.Character);
+        }
     }
 
     private void OnPlayerMessage(string text)
@@ -79,12 +94,9 @@ public class ChatMenu : IClickableMenu
     private void AddBubble(string speaker, string text, bool isPlayer)
     {
         var chatArea = GetChatArea();
-        var bubbleWidth = Math.Min(chatArea.Width - 20, 500);
-        const int textPad = 12;
-        var maxTextWidth = bubbleWidth - textPad * 2;
+        var maxTextWidth = chatArea.Width - 24;
         var wrappedLines = WrapText(text, maxTextWidth);
-        const int LineHeight = 18;
-        var bubbleHeight = wrappedLines.Count * LineHeight + 28;
+        var bubbleHeight = wrappedLines.Count * LineHeight + 12;
 
         _bubbles.Add(new ChatBubble
         {
@@ -101,37 +113,90 @@ public class ChatMenu : IClickableMenu
 
     private Rectangle GetChatArea()
     {
-        // Main dialogue box internal content area (after borders)
-        var contentX = xPositionOnScreen + 20;
-        var contentY = yPositionOnScreen + 20;
-        var contentW = width - 40;
-        var contentH = height - 40;
+        var contentX = xPositionOnScreen + ContentPadding;
+        var contentY = yPositionOnScreen + ContentPadding;
+        var contentW = width - ContentPadding * 2;
+        var contentH = height - ContentPadding * 2;
 
-        // Chat area: below portrait header, above bottom of box
-        var headerBottom = contentY + PortraitSize + 16;
-        return new Rectangle(contentX, headerBottom, contentW, contentY + contentH - headerBottom - 8);
+        var headerBottom = contentY + PortraitSize + 12;
+        // Extra 16px bottom padding to prevent clipping
+        return new Rectangle(contentX, headerBottom, contentW, contentY + contentH - headerBottom - 16);
     }
 
-    private List<string> WrapText(string text, int maxWidth)
+    private static bool IsCjk(char c)
+    {
+        return (c >= 0x4E00 && c <= 0x9FFF) ||   // CJK Unified
+               (c >= 0x3400 && c <= 0x4DBF) ||   // CJK Extension A
+               (c >= 0x3000 && c <= 0x303F) ||   // CJK Symbols
+               (c >= 0xFF00 && c <= 0xFFEF) ||   // Fullwidth
+               (c >= 0x3040 && c <= 0x309F) ||   // Hiragana
+               (c >= 0x30A0 && c <= 0x30FF);     // Katakana
+    }
+
+    private static List<string> WrapText(string text, int maxWidth)
     {
         var lines = new List<string>();
-        var words = text.Split(' ');
         var currentLine = "";
 
-        foreach (var word in words)
+        for (int i = 0; i < text.Length; i++)
         {
-            var testLine = string.IsNullOrEmpty(currentLine) ? word : currentLine + " " + word;
-            var measuredWidth = SpriteText.getWidthOfString(testLine);
-            if (measuredWidth > maxWidth && !string.IsNullOrEmpty(currentLine))
+            var c = text[i];
+            if (c == '\n')
             {
                 lines.Add(currentLine);
-                currentLine = word;
+                currentLine = "";
+                continue;
             }
-            else
+
+            if (c == ' ')
             {
-                currentLine = testLine;
+                // Try to fit the next word
+                var nextSpace = text.IndexOf(' ', i + 1);
+                var nextBreak = nextSpace == -1 ? text.Length : nextSpace;
+                var wordChunk = text[i..nextBreak];
+                var testLine = currentLine + wordChunk;
+                if (Font.MeasureString(testLine).X > maxWidth && currentLine.Length > 0)
+                {
+                    lines.Add(currentLine);
+                    currentLine = "";
+                    // Skip the space, start new line with the word
+                    continue;
+                }
+                currentLine += c;
+                continue;
+            }
+
+            // CJK character: break per character
+            if (IsCjk(c))
+            {
+                var testLine = currentLine + c;
+                if (Font.MeasureString(testLine).X > maxWidth && currentLine.Length > 0)
+                {
+                    lines.Add(currentLine);
+                    currentLine = c.ToString();
+                }
+                else
+                {
+                    currentLine = testLine;
+                }
+                continue;
+            }
+
+            // Regular ASCII character
+            {
+                var testLine = currentLine + c;
+                if (Font.MeasureString(testLine).X > maxWidth && currentLine.Length > 0)
+                {
+                    lines.Add(currentLine);
+                    currentLine = c.ToString();
+                }
+                else
+                {
+                    currentLine = testLine;
+                }
             }
         }
+
         if (!string.IsNullOrEmpty(currentLine))
             lines.Add(currentLine);
 
@@ -148,10 +213,10 @@ public class ChatMenu : IClickableMenu
 
         if (_textInputFocused)
         {
+            _textInput.OnKeyDown(key);
             _textInput.HandleKeyPress(key);
         }
     }
-
 
     public override void receiveScrollWheelAction(int direction)
     {
@@ -179,71 +244,11 @@ public class ChatMenu : IClickableMenu
     {
         _textInput.Update(time);
 
-        // Poll keyboard for text input
-        if (_textInputFocused)
-        {
-            var keyState = Keyboard.GetState();
-            var pressed = keyState.GetPressedKeys();
-            foreach (var key in pressed)
-            {
-                if (_prevKeyState.IsKeyUp(key))
-                {
-                    var ch = KeyToChar(key, keyState);
-                    if (ch.HasValue)
-                        _textInput.HandleTextInput(ch.Value);
-                }
-            }
-            _prevKeyState = keyState;
-        }
-
-        // Check for pending responses from the async API call
         if (_awaitingResponse && _responseQueue.TryDequeue(out var response))
         {
             _awaitingResponse = false;
             AddBubble(_agent.DisplayName, response, false);
         }
-    }
-
-    private static char? KeyToChar(Keys key, KeyboardState state)
-    {
-        bool shift = state.IsKeyDown(Keys.LeftShift) || state.IsKeyDown(Keys.RightShift);
-
-        if (key >= Keys.A && key <= Keys.Z)
-        {
-            char c = (char)('a' + (key - Keys.A));
-            return shift ? char.ToUpper(c) : c;
-        }
-        if (key >= Keys.D0 && key <= Keys.D9)
-        {
-            if (shift)
-            {
-                return key switch
-                {
-                    Keys.D1 => '!', Keys.D2 => '@', Keys.D3 => '#',
-                    Keys.D4 => '$', Keys.D5 => '%', Keys.D6 => '^',
-                    Keys.D7 => '&', Keys.D8 => '*', Keys.D9 => '(',
-                    Keys.D0 => ')', _ => null
-                };
-            }
-            return (char)('0' + (key - Keys.D0));
-        }
-        if (key >= Keys.NumPad0 && key <= Keys.NumPad9)
-            return (char)('0' + (key - Keys.NumPad0));
-
-        return key switch
-        {
-            Keys.Space => ' ',
-            Keys.OemPeriod => shift ? '>' : '.',
-            Keys.OemComma => shift ? '<' : ',',
-            Keys.OemQuestion => shift ? '?' : '/',
-            Keys.OemSemicolon => shift ? ':' : ';',
-            Keys.OemQuotes => shift ? '"' : '\'',
-            Keys.OemOpenBrackets => shift ? '{' : '[',
-            Keys.OemCloseBrackets => shift ? '}' : ']',
-            Keys.OemMinus => shift ? '_' : '-',
-            Keys.OemPlus => shift ? '+' : '=',
-            _ => null
-        };
     }
 
     public void EnqueueResponse(string response)
@@ -252,20 +257,28 @@ public class ChatMenu : IClickableMenu
         _responseQueue.Enqueue(response);
     }
 
+    public override void gameWindowSizeChanged(Rectangle oldBounds, Rectangle newBounds)
+    {
+        base.gameWindowSizeChanged(oldBounds, newBounds);
+        var viewW = Game1.uiViewport.Width;
+        var viewH = Game1.uiViewport.Height;
+        width = (int)(viewW * 0.8);
+        height = 600;
+        xPositionOnScreen = (viewW - width) / 2;
+        yPositionOnScreen = viewH - height - InputBoxHeight - BoxSpacing - BottomMargin;
+        UpdateLayout();
+    }
+
     public override void draw(SpriteBatch b)
     {
-        // Dim background
-        b.Draw(Game1.fadeToBlackRect, Game1.graphics.GraphicsDevice.Viewport.Bounds, Color.Black * 0.75f);
-
-        // Main dialogue box
+        // Main dialogue box at bottom center
         Game1.drawDialogueBox(xPositionOnScreen, yPositionOnScreen, width, height, false, true);
 
-        // Content area inside dialogue box borders
         var chatArea = GetChatArea();
 
-        // NPC portrait (crop first expression from spritesheet)
-        var portraitX = chatArea.X;
-        var portraitY = chatArea.Y - PortraitSize - 12;
+        // NPC portrait
+        var portraitX = xPositionOnScreen + ContentPadding;
+        var portraitY = yPositionOnScreen + ContentPadding;
 
         if (_portrait != null)
         {
@@ -275,9 +288,11 @@ public class ChatMenu : IClickableMenu
         }
 
         // NPC name next to portrait
-        SpriteText.drawString(b, _agent.DisplayName, portraitX + PortraitSize + 12, portraitY + 16);
+        var nameX = portraitX + PortraitSize + 12;
+        var nameY = portraitY + 16;
+        DrawText(b, _agent.DisplayName, new Vector2(nameX, nameY), Game1.textColor);
 
-        // Chat bubbles (scrollable, clipped)
+        // Chat messages (scrollable, clipped)
         var prevScissor = b.GraphicsDevice.ScissorRectangle;
         b.End();
         b.GraphicsDevice.ScissorRectangle = chatArea;
@@ -299,7 +314,7 @@ public class ChatMenu : IClickableMenu
             if (thinkingY > chatArea.Y && thinkingY < chatArea.Bottom)
             {
                 var dots = new string('.', (int)(Game1.ticks / 15) % 4);
-                SpriteText.drawString(b, $"{_agent.DisplayName} is thinking{dots}", chatArea.X + 8, thinkingY + 8);
+                DrawText(b, $"{_agent.DisplayName} is thinking{dots}", new Vector2(chatArea.X + 4, thinkingY + 4), Color.Gray);
             }
         }
 
@@ -307,46 +322,43 @@ public class ChatMenu : IClickableMenu
         b.GraphicsDevice.ScissorRectangle = prevScissor;
         b.Begin(SpriteSortMode.Deferred, BlendState.AlphaBlend, SamplerState.PointClamp);
 
-        // Input box (below main dialogue box, using drawTextureBox for clean borders)
+        // Input box
         var inputBounds = _textInput.Bounds;
         IClickableMenu.drawTextureBox(b, Game1.mouseCursors, new Rectangle(384, 396, 15, 15),
-            inputBounds.X, inputBounds.Y, inputBounds.Width, inputBounds.Height, Color.White, 2f, false);
+            inputBounds.X, inputBounds.Y, inputBounds.Width, inputBounds.Height,
+            new Color(249, 239, 200, 180), 2f, false);
         _textInput.Draw(b);
 
         // Close hint
-        var hintX = xPositionOnScreen + width - 170;
-        var hintY = yPositionOnScreen + height - 24;
-        SpriteText.drawString(b, "[Esc] to close", hintX, hintY, 999, 200, 999, 0.5f, 0.7f, false, -1, "", null, SpriteText.ScrollTextAlignment.Left);
+        var hintX = xPositionOnScreen + width - 160;
+        var hintY = inputBounds.Y + inputBounds.Height + 4;
+        DrawText(b, "[Esc] to close", new Vector2(hintX, hintY), Color.Gray);
 
-        // Mouse cursor
         drawMouse(b);
     }
 
     private void DrawBubble(SpriteBatch b, ChatBubble bubble, int areaX, int areaY, int areaWidth)
     {
-        var bubbleWidth = Math.Min(areaWidth - 20, 500);
-        var bubbleX = bubble.IsPlayer ? areaX + areaWidth - bubbleWidth : areaX;
-        const int textPad = 12;
-        var textWidth = bubbleWidth - textPad * 2;
+        var maxTextWidth = areaWidth - 32;
+        var textX = areaX + 16;
 
-        // Bubble background
-        var bgColor = bubble.IsPlayer ? new Color(100, 149, 237, 40) : new Color(60, 60, 60, 40);
-        IClickableMenu.drawTextureBox(b, Game1.mouseCursors, new Rectangle(384, 396, 15, 15),
-            bubbleX, areaY, bubbleWidth, bubble.Height, bgColor, 2f, false);
+        // Speaker tag
+        var speakerColor = bubble.IsPlayer ? new Color(70, 130, 220) : new Color(180, 100, 60);
+        DrawText(b, $"{bubble.Speaker}:", new Vector2(textX, areaY), speakerColor);
 
-        // Speaker name
-        SpriteText.drawString(b, bubble.Speaker, bubbleX + textPad, areaY + 4, 999, textWidth, 999,
-            0.6f, 0.9f, false, -1, "", null, SpriteText.ScrollTextAlignment.Left);
-
-        // Text lines (use SpriteText scale 0.7 -> char height ~12px, line height 18px)
-        const int LineHeight = 18;
-        var lineY = areaY + 24;
+        // Text lines
+        var lineY = areaY + LineHeight;
         foreach (var line in bubble.WrappedLines)
         {
-            SpriteText.drawString(b, line, bubbleX + textPad, lineY, 999, textWidth, 999,
-                0.7f, 1f, false, -1, "", null, SpriteText.ScrollTextAlignment.Left);
+            DrawText(b, line, new Vector2(textX, lineY), Game1.textColor);
             lineY += LineHeight;
         }
+    }
+
+    private static void DrawText(SpriteBatch b, string text, Vector2 pos, Color color)
+    {
+        b.DrawString(Font, text, pos + new Vector2(2, 2), Color.Black * 0.3f);
+        b.DrawString(Font, text, pos, color);
     }
 
     private class ChatBubble

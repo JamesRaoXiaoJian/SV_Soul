@@ -3,7 +3,6 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using StardewValley;
-using StardewValley.BellsAndWhistles;
 
 namespace SV_SOUL.UI;
 
@@ -18,11 +17,23 @@ public class TextInputBox
     private double _cursorBlinkTimer;
     private bool _cursorVisible = true;
 
+    // Key repeat state
+    private Keys _heldKey;
+    private double _holdTimer;
+    private double _repeatTimer;
+    private const double HoldDelay = 400; // ms before repeat starts
+    private const double RepeatRate = 50; // ms between repeats
+
+    private const string Prefix = "You: ";
+    private static readonly SpriteFont Font = Game1.smallFont;
+    private static readonly float PrefixWidth = Font.MeasureString(Prefix).X;
+    private const float PadLeft = 14f;
+
     public void HandleTextInput(char inputChar)
     {
         if (!IsFocused) return;
-        if (inputChar < 32 || inputChar > 126) return; // printable ASCII only
-        if (Text.Length >= 200) return; // max length
+        if (inputChar < 32) return;
+        if (Text.Length >= 200) return;
 
         Text = Text.Insert(_cursorPosition, inputChar.ToString());
         _cursorPosition++;
@@ -84,32 +95,73 @@ public class TextInputBox
             _cursorBlinkTimer = 0;
             _cursorVisible = !_cursorVisible;
         }
+
+        // Key repeat for Backspace and Delete
+        if (IsFocused)
+        {
+            var keyState = Keyboard.GetState();
+            if (keyState.IsKeyDown(_heldKey) && (_heldKey == Keys.Back || _heldKey == Keys.Delete))
+            {
+                var dt = time.ElapsedGameTime.TotalMilliseconds;
+                _holdTimer += dt;
+                if (_holdTimer >= HoldDelay)
+                {
+                    _repeatTimer += dt;
+                    if (_repeatTimer >= RepeatRate)
+                    {
+                        _repeatTimer = 0;
+                        HandleKeyPress(_heldKey);
+                    }
+                }
+            }
+            else
+            {
+                _heldKey = Keys.None;
+                _holdTimer = 0;
+                _repeatTimer = 0;
+            }
+        }
+    }
+
+    public void OnKeyDown(Keys key)
+    {
+        if (key == Keys.Back || key == Keys.Delete)
+        {
+            _heldKey = key;
+            _holdTimer = 0;
+            _repeatTimer = 0;
+        }
     }
 
     public void Draw(SpriteBatch b)
     {
-        // Background is drawn by parent (ChatMenu) using drawTextureBox
-        var textX = Bounds.X + 12;
-        var textY = Bounds.Y + (Bounds.Height - 16) / 2;
-        var maxTextWidth = Bounds.Width - 24;
+        var charHeight = Font.MeasureString("Xg").Y;
+        var textX = Bounds.X + PadLeft + PrefixWidth + 4;
+        var textY = Bounds.Y + (Bounds.Height - charHeight) / 2;
+        var maxTextWidth = Bounds.Width - PadLeft - PrefixWidth - 20;
+
+        // Draw "You: " prefix (no shadow to avoid overlap)
+        b.DrawString(Font, Prefix, new Vector2(Bounds.X + PadLeft, textY), Color.DarkSlateGray);
 
         if (string.IsNullOrEmpty(Text) && !IsFocused)
         {
-            // Placeholder
-            SpriteText.drawString(b, "Say something...", textX, textY, 999, maxTextWidth, 999, 0.5f, 0.8f, false, -1, "", null, SpriteText.ScrollTextAlignment.Left);
+            b.DrawString(Font, "Type a message...", new Vector2(textX, textY), Color.Gray);
         }
         else
         {
-            // Text
-            SpriteText.drawString(b, Text, textX, textY, 999, maxTextWidth, 999, 0.7f, 1f, false, -1, "", null, SpriteText.ScrollTextAlignment.Left);
+            var displayText = Text;
+            while (Font.MeasureString(displayText).X > maxTextWidth && displayText.Length > 1)
+                displayText = displayText[1..];
 
-            // Cursor - use SpriteText character width to match rendering
+            // Draw with shadow
+            b.DrawString(Font, displayText, new Vector2(textX + 2, textY + 2), Color.Black * 0.3f);
+            b.DrawString(Font, displayText, new Vector2(textX, textY), Game1.textColor);
+
             if (IsFocused && _cursorVisible)
             {
                 var cursorText = Text[..Math.Min(_cursorPosition, Text.Length)];
-                var cursorX = textX + SpriteText.getWidthOfString(cursorText);
-                var cursorHeight = (int)(SpriteText.characterHeight * 0.7f);
-                b.Draw(Game1.staminaRect, new Rectangle(cursorX, textY, 2, cursorHeight), Game1.textColor);
+                var cursorX = textX + Font.MeasureString(cursorText).X;
+                b.Draw(Game1.staminaRect, new Rectangle((int)cursorX, (int)textY, 2, (int)charHeight), Game1.textColor);
             }
         }
     }
