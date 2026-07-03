@@ -1,6 +1,10 @@
 # SV_SOUL
 
-AI-Powered Chat NPCs for Stardew Valley.让游戏中的 NPC 拥有真正的 AI 对话能力 -- 专属人设、持久记忆、实时环境感知。
+<p align="center">
+  <a href="README.md">中文</a> · <a href="README_EN.md">English</a>
+</p>
+
+AI-Powered Chat NPCs for Stardew Valley. 让游戏中的 NPC 拥有真正的 AI 对话能力：专属人设、持久记忆、实时环境感知和原生聊天界面。
 
 ## 特性
 
@@ -97,9 +101,12 @@ SV_Soul/
 | `BaseUrl` | API 地址，`null` 为官方地址 | `null` |
 | `EnabledNPCs` | 启用 AI 对话的 NPC 列表 | 全部 5 个 |
 | `MaxTokens` | 单次回复最大 token 数 | `200` |
+| `Temperature` | 回复随机性 | `0.9` |
 | `MaxHistoryTurns` | 保留的最大对话轮数 | `50` |
 | `Model` | 模型标识符 | `mimo-v2.5-pro` |
+| `Language` | 默认对话语言 | `zh` |
 | `TriggerKey` | 触发对话需按住的键，`null` 为直接交互 | `null` |
+| `DebugMode` | 调试日志开关 | `false` |
 
 ### 使用代理 API
 
