@@ -21,3 +21,57 @@ data/
 # NuGet
 *.nupkg
 packages/
+
+# Local API credentials
+config.json
+
+# Local SMAPI installer and game files
+tools/smapi/
+game/
+
+# Local Windows diagnostics
+tools/home*
+
+# Mac diagnostics
+tools/mac-*
+
+# Python bytecode
+__pycache__/
+
+# Local test command exchange
+test-request.json
+test-result.json
+
+# Local network diagnostic build
+tools/tls-probe/
+
+# Local game context diagnostics
+artifacts/tests/*-context.json
+
+# Local game-data inspection
+tools/catalog/
+tools/catalog-raw.json
+tools/*.xnb
+
+# Local licensed game extraction fixtures (never bundle)
+tools/*-raw.json
+
+# Generated cross-platform offline test bundle
+tools/lore-offline-tests.zip
+
+tools/lore-final-test-update.zip
+
+# Machine-specific tools and generated artifacts stay local.
+/tools/
+/artifacts/*
+!/artifacts/tests/
+/artifacts/tests/*
+!/artifacts/tests/lore-acceptance.json
+!/artifacts/tests/lore-corpus-inventory.json
+!/artifacts/tests/lore-quality.json
+!/artifacts/tests/lore-quality-windows.json
+!/artifacts/tests/lore-quality-macos.json
+!/artifacts/tests/lore-native-integration.txt
+!/artifacts/tests/lore-windows.txt
+!/artifacts/tests/lore-macos.txt
+!/artifacts/tests/history-lore-build.txt

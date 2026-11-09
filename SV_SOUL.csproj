@@ -2,13 +2,20 @@
 
   <PropertyGroup>
     <TargetFramework>net6.0</TargetFramework>
+    <Version>1.7.0</Version>
     <EnableHarmony>true</EnableHarmony>
     <LangVersion>latest</LangVersion>
-    <BundleExtraAssemblies>ThirdParty</BundleExtraAssemblies>
+    <Nullable>enable</Nullable>
+    <IgnoreModFilePaths>tools/**,game/**,scripts/**,docs/**,tests/**,artifacts/**</IgnoreModFilePaths>
+    <BundleExtraAssemblies>ThirdParty,System</BundleExtraAssemblies>
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Pathoschild.Stardew.ModBuildConfig" Version="4.*" />
+    <None Update="assets/licenses/**" CopyToOutputDirectory="PreserveNewest" />
+    <None Remove="tools/**;game/**" />
+    <Compile Remove="tools/**;game/**;tests/**" />
+    <Content Remove="tools/**" />
+    <PackageReference Include="Pathoschild.Stardew.ModBuildConfig" Version="4.4.0" />
   </ItemGroup>
 
-</Project>
+<ItemGroup><PackageReference Include="Lucene.Net" Version="4.8.0-beta00018"/><PackageReference Include="Lucene.Net.Analysis.Common" Version="4.8.0-beta00018"/></ItemGroup></Project>

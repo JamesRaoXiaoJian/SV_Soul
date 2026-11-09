@@ -1,0 +1,249 @@
+[
+  {
+    "Id": "region.railroad",
+    "FactKey": "region.railroad",
+    "EntityIds": [
+      "region.railroad"
+    ],
+    "Text": "铁路区域在山区北面，通路是否开放以当前游戏为准。",
+    "Aliases": [
+      "铁路",
+      "火车站",
+      "Railroad"
+    ],
+    "Source": "https://stardewvalleywiki.com/Railroad",
+    "KnownBy": [],
+    "Kind": "background",
+    "GameVersion": "1.6",
+    "Locale": "zh-CN",
+    "ReviewedAt": "2026-11-07"
+  },
+  {
+    "Id": "region.spa",
+    "FactKey": "region.spa",
+    "EntityIds": [
+      "region.spa"
+    ],
+    "Text": "温泉浴场位于铁路区域西南侧，有更衣室和浴池。",
+    "Aliases": [
+      "温泉",
+      "浴场",
+      "Spa",
+      "BathHouse_Entry"
+    ],
+    "Source": "https://stardewvalleywiki.com/Spa",
+    "KnownBy": [],
+    "Kind": "background",
+    "GameVersion": "1.6",
+    "Locale": "zh-CN",
+    "ReviewedAt": "2026-11-07"
+  },
+  {
+    "Id": "region.sewers",
+    "FactKey": "region.sewers",
+    "EntityIds": [
+      "region.sewers"
+    ],
+    "Text": "下水道入口分别在鹈鹕镇南侧和煤矿森林南侧，进入需要满足通行条件。",
+    "Aliases": [
+      "下水道",
+      "Sewers",
+      "Sewer"
+    ],
+    "Source": "https://stardewvalleywiki.com/The_Sewers",
+    "KnownBy": [],
+    "Kind": "background",
+    "GameVersion": "1.6",
+    "Locale": "zh-CN",
+    "ReviewedAt": "2026-11-07"
+  },
+  {
+    "Id": "region.quarry",
+    "FactKey": "region.quarry",
+    "EntityIds": [
+      "region.quarry"
+    ],
+    "Text": "采石场在山区一侧，有岩石和矿脉；通路及矿车是否可用以当前状态为准。",
+    "Aliases": [
+      "采石场",
+      "Quarry"
+    ],
+    "Source": "https://stardewvalleywiki.com/Quarry",
+    "KnownBy": [],
+    "Kind": "background",
+    "GameVersion": "1.6",
+    "Locale": "zh-CN",
+    "ReviewedAt": "2026-11-07"
+  },
+  {
+    "Id": "region.farm",
+    "FactKey": "region.farm",
+    "EntityIds": [
+      "region.farm"
+    ],
+    "Text": "玩家的农场来自爷爷的馈赠，具体布局、建筑和经营情况以当前存档为准。",
+    "Aliases": [
+      "农场来历",
+      "农场背景",
+      "Farm history",
+      "Farm",
+      "FarmHouse"
+    ],
+    "Source": "https://stardewvalleywiki.com/The_Farm",
+    "KnownBy": [],
+    "Kind": "background",
+    "GameVersion": "1.6",
+    "Locale": "zh-CN",
+    "ReviewedAt": "2026-11-07"
+  },
+  {
+    "Id": "region.backwoods",
+    "FactKey": "region.backwoods",
+    "EntityIds": [
+      "region.backwoods"
+    ],
+    "Text": "后山较高处的小路连接农场与山区，较低处的道路连接巴士站和隧道。",
+    "Aliases": [
+      "后山",
+      "Backwoods"
+    ],
+    "Source": "https://stardewvalleywiki.com/Backwoods",
+    "KnownBy": [],
+    "Kind": "background",
+    "GameVersion": "1.6",
+    "Locale": "zh-CN",
+    "ReviewedAt": "2026-11-07"
+  },
+  {
+    "Id": "region.busstop",
+    "FactKey": "region.busstop",
+    "EntityIds": [
+      "region.busstop"
+    ],
+    "Text": "巴士站位于农场和鹈鹕镇之间，沿公路向西可以到后山较低处。",
+    "Aliases": [
+      "巴士站",
+      "Bus Stop",
+      "BusStop"
+    ],
+    "Source": "https://stardewvalleywiki.com/Bus_Stop",
+    "KnownBy": [],
+    "Kind": "background",
+    "GameVersion": "1.6",
+    "Locale": "zh-CN",
+    "ReviewedAt": "2026-11-07"
+  },
+  {
+    "Id": "region.witchswamp",
+    "FactKey": "region.witchswamp",
+    "EntityIds": [
+      "region.witchswamp"
+    ],
+    "Text": "女巫沼泽与女巫小屋有关，入口位于铁路区域附近；不能默认玩家已经获得进入许可。",
+    "Aliases": [
+      "女巫沼泽",
+      "Witch Swamp",
+      "Witch's Swamp",
+      "WitchSwamp"
+    ],
+    "Source": "https://stardewvalleywiki.com/Witch%27s_Swamp",
+    "KnownBy": [
+      "Wizard",
+      "Henchman",
+      "Krobus"
+    ],
+    "Kind": "background",
+    "GameVersion": "1.6",
+    "Locale": "zh-CN",
+    "ReviewedAt": "2026-11-07"
+  },
+  {
+    "Id": "region.volcano",
+    "FactKey": "region.volcano",
+    "EntityIds": [
+      "region.volcano"
+    ],
+    "Text": "姜岛北面的火山内有危险的地下区域，具体探索进度不能从地理常识推断。",
+    "Aliases": [
+      "火山",
+      "Volcano Dungeon",
+      "VolcanoDungeon"
+    ],
+    "Source": "https://stardewvalleywiki.com/Volcano_Dungeon",
+    "KnownBy": [
+      "Leo",
+      "Dwarf",
+      "Mister Qi",
+      "Birdie"
+    ],
+    "Kind": "background",
+    "GameVersion": "1.6",
+    "Locale": "zh-CN",
+    "ReviewedAt": "2026-11-07"
+  },
+  {
+    "Id": "region.fieldoffice",
+    "FactKey": "region.fieldoffice",
+    "EntityIds": [
+      "region.fieldoffice"
+    ],
+    "Text": "姜岛北侧的考古帐篷用于研究岛屿自然史和化石；是否已有人员开展工作以当前游戏为准。",
+    "Aliases": [
+      "考古帐篷",
+      "岛屿办事处",
+      "Island Field Office"
+    ],
+    "Source": "https://stardewvalleywiki.com/Island_Field_Office",
+    "KnownBy": [
+      "Leo",
+      "Birdie",
+      "Gunther",
+      "ProfessorSnail"
+    ],
+    "Kind": "background",
+    "GameVersion": "1.6",
+    "Locale": "zh-CN",
+    "ReviewedAt": "2026-11-07"
+  },
+  {
+    "Id": "region.cinema",
+    "FactKey": "region.cinema",
+    "EntityIds": [
+      "region.cinema"
+    ],
+    "Text": "电影院开放后可以独自或邀请同伴看电影；是否已建成、是否营业不能从背景资料推断。",
+    "Aliases": [
+      "电影院",
+      "Movie Theater"
+    ],
+    "Source": "https://stardewvalleywiki.com/Movie_Theater",
+    "KnownBy": [],
+    "Kind": "background",
+    "GameVersion": "1.6",
+    "Locale": "zh-CN",
+    "ReviewedAt": "2026-11-07"
+  },
+  {
+    "Id": "region.secretwoods",
+    "FactKey": "region.secretwoods",
+    "EntityIds": [
+      "region.secretwoods"
+    ],
+    "Text": "秘密森林在煤矿森林西北侧，入口最初被大木头挡住，林中有硬木树桩和野生采集物。",
+    "Aliases": [
+      "秘密森林",
+      "Secret Woods"
+    ],
+    "Source": "https://stardewvalleywiki.com/Secret_Woods",
+    "KnownBy": [
+      "Wizard",
+      "Linus",
+      "Bear",
+      "Leah"
+    ],
+    "Kind": "background",
+    "GameVersion": "1.6",
+    "Locale": "zh-CN",
+    "ReviewedAt": "2026-11-07"
+  }
+]

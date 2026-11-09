@@ -1,171 +1,122 @@
 # SV_SOUL
 
-<p align="center">
-  <a href="README.md">中文</a> · <a href="README_EN.md">English</a>
-</p>
+[中文](README.md) · [English](README_EN.md)
 
-AI-Powered Chat NPCs for Stardew Valley. 让游戏中的 NPC 拥有真正的 AI 对话能力：专属人设、持久记忆、实时环境感知和原生聊天界面。
+星露谷物语 AI NPC 模组。NPC 根据自己的性格、与玩家的关系、已确认的记忆和当前游戏状态对话，并按需检索游戏背景。
 
-## 特性
+当前源码版本：**1.7.0**。目标游戏为 Stardew Valley 1.6，已使用 1.6.15 / SMAPI 4.5.2 的程序集验证构建。
 
-- **独立智能体** -- 每个 NPC 是独立的 AI 实例，拥有专属性格、说话风格和记忆
-- **实时感知** -- NPC 知道当前季节、天气、时间、地点和友好度，并据此调整对话
-- **持久记忆** -- NPC 记住你说过的话和一起经历的事，重启游戏后不丢失
-- **原生风格 UI** -- 全屏聊天气泡界面，头像、滚动、"正在思考"动画一应俱全
-- **五个内置角色** -- Abigail、Shane、Sebastian、Elliott、Haley，各有完整人设
-- **易于扩展** -- 添加 JSON 文件即可让任意 NPC 具备 AI 对话能力
+## 功能
 
-## 分支说明
+- **48 个角色档案**：区分可恋爱角色、普通社交角色、孩子和室友，保留独立语气、兴趣和关系阶段。
+- **存档记忆**：对话和记忆按存档、玩家、NPC 隔离，随游戏保存；不保存退出时同步回滚。目前支持单人及多人游戏的主机玩家。
+- **实时场景**：关系、住所、天气、游戏时间、生日和节日参与提示词，当前事实优先于旧背景。
+- **背景检索**：107 条随包资料，加上游戏资源中的生日、亲友、节日和常见物品说明。原版 1.6.15 的离线样本共 509 条；内容模组可改变运行时数量。
+- **轻量检索**：本地 Lucene.NET，按知情角色与剧情条件筛选，每轮最多 3 条、1,000 字符；后台建库，无额外模型调用。
+- **历史回看与候选回复**：重开窗口恢复消息，支持分页、请求期间关闭重开，以及无需打字的候选交互。
+- **双 API 格式**：支持 OpenAI 兼容 Chat Completions 和 Anthropic Messages，聊天与记忆整理共用配置。
 
-| 分支 | 用途 | 内容 |
-|------|------|------|
-| `main` | 源代码 | 完整项目源码，开发者自行构建 |
-| `release` | 发布版 | 构建好的 mod 文件，玩家下载即用 |
+## 安装与配置
 
-## 玩家安装（release 分支）
+1. 安装游戏和 [SMAPI](https://smapi.io/)。本项目的验证组合为游戏 1.6.15 / SMAPI 4.5.2。
+2. 获取与目标版本一致的构建包，或按下方步骤从 `main` 构建。`release` 是独立分支，版本以其中的 `manifest.json` 为准。
+3. 退出游戏，将包中的 `SV_SOUL` 文件夹放入游戏的 `Mods/` 目录。
+4. 将 [config.openai.example.json](config.openai.example.json) 复制为 `Mods/SV_SOUL/config.json`，填入自己的 API 密钥、服务地址和模型标识符。
+5. 通过 SMAPI 启动游戏。
 
-1. 安装 [SMAPI](https://smapi.io/) 4.0.0+
-2. 从 `release` 分支下载 `SV_SOUL` 文件夹
-3. 将 `SV_SOUL` 文件夹放入 `Stardew Valley/Mods/`
-4. 启动游戏让 SMAPI 生成配置文件
-5. 编辑 `Stardew Valley/Mods/SV_SOUL/config.json`，填入 API Key：
+OpenAI 兼容配置示例：
 
 ```json
 {
-  "ApiKey": "你的API密钥",
-  "Model": "claude-sonnet-4-20250514"
+  "ApiProvider": "OpenAI",
+  "ApiKey": "YOUR_API_KEY",
+  "BaseUrl": "https://api.openai.com/v1",
+  "Model": "YOUR_MODEL_ID",
+  "UseMaxCompletionTokens": true,
+  "SendTemperature": true,
+  "MaxTokens": 200,
+  "Language": "zh"
 }
 ```
 
-6. 进入游戏，靠近 NPC 按交互键即可开始聊天
+模型需由所用服务提供。`BaseUrl` 支持服务域名、`/v1` 前缀或完整 `/chat/completions` 地址；其他版本前缀请填写完整 endpoint。只接受 `max_tokens` 的服务设 `UseMaxCompletionTokens=false`，不接受温度参数的模型设 `SendTemperature=false`。
 
-## 开发者构建（main 分支）
+Anthropic 模式设 `ApiProvider="Anthropic"`，填写相应模型；`BaseUrl=null` 使用默认服务地址。为兼容旧配置，代码默认 provider 仍为 Anthropic。实际消息会发送给配置的 API 服务。
 
-### 环境要求
+更新模组时保留自己的 `config.json` 和游戏存档，退出游戏后替换文件。API 密钥、玩家数据和游戏文件不应提交到 Git。
 
-- .NET 6.0 SDK
-- Stardew Valley 1.6+（用于自动引用游戏程序集）
+## 操作
 
-### 构建步骤
+普通社交／服务 NPC：按住 **左 Alt（Mac 为 Option）再交互**打开 AI 对话，正常交互保留商店和任务。可恋爱角色按角色配置使用正常交互。手柄默认用 **Y** 与附近 NPC 开聊。剧情、语言和出场条件仍由游戏决定。
+
+| 操作 | 键鼠 | 手柄 |
+|---|---|---|
+| 发送输入 | Enter | X 发送已有输入 |
+| 选择候选回复 | 点击；Tab 切换焦点后用方向键 | 方向键／左摇杆 |
+| 发送候选回复 | Enter／点击 | A |
+| 下一页候选 | 候选区 Space／换一组按钮 | Y |
+| 滚动记录 | 鼠标滚轮 | LB/RB 或右摇杆上下 |
+| 关闭对话 | Esc | B |
+
+`ControllerChatButton` 可修改开聊按键。候选回复在本地生成，不增加 API 请求。
+
+## 常用配置
+
+| 配置 | 默认值 | 用途 |
+|---|---|---|
+| `EnabledNPCs` | `["*"]` | 全量模式，或填写角色内部 ID 白名单 |
+| `ExcludedNPCs` | `[]` | 排除角色 |
+| `SocialChatKey` | `LeftAlt` | 社交角色 AI 交互修饰键 |
+| `ControllerChatButton` | `ControllerY` | 手柄开聊键 |
+| `TriggerKey` | `null` | 可选的额外交互修饰键 |
+| `MaxHistoryTurns` | `8` | 模型近期对话轮数上限，与界面历史分页独立 |
+| `MaxTokens` | `200` | 回复 token 上限 |
+| `Temperature` | `0.9` | 在服务支持时发送 |
+| `Language` | `zh` | 默认回复语言 |
+| `EnableTestBridge` | `false` | 开发用游戏内测试桥 |
+| `DebugMode` | `false` | 调试日志 |
+
+完整字段见 [ModConfig.cs](Config/ModConfig.cs)。旧版未归属存档的记忆迁移见 [记忆生命周期](docs/memory-lifecycle.md)。
+
+## 开发与验证
+
+需要 .NET 6 SDK，以及已安装 SMAPI 的合法游戏程序集。
 
 ```bash
 git clone https://github.com/JamesRaoXiaoJian/SV_Soul.git
 cd SV_Soul
-dotnet build
+dotnet build -c Release -p:GamePath="/path/to/Stardew Valley" -p:EnableModDeploy=false
 ```
 
-构建完成后：
-- DLL 输出到 `bin/Debug/net6.0/SV_SOUL.dll`
-- 自动部署到 `Stardew Valley/Mods/SV_SOUL/`
-- Release zip 生成在 `bin/Debug/net6.0/`
+输出目录为 `bin/Release/net6.0/`，包含 DLL 和版本化安装 ZIP。`EnableModDeploy=false` 可避免构建时修改游戏安装。Linux 环境说明见 [setup-linux.md](docs/setup-linux.md)。
 
-### 项目结构
+不启动游戏即可执行：
 
-```
-SV_Soul/
-├── ModEntry.cs                  # SMAPI 入口，事件监听
-├── SV_SOUL.csproj               # 项目文件
-├── SV_SOUL.sln                  # 解决方案
-├── manifest.json                # SMAPI mod 元数据
-├── Agents/
-│   ├── AgentManager.cs          # 智能体生命周期管理
-│   ├── NPCAgent.cs              # 单个 NPC 的 AI 核心（提示构建、API 调用、记忆提取）
-│   └── GameStateProvider.cs     # 读取实时游戏状态
-├── Config/
-│   └── ModConfig.cs             # 配置模型
-├── Models/
-│   └── NPCPersonality.cs        # NPC 人设数据结构
-├── Storage/
-│   ├── StorageManager.cs        # JSON 文件持久化
-│   ├── NPCMemory.cs             # 记忆数据结构
-│   └── ConversationTurn.cs      # 对话轮次数据结构
-├── UI/
-│   ├── ChatMenu.cs              # 全屏聊天气泡界面
-│   └── TextInputBox.cs          # 文本输入组件
-└── assets/
-    └── personalities/           # NPC 人设 JSON
-        ├── abigail.json
-        ├── shane.json
-        ├── sebastian.json
-        ├── elliott.json
-        └── haley.json
+```bash
+dotnet run --project tests/Core
+python3 scripts/validate-lore-corpus.py
 ```
 
-## 配置项
+`--native-lore` 扩展测试还需要本机授权提取的游戏资源，详见 [背景库说明](docs/history-and-lore.md)。API 检查脚本使用你提供的本地配置，会产生 API 费用。开发测试桥可操作游戏，仅在需要时显式启用。
 
-编辑 `config.json`（首次运行后自动生成）：
+1.7.0 在 Linux、Windows 和 macOS ARM64 上分别通过 **467 项离线检查、91/91 条标注检索问题**。万条合成资料预热检索 P95 分别为 0.190、0.066、0.088 ms；这是检索耗时，不是模型回复耗时。本轮未启动游戏或验证界面，完整范围见 [验收记录](docs/lore-validation.md)。
 
-| 配置项 | 说明 | 默认值 |
-|--------|------|--------|
-| `ApiKey` | API 密钥 | `""` |
-| `BaseUrl` | API 地址，`null` 为官方地址 | `null` |
-| `EnabledNPCs` | 启用 AI 对话的 NPC 列表 | 全部 5 个 |
-| `MaxTokens` | 单次回复最大 token 数 | `200` |
-| `Temperature` | 回复随机性 | `0.9` |
-| `MaxHistoryTurns` | 保留的最大对话轮数 | `50` |
-| `Model` | 模型标识符 | `mimo-v2.5-pro` |
-| `Language` | 默认对话语言 | `zh` |
-| `TriggerKey` | 触发对话需按住的键，`null` 为直接交互 | `null` |
-| `DebugMode` | 调试日志开关 | `false` |
+## 仓库结构
 
-### 使用代理 API
+| 目录 | 内容 |
+|---|---|
+| `Agents/` | 会话、API 调用和主线程游戏状态采集 |
+| `Models/` | 人设、关系边界、语气与候选回复 |
+| `Storage/` | 存档记忆、背景资料与检索索引 |
+| `UI/` | 聊天窗口、输入和手柄交互 |
+| `assets/personalities/` | 角色档案 |
+| `assets/lore/` | 有来源与知情条件的背景资料 |
+| `tests/` | 独立测试及标注查询 |
+| `scripts/` | 验证、打包和远程测试脚本 |
+| `docs/` | 设计、资料维护和版本验证记录 |
 
-```json
-{
-  "BaseUrl": "https://your-proxy.example.com/anthropic",
-  "Model": "your-model-name"
-}
-```
-
-API 调用遵循 Anthropic Messages API 格式，endpoint 为 `{BaseUrl}/v1/messages`。
-
-## 使用方法
-
-1. 靠近支持的 NPC（Abigail、Shane、Sebastian、Elliott、Haley）
-2. 按交互键（默认空格/鼠标右键）
-3. 在聊天界面输入文字，按 Enter 发送
-4. 按 Esc 关闭界面
-
-| 操作 | 按键 |
-|------|------|
-| 发送消息 | Enter |
-| 关闭聊天 | Esc |
-| 滚动记录 | 鼠标滚轮 |
-| 输入框聚焦 | 鼠标点击 |
-
-## 添加自定义 NPC
-
-在 `assets/personalities/` 下创建 JSON 文件：
-
-```json
-{
-  "Name": "Penny",
-  "DisplayName": "Penny",
-  "SystemPrompt": "You are Penny from Stardew Valley. You are a shy, bookish young woman who teaches Jas and Vincent. You live in a trailer with your mother Pam. You love reading and dream of a stable family life. You speak gently and sometimes nervously.",
-  "Topics": ["books", "teaching", "cooking"],
-  "MoodResponses": {
-    "raining": "Perfect reading weather...",
-    "night": "I should get home soon..."
-  }
-}
-```
-
-在 `config.json` 的 `EnabledNPCs` 中添加 `"Penny"`，重启游戏即可。
-
-## 架构
-
-```
-玩家交互 → ModEntry (SMAPI 事件)
-         → AgentManager (智能体管理)
-           → NPCAgent (AI 核心)
-             ├─ BuildSystemPrompt() ← 人设 + 游戏状态 + 记忆
-             ├─ CallApiAsync()      ← 调用 LLM API
-             └─ ExtractMemoriesAsync() ← 每 10 轮提取记忆
-           → GameStateProvider (实时状态)
-           → StorageManager (JSON 持久化)
-         → ChatMenu (聊天气泡 UI)
-```
+`game/`、`tools/`、构建缓存及大部分 `artifacts/` 为本机工作目录，保留在本地。仓库仅收录可公开的背景检索验收记录。文档导航见 [docs/README.md](docs/README.md)。
 
 ## 许可证
 
-MIT License
+代码采用 [MIT](LICENSE)。Wiki 衍生背景资料采用独立的 **CC BY-NC-SA 3.0**，具体出处与要求见 [背景资料许可](assets/lore/NOTICE.md)。第三方组件声明位于 [assets/licenses/](assets/licenses/)。

@@ -1,0 +1,119 @@
+[
+  {
+    "Id": "town",
+    "Text": "鹈鹕镇是星露谷居民生活与往来的城镇。",
+    "Aliases": [
+      "鹈鹕镇",
+      "Pelican Town",
+      "小镇",
+      "Town"
+    ],
+    "Source": "https://stardewvalleywiki.com/Pelican_Town",
+    "ReviewedAt": "2026-11-07",
+    "GameVersion": "1.6",
+    "Locale": "zh-CN",
+    "FactKey": "town"
+  },
+  {
+    "Id": "joja",
+    "Text": "Joja 是经营连锁商业的公司。镇上商店的营业状态以当前游戏为准。",
+    "Aliases": [
+      "Joja",
+      "joja",
+      "超市"
+    ],
+    "Source": "https://stardewvalleywiki.com/JojaMart",
+    "ReviewedAt": "2026-11-07",
+    "GameVersion": "1.6",
+    "Locale": "zh-CN",
+    "FactKey": "joja"
+  },
+  {
+    "Id": "community",
+    "Text": "社区中心是鹈鹕镇的公共建筑；是否修复、用途是否变化，以当前存档为准。",
+    "Aliases": [
+      "社区中心",
+      "Community Center"
+    ],
+    "Source": "https://stardewvalleywiki.com/Community_Center",
+    "ReviewedAt": "2026-11-07",
+    "GameVersion": "1.6",
+    "Locale": "zh-CN",
+    "FactKey": "community"
+  },
+  {
+    "Id": "guild",
+    "Text": "冒险者公会与矿井探险有关，马龙和吉尔与公会有关。",
+    "Aliases": [
+      "冒险者公会",
+      "马龙",
+      "Marlon",
+      "Gil"
+    ],
+    "Source": "https://stardewvalleywiki.com/Adventurer%27s_Guild",
+    "ReviewedAt": "2026-11-07",
+    "GameVersion": "1.6",
+    "Locale": "zh-CN",
+    "FactKey": "guild"
+  },
+  {
+    "Id": "saloon",
+    "Text": "星之果实餐吧由格斯经营，是居民吃饭和聚会的地方。",
+    "Aliases": [
+      "格斯",
+      "Gus",
+      "餐吧",
+      "酒吧",
+      "Saloon"
+    ],
+    "Source": "https://stardewvalleywiki.com/The_Stardrop_Saloon",
+    "ReviewedAt": "2026-11-07",
+    "GameVersion": "1.6",
+    "Locale": "zh-CN",
+    "FactKey": "saloon"
+  },
+  {
+    "Id": "museum",
+    "Text": "镇上的博物馆由冈瑟管理，收藏矿物和古物。",
+    "Aliases": [
+      "博物馆",
+      "冈瑟",
+      "Gunther",
+      "Museum"
+    ],
+    "Source": "https://stardewvalleywiki.com/Museum",
+    "ReviewedAt": "2026-11-07",
+    "GameVersion": "1.6",
+    "Locale": "zh-CN",
+    "FactKey": "museum"
+  },
+  {
+    "Id": "zuzu",
+    "Text": "祖祖城是星露谷以外的城市。",
+    "Aliases": [
+      "祖祖城",
+      "Zuzu"
+    ],
+    "Source": "https://stardewvalleywiki.com/Zuzu_City",
+    "ReviewedAt": "2026-11-07",
+    "GameVersion": "1.6",
+    "Locale": "zh-CN",
+    "FactKey": "zuzu"
+  },
+  {
+    "Id": "world",
+    "Text": "星露谷位于 Ferngill Republic；Gotoro Empire 是与它交战的国家。这不证明某个具体人物的经历。",
+    "Aliases": [
+      "Ferngill",
+      "Gotoro",
+      "共和国",
+      "帝国",
+      "战争"
+    ],
+    "Source": "https://stardewvalleywiki.com/Setting",
+    "ReviewedAt": "2026-11-07",
+    "GameVersion": "1.6",
+    "Locale": "zh-CN",
+    "FactKey": "world"
+  }
+]

@@ -1,0 +1,234 @@
+[
+  {
+    "Id": "forest.region",
+    "Text": "煤矿森林在星露谷西南侧，连接农场与鹈鹕镇。",
+    "Aliases": [
+      "煤矿森林",
+      "Cindersap Forest",
+      "Forest"
+    ],
+    "Source": "https://stardewvalleywiki.com/Cindersap_Forest",
+    "ReviewedAt": "2026-11-07",
+    "GameVersion": "1.6",
+    "Locale": "zh-CN",
+    "FactKey": "forest.region"
+  },
+  {
+    "Id": "forest.ranch",
+    "Text": "玛妮的牧场位于煤矿森林东北侧，提供动物和饲养用品。",
+    "Aliases": [
+      "玛妮",
+      "牧场",
+      "Marnie",
+      "Ranch"
+    ],
+    "Source": "https://stardewvalleywiki.com/Cindersap_Forest",
+    "ReviewedAt": "2026-11-07",
+    "GameVersion": "1.6",
+    "Locale": "zh-CN",
+    "FactKey": "forest.ranch"
+  },
+  {
+    "Id": "forest.cart",
+    "Text": "旅行货车会来煤矿森林售卖多种商品，货品会变化。",
+    "Aliases": [
+      "旅行货车",
+      "猪车",
+      "Traveling Cart"
+    ],
+    "Source": "https://stardewvalleywiki.com/Cindersap_Forest",
+    "ReviewedAt": "2026-11-07",
+    "GameVersion": "1.6",
+    "Locale": "zh-CN",
+    "FactKey": "forest.cart"
+  },
+  {
+    "Id": "forest.tower",
+    "Text": "巫师塔位于煤矿森林西侧；知道塔的位置不代表获准进入。",
+    "Aliases": [
+      "巫师塔",
+      "Wizard Tower"
+    ],
+    "Source": "https://stardewvalleywiki.com/Cindersap_Forest",
+    "ReviewedAt": "2026-11-07",
+    "GameVersion": "1.6",
+    "Locale": "zh-CN",
+    "FactKey": "forest.tower"
+  },
+  {
+    "Id": "mountain.region",
+    "Text": "山区位于星露谷北部，有湖泊，通往鹈鹕镇和农场后山。",
+    "Aliases": [
+      "山区",
+      "山湖",
+      "Mountain"
+    ],
+    "Source": "https://stardewvalleywiki.com/The_Mountain",
+    "ReviewedAt": "2026-11-07",
+    "GameVersion": "1.6",
+    "Locale": "zh-CN",
+    "FactKey": "mountain.region"
+  },
+  {
+    "Id": "mountain.carpenter",
+    "Text": "罗宾在山区的木匠商店经营木工生意。",
+    "Aliases": [
+      "罗宾",
+      "木匠",
+      "Robin",
+      "Carpenter",
+      "ScienceHouse"
+    ],
+    "Source": "https://stardewvalleywiki.com/The_Mountain",
+    "ReviewedAt": "2026-11-07",
+    "GameVersion": "1.6",
+    "Locale": "zh-CN",
+    "FactKey": "mountain.carpenter"
+  },
+  {
+    "Id": "mountain.mines",
+    "Text": "矿井在山湖的另一侧，是石料与矿石的来源，里面也有怪物。",
+    "Aliases": [
+      "矿井",
+      "矿洞",
+      "Mines"
+    ],
+    "Source": "https://stardewvalleywiki.com/The_Mountain",
+    "ReviewedAt": "2026-11-07",
+    "GameVersion": "1.6",
+    "Locale": "zh-CN",
+    "FactKey": "mountain.mines"
+  },
+  {
+    "Id": "beach.region",
+    "Text": "沙滩在鹈鹕镇南边，可以钓海鱼，也能见到冲上岸的贝壳。",
+    "Aliases": [
+      "沙滩",
+      "海滩",
+      "Beach"
+    ],
+    "Source": "https://stardewvalleywiki.com/The_Beach",
+    "ReviewedAt": "2026-11-07",
+    "GameVersion": "1.6",
+    "Locale": "zh-CN",
+    "FactKey": "beach.region"
+  },
+  {
+    "Id": "beach.shop",
+    "Text": "威利在沙滩码头经营鱼店，售卖钓鱼用品。",
+    "Aliases": [
+      "威利",
+      "鱼店",
+      "Willy",
+      "Fish Shop",
+      "FishShop"
+    ],
+    "Source": "https://stardewvalleywiki.com/The_Beach",
+    "ReviewedAt": "2026-11-07",
+    "GameVersion": "1.6",
+    "Locale": "zh-CN",
+    "FactKey": "beach.shop"
+  },
+  {
+    "Id": "beach.tide",
+    "Text": "沙滩东边有潮池，可以见到珊瑚和海胆；能否到达取决于当前通路。",
+    "Aliases": [
+      "潮池",
+      "珊瑚",
+      "海胆",
+      "Tide Pools"
+    ],
+    "Source": "https://stardewvalleywiki.com/The_Beach",
+    "ReviewedAt": "2026-11-07",
+    "GameVersion": "1.6",
+    "Locale": "zh-CN",
+    "FactKey": "beach.tide"
+  },
+  {
+    "Id": "festival.egg",
+    "Text": "复活节的传统活动是寻找彩蛋。",
+    "Aliases": [
+      "复活节",
+      "彩蛋节",
+      "Egg Festival"
+    ],
+    "Source": "https://stardewvalleywiki.com/Festivals",
+    "ReviewedAt": "2026-11-07",
+    "GameVersion": "1.6",
+    "Locale": "zh-CN",
+    "FactKey": "festival.egg",
+    "EntityIds": [
+      "festival:spring13"
+    ],
+    "Kind": "festival"
+  },
+  {
+    "Id": "festival.flower",
+    "Text": "花舞节在煤矿森林举行，人们邀请舞伴跳舞。",
+    "Aliases": [
+      "花舞节",
+      "Flower Dance"
+    ],
+    "Source": "https://stardewvalleywiki.com/Festivals",
+    "ReviewedAt": "2026-11-07",
+    "GameVersion": "1.6",
+    "Locale": "zh-CN",
+    "FactKey": "festival.flower",
+    "EntityIds": [
+      "festival:spring24"
+    ],
+    "Kind": "festival"
+  },
+  {
+    "Id": "festival.luau",
+    "Text": "夏威夷宴会上大家为百乐汤带来食材，由州长品尝。",
+    "Aliases": [
+      "夏威夷宴会",
+      "百乐汤",
+      "Luau"
+    ],
+    "Source": "https://stardewvalleywiki.com/Festivals",
+    "ReviewedAt": "2026-11-07",
+    "GameVersion": "1.6",
+    "Locale": "zh-CN",
+    "FactKey": "festival.luau",
+    "EntityIds": [
+      "festival:summer11"
+    ],
+    "Kind": "festival"
+  },
+  {
+    "Id": "festival.trout",
+    "Text": "鳟鱼大赛在煤矿森林的河边举行，捕获的虹鳟可能带来可兑换奖品的金色标签。",
+    "Aliases": [
+      "鳟鱼大赛",
+      "Trout Derby"
+    ],
+    "Source": "https://stardewvalleywiki.com/Festivals",
+    "ReviewedAt": "2026-11-07",
+    "GameVersion": "1.6",
+    "Locale": "zh-CN",
+    "FactKey": "festival.trout",
+    "EntityIds": [
+      "festival:TroutDerby"
+    ],
+    "Kind": "festival"
+  },
+  {
+    "Id": "festival.jellies",
+    "Text": "月光水母起舞是夏末沙滩上的夜间节日。",
+    "Aliases": [
+      "月光水母",
+      "Dance of the Moonlight Jellies"
+    ],
+    "Source": "https://stardewvalleywiki.com/Festivals",
+    "ReviewedAt": "2026-11-07",
+    "GameVersion": "1.6",
+    "Locale": "zh-CN",
+    "FactKey": "festival.jellies",
+    "EntityIds": [
+      "festival:summer28"
+    ],
+    "Kind": "festival"
+  }
+]

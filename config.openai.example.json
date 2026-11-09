@@ -1,0 +1,11 @@
+{
+  "ApiProvider": "OpenAI",
+  "ApiKey": "",
+  "BaseUrl": "https://api.openai.com/v1",
+  "Model": "YOUR_MODEL_ID",
+  "MaxTokens": 200,
+  "UseMaxCompletionTokens": true,
+  "SendTemperature": true,
+  "Temperature": 0.9,
+  "Language": "zh"
+}

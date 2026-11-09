@@ -8,6 +8,7 @@ namespace SV_SOUL.UI;
 
 public class TextInputBox
 {
+    public bool CanSubmit { get; set; } = true;
     public string Text { get; private set; } = "";
     public Rectangle Bounds { get; set; }
     public bool IsFocused { get; set; }
@@ -24,9 +25,10 @@ public class TextInputBox
     private const double HoldDelay = 400; // ms before repeat starts
     private const double RepeatRate = 50; // ms between repeats
 
-    private const string Prefix = "You: ";
+    public bool IsChinese { get; set; }
+    private string Prefix => IsChinese ? "你：" : "You: ";
     private static readonly SpriteFont Font = Game1.smallFont;
-    private static readonly float PrefixWidth = Font.MeasureString(Prefix).X;
+    private float PrefixWidth => Font.MeasureString(Prefix).X;
     private const float PadLeft = 14f;
 
     public void HandleTextInput(char inputChar)
@@ -77,7 +79,7 @@ public class TextInputBox
                 break;
 
             case Keys.Enter:
-                if (!string.IsNullOrWhiteSpace(Text))
+                if (CanSubmit && !string.IsNullOrWhiteSpace(Text))
                 {
                     OnSubmit?.Invoke(Text.Trim());
                     Text = "";
@@ -145,13 +147,18 @@ public class TextInputBox
 
         if (string.IsNullOrEmpty(Text) && !IsFocused)
         {
-            b.DrawString(Font, "Type a message...", new Vector2(textX, textY), Color.Gray);
+            var placeholder=IsChinese ? "输入消息，回车发送…" : "Type a message...";
+            while(placeholder.Length>0 && Font.MeasureString(placeholder).X>maxTextWidth)placeholder=placeholder[..^1];
+            b.DrawString(Font, placeholder, new Vector2(textX, textY), Color.Gray);
         }
         else
         {
-            var displayText = Text;
-            while (Font.MeasureString(displayText).X > maxTextWidth && displayText.Length > 1)
-                displayText = displayText[1..];
+            var start = 0;
+            while (start < _cursorPosition && Font.MeasureString(Text[start.._cursorPosition]).X > maxTextWidth - 2)
+                start++;
+            var displayText = Text[start..];
+            while (displayText.Length > 0 && Font.MeasureString(displayText).X > maxTextWidth)
+                displayText = displayText[..^1];
 
             // Draw with shadow
             b.DrawString(Font, displayText, new Vector2(textX + 2, textY + 2), Color.Black * 0.3f);
@@ -159,7 +166,7 @@ public class TextInputBox
 
             if (IsFocused && _cursorVisible)
             {
-                var cursorText = Text[..Math.Min(_cursorPosition, Text.Length)];
+                var cursorText = Text[start..Math.Min(_cursorPosition, Text.Length)];
                 var cursorX = textX + Font.MeasureString(cursorText).X;
                 b.Draw(Game1.staminaRect, new Rectangle((int)cursorX, (int)textY, 2, (int)charHeight), Game1.textColor);
             }

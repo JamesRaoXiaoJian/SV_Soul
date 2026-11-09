@@ -1,0 +1,713 @@
+{
+  "passed": 91,
+  "total": 91,
+  "failures": [],
+  "details": [
+    {
+      "npc": "Abigail",
+      "query": "\u4F60\u5988\u5988\u662F\u8C01",
+      "ok": true,
+      "ids": [
+        "family.Abigail"
+      ]
+    },
+    {
+      "npc": "Abigail",
+      "query": "\u4F60\u7684\u751F\u65E5\u662F\u54EA\u5929",
+      "ok": true,
+      "ids": [
+        "birthday.Abigail"
+      ]
+    },
+    {
+      "npc": "Abigail",
+      "query": "when is your birthday",
+      "ok": true,
+      "ids": [
+        "birthday.Abigail"
+      ]
+    },
+    {
+      "npc": "Robin",
+      "query": "\u4F60\u6709\u54EA\u4E9B\u5BB6\u4EBA",
+      "ok": true,
+      "ids": [
+        "family.Robin"
+      ]
+    },
+    {
+      "npc": "Penny",
+      "query": "\u4F60\u7684\u6BCD\u4EB2\u662F\u8C01",
+      "ok": true,
+      "ids": [
+        "family.Penny"
+      ]
+    },
+    {
+      "npc": "Harvey",
+      "query": "\u4F60\u662F\u505A\u4EC0\u4E48\u5DE5\u4F5C\u7684",
+      "ok": true,
+      "ids": [
+        "npc.Harvey"
+      ]
+    },
+    {
+      "npc": "Leah",
+      "query": "\u4ECB\u7ECD\u4E00\u4E0B\u4F60\u81EA\u5DF1",
+      "ok": true,
+      "ids": [
+        "npc.Leah"
+      ]
+    },
+    {
+      "npc": "Gus",
+      "query": "\u4F60\u662F\u8C01",
+      "ok": true,
+      "ids": [
+        "npc.Gus"
+      ]
+    },
+    {
+      "npc": "Abigail",
+      "query": "\u9E48\u9E55\u9547\u662F\u4EC0\u4E48\u5730\u65B9",
+      "ok": true,
+      "ids": [
+        "town"
+      ]
+    },
+    {
+      "npc": "Penny",
+      "query": "Joja \u662F\u4EC0\u4E48\u516C\u53F8",
+      "ok": true,
+      "ids": [
+        "joja"
+      ]
+    },
+    {
+      "npc": "Lewis",
+      "query": "\u793E\u533A\u4E2D\u5FC3\u662F\u5E72\u4EC0\u4E48\u7684",
+      "ok": true,
+      "ids": [
+        "community"
+      ]
+    },
+    {
+      "npc": "Abigail",
+      "query": "\u8C01\u5728\u7ECF\u8425\u9152\u5427",
+      "ok": true,
+      "ids": [
+        "saloon"
+      ]
+    },
+    {
+      "npc": "Penny",
+      "query": "\u535A\u7269\u9986\u627E\u8C01",
+      "ok": true,
+      "ids": [
+        "museum"
+      ]
+    },
+    {
+      "npc": "Abigail",
+      "query": "\u7956\u7956\u57CE\u662F\u4EC0\u4E48\u5730\u65B9",
+      "ok": true,
+      "ids": [
+        "zuzu"
+      ]
+    },
+    {
+      "npc": "Leah",
+      "query": "\u82AC\u7FA4\u5C9B\u5728\u54EA",
+      "ok": true,
+      "ids": [
+        "region.fern"
+      ]
+    },
+    {
+      "npc": "Willy",
+      "query": "\u5B9D\u77F3\u6D77\u5728\u54EA",
+      "ok": true,
+      "ids": [
+        "region.gemsea"
+      ]
+    },
+    {
+      "npc": "Robin",
+      "query": "\u683C\u5170\u666E\u987F\u662F\u4EC0\u4E48",
+      "ok": true,
+      "ids": [
+        "region.grampleton"
+      ]
+    },
+    {
+      "npc": "Leah",
+      "query": "\u57CE\u5821\u6751\u6709\u4EC0\u4E48\u7279\u4EA7",
+      "ok": true,
+      "ids": [
+        "region.castle"
+      ]
+    },
+    {
+      "npc": "Leo",
+      "query": "\u8349\u539F\u5C9B\u6709\u4EC0\u4E48",
+      "ok": true,
+      "ids": [
+        "region.prairie"
+      ]
+    },
+    {
+      "npc": "Gus",
+      "query": "\u7531\u5DF4\u662F\u4EC0\u4E48",
+      "ok": true,
+      "ids": [
+        "world.yoba"
+      ]
+    },
+    {
+      "npc": "Abigail",
+      "query": "\u9C7C\u5E97\u662F\u8C01\u5F00\u7684",
+      "ok": true,
+      "ids": [
+        "beach.shop"
+      ]
+    },
+    {
+      "npc": "Abigail",
+      "query": "\u6728\u5320\u5546\u5E97\u627E\u8C01",
+      "ok": true,
+      "ids": [
+        "mountain.carpenter"
+      ]
+    },
+    {
+      "npc": "Penny",
+      "query": "\u732A\u8F66\u5356\u4E1C\u897F\u5417",
+      "ok": true,
+      "ids": [
+        "forest.cart"
+      ]
+    },
+    {
+      "npc": "Abigail",
+      "query": "\u7164\u77FF\u68EE\u6797\u5728\u54EA",
+      "ok": true,
+      "ids": [
+        "forest.region"
+      ]
+    },
+    {
+      "npc": "Penny",
+      "query": "\u6C99\u6EE9\u5728\u54EA\u8FB9",
+      "ok": true,
+      "ids": [
+        "beach.region"
+      ]
+    },
+    {
+      "npc": "Abigail",
+      "query": "\u91C7\u77F3\u573A\u6709\u4EC0\u4E48",
+      "ok": true,
+      "ids": [
+        "region.quarry"
+      ]
+    },
+    {
+      "npc": "Penny",
+      "query": "\u6E29\u6CC9\u5728\u54EA\u91CC",
+      "ok": true,
+      "ids": [
+        "region.spa"
+      ]
+    },
+    {
+      "npc": "Robin",
+      "query": "\u540E\u5C71\u901A\u5411\u54EA\u91CC",
+      "ok": true,
+      "ids": [
+        "region.backwoods"
+      ]
+    },
+    {
+      "npc": "Abigail",
+      "query": "\u5DF4\u58EB\u7AD9\u5728\u54EA",
+      "ok": true,
+      "ids": [
+        "region.busstop"
+      ]
+    },
+    {
+      "npc": "Lewis",
+      "query": "\u7535\u5F71\u9662\u662F\u5E72\u4EC0\u4E48\u7684",
+      "ok": true,
+      "ids": [
+        "region.cinema"
+      ]
+    },
+    {
+      "npc": "Linus",
+      "query": "\u79D8\u5BC6\u68EE\u6797\u6709\u4EC0\u4E48",
+      "ok": true,
+      "ids": [
+        "region.secretwoods"
+      ]
+    },
+    {
+      "npc": "Sandy",
+      "query": "\u5361\u5229\u79D1\u6C99\u6F20\u6709\u4EC0\u4E48\u5546\u5E97",
+      "ok": true,
+      "ids": [
+        "region.desert"
+      ]
+    },
+    {
+      "npc": "Marlon",
+      "query": "\u9AB7\u9AC5\u6D1E\u7A74\u5165\u53E3\u5728\u54EA",
+      "ok": true,
+      "ids": [
+        "region.skull"
+      ]
+    },
+    {
+      "npc": "Wizard",
+      "query": "\u5973\u5DEB\u6CBC\u6CFD\u5728\u54EA",
+      "ok": true,
+      "ids": [
+        "region.witchswamp"
+      ]
+    },
+    {
+      "npc": "Leo",
+      "query": "\u706B\u5C71\u5728\u54EA",
+      "ok": true,
+      "ids": [
+        "region.volcano"
+      ]
+    },
+    {
+      "npc": "Gunther",
+      "query": "\u8003\u53E4\u5E10\u7BF7\u505A\u4EC0\u4E48",
+      "ok": true,
+      "ids": [
+        "region.fieldoffice"
+      ]
+    },
+    {
+      "npc": "Abigail",
+      "query": "\u7D2B\u6C34\u6676\u662F\u4EC0\u4E48",
+      "ok": true,
+      "ids": [
+        "object.66"
+      ]
+    },
+    {
+      "npc": "Penny",
+      "query": "\u5357\u74DC\u662F\u4EC0\u4E48",
+      "ok": true,
+      "ids": [
+        "object.276"
+      ]
+    },
+    {
+      "npc": "Willy",
+      "query": "Rainbow Trout \u662F\u4EC0\u4E48",
+      "ok": true,
+      "ids": [
+        "object.138"
+      ]
+    },
+    {
+      "npc": "Robin",
+      "query": "\u6728\u6750\u6709\u4EC0\u4E48\u7528",
+      "ok": true,
+      "ids": [
+        "object.388"
+      ]
+    },
+    {
+      "npc": "Clint",
+      "query": "Copper Ore \u662F\u4EC0\u4E48",
+      "ok": true,
+      "ids": [
+        "object.378"
+      ]
+    },
+    {
+      "npc": "Bear",
+      "query": "\u4ECB\u7ECD\u4E00\u4E0B\u4F60\u81EA\u5DF1",
+      "ok": true,
+      "ids": [
+        "npc.Bear"
+      ]
+    },
+    {
+      "npc": "Abigail",
+      "query": "\u590D\u6D3B\u8282\u6709\u4EC0\u4E48\u6D3B\u52A8",
+      "ok": true,
+      "ids": [
+        "festival.egg",
+        "calendar.spring13"
+      ]
+    },
+    {
+      "npc": "Abigail",
+      "query": "\u82B1\u821E\u8282\u600E\u4E48\u73A9",
+      "ok": true,
+      "ids": [
+        "festival.flower",
+        "calendar.spring24"
+      ]
+    },
+    {
+      "npc": "Abigail",
+      "query": "\u767E\u4E50\u6C64\u662F\u4EC0\u4E48",
+      "ok": true,
+      "ids": [
+        "festival.luau",
+        "calendar.summer11"
+      ]
+    },
+    {
+      "npc": "Abigail",
+      "query": "\u6708\u5149\u6C34\u6BCD\u6709\u4EC0\u4E48\u770B\u5934",
+      "ok": true,
+      "ids": [
+        "festival.jellies",
+        "calendar.summer28"
+      ]
+    },
+    {
+      "npc": "Lewis",
+      "query": "\u661F\u9732\u8C37\u5C55\u89C8\u4F1A\u6709\u4EC0\u4E48",
+      "ok": true,
+      "ids": [
+        "festival.fair",
+        "calendar.fall16"
+      ]
+    },
+    {
+      "npc": "Lewis",
+      "query": "\u4E07\u7075\u8282\u6709\u4EC0\u4E48",
+      "ok": true,
+      "ids": [
+        "festival.spirits",
+        "calendar.fall27"
+      ]
+    },
+    {
+      "npc": "Willy",
+      "query": "\u51B0\u96EA\u8282\u6709\u4EC0\u4E48\u6D3B\u52A8",
+      "ok": true,
+      "ids": [
+        "festival.ice",
+        "calendar.winter8"
+      ]
+    },
+    {
+      "npc": "Lewis",
+      "query": "\u51AC\u65E5\u661F\u76DB\u5BB4\u662F\u5E72\u4EC0\u4E48\u7684",
+      "ok": true,
+      "ids": [
+        "festival.star",
+        "calendar.winter25"
+      ]
+    },
+    {
+      "npc": "Willy",
+      "query": "\u9CDF\u9C7C\u5927\u8D5B\u600E\u4E48\u73A9",
+      "ok": true,
+      "ids": [
+        "festival.trout"
+      ]
+    },
+    {
+      "npc": "Willy",
+      "query": "\u9C7F\u9C7C\u8282\u662F\u4EC0\u4E48",
+      "ok": true,
+      "ids": [
+        "festival.squid",
+        "calendar.SquidFest"
+      ]
+    },
+    {
+      "npc": "Willy",
+      "query": "\u591C\u5E02\u6709\u4EC0\u4E48",
+      "ok": true,
+      "ids": [
+        "festival.market",
+        "calendar.NightMarket"
+      ]
+    },
+    {
+      "npc": "Sandy",
+      "query": "\u6C99\u6F20\u8282\u6709\u4EC0\u4E48\u6D3B\u52A8",
+      "ok": true,
+      "ids": [
+        "festival.desert"
+      ]
+    },
+    {
+      "npc": "Abigail",
+      "query": "\u590D\u6D3B\u8282\u4EC0\u4E48\u65F6\u5019",
+      "ok": true,
+      "ids": [
+        "calendar.spring13"
+      ]
+    },
+    {
+      "npc": "Abigail",
+      "query": "\u82B1\u821E\u8282\u662F\u54EA\u5929\u4E3E\u884C",
+      "ok": true,
+      "ids": [
+        "calendar.spring24"
+      ]
+    },
+    {
+      "npc": "Gus",
+      "query": "\u590F\u5A01\u5937\u5BB4\u4F1A\u51E0\u70B9\u5F00\u59CB",
+      "ok": true,
+      "ids": [
+        "calendar.summer11"
+      ]
+    },
+    {
+      "npc": "Willy",
+      "query": "\u591C\u5E02\u4EC0\u4E48\u65F6\u5019\u5F00\u59CB",
+      "ok": true,
+      "ids": [
+        "calendar.NightMarket"
+      ]
+    },
+    {
+      "npc": "Willy",
+      "query": "\u9CDF\u9C7C\u5927\u8D5B\u4EC0\u4E48\u65F6\u5019",
+      "ok": true,
+      "ids": [
+        "calendar.TroutDerby"
+      ]
+    },
+    {
+      "npc": "Willy",
+      "query": "\u9C7F\u9C7C\u8282\u4EC0\u4E48\u65F6\u5019",
+      "ok": true,
+      "ids": [
+        "calendar.SquidFest"
+      ]
+    },
+    {
+      "npc": "Abigail",
+      "query": "\u6211\u4ECA\u5929\u5F88\u75B2\u60EB",
+      "ok": true,
+      "ids": []
+    },
+    {
+      "npc": "Abigail",
+      "query": "\u6211\u6709\u70B9\u60F3\u4F60",
+      "ok": true,
+      "ids": []
+    },
+    {
+      "npc": "Abigail",
+      "query": "\u966A\u6211\u5750\u4E00\u4F1A\u5427",
+      "ok": true,
+      "ids": []
+    },
+    {
+      "npc": "Abigail",
+      "query": "\u8C22\u8C22\u4F60",
+      "ok": true,
+      "ids": []
+    },
+    {
+      "npc": "Abigail",
+      "query": "\u6211\u5988\u5988\u4ECA\u5929\u5F88\u96BE\u8FC7",
+      "ok": true,
+      "ids": []
+    },
+    {
+      "npc": "Abigail",
+      "query": "same old day",
+      "ok": true,
+      "ids": []
+    },
+    {
+      "npc": "Abigail",
+      "query": "\u90A3\u4E2A\u4E0D\u5B58\u5728\u7684\u706B\u661F\u56FD\u738B\u662F\u8C01",
+      "ok": true,
+      "ids": []
+    },
+    {
+      "npc": "Abigail",
+      "query": "\u4F60\u53EF\u4EE5\u5E2E\u6211\u5199\u4EE3\u7801\u5417",
+      "ok": true,
+      "ids": []
+    },
+    {
+      "npc": "Abigail",
+      "query": "\u79D8\u5BC6\u68EE\u6797\u6709\u4EC0\u4E48",
+      "ok": true,
+      "ids": []
+    },
+    {
+      "npc": "Sam",
+      "query": "\u963F\u6BD4\u76D6\u5C14\u7684\u751F\u65E5",
+      "ok": true,
+      "ids": [
+        "birthday.Abigail"
+      ]
+    },
+    {
+      "npc": "Abigail",
+      "query": "\u5143\u7D20\u6218\u4E89\u662F\u4EC0\u4E48",
+      "ok": true,
+      "ids": []
+    },
+    {
+      "npc": "Wizard",
+      "query": "\u5143\u7D20\u6218\u4E89\u662F\u4EC0\u4E48",
+      "ok": true,
+      "ids": [
+        "world.elemental"
+      ]
+    },
+    {
+      "npc": "Wizard",
+      "query": "\u5143\u7D20\u6218\u4E89\u662F\u4EC0\u4E48",
+      "ok": true,
+      "ids": []
+    },
+    {
+      "npc": "Bear",
+      "query": "Joja\u662F\u4EC0\u4E48",
+      "ok": true,
+      "ids": []
+    },
+    {
+      "npc": "Abigail",
+      "query": "\u90A3\u91CC\u6709\u4EC0\u4E48",
+      "ok": true,
+      "ids": [
+        "town"
+      ]
+    },
+    {
+      "npc": "Abigail",
+      "query": "\u90A3\u91CC\u5728\u54EA\u8FB9",
+      "ok": true,
+      "ids": [
+        "beach.region"
+      ]
+    },
+    {
+      "npc": "Abigail",
+      "query": "\u6211\u597D\u96BE\u8FC7",
+      "ok": true,
+      "ids": []
+    },
+    {
+      "npc": "Sandy",
+      "query": "\u6C99\u6F20\u8282\u4EC0\u4E48\u65F6\u5019",
+      "ok": true,
+      "ids": []
+    },
+    {
+      "npc": "Sandy",
+      "query": "\u6C99\u6F20\u8282\u4EC0\u4E48\u65F6\u5019",
+      "ok": true,
+      "ids": [
+        "calendar.DesertFestival"
+      ]
+    },
+    {
+      "npc": "Abigail",
+      "query": "\u9547\u4E0A\u7684\u533B\u751F\u662F\u8C01",
+      "ok": true,
+      "ids": [
+        "npc.Harvey"
+      ]
+    },
+    {
+      "npc": "Abigail",
+      "query": "\u5B69\u5B50\u7684\u8001\u5E08\u662F\u8C01",
+      "ok": true,
+      "ids": [
+        "npc.Penny"
+      ]
+    },
+    {
+      "npc": "Abigail",
+      "query": "\u8C01\u662F\u8FD9\u91CC\u7684\u9547\u957F",
+      "ok": true,
+      "ids": [
+        "npc.Lewis"
+      ]
+    },
+    {
+      "npc": "Abigail",
+      "query": "\u9547\u4E0A\u7684\u79D1\u5B66\u5BB6\u662F\u8C01",
+      "ok": true,
+      "ids": [
+        "npc.Demetrius"
+      ]
+    },
+    {
+      "npc": "Abigail",
+      "query": "\u535A\u7269\u9986\u7BA1\u7406\u5458\u53EB\u4EC0\u4E48",
+      "ok": true,
+      "ids": [
+        "npc.Gunther"
+      ]
+    },
+    {
+      "npc": "Abigail",
+      "query": "\u5728\u54EA\u91CC\u4E70\u52A8\u7269",
+      "ok": true,
+      "ids": [
+        "npc.Marnie"
+      ]
+    },
+    {
+      "npc": "Abigail",
+      "query": "\u7EFF\u6D32\u5546\u5E97\u662F\u8C01\u5F00\u7684",
+      "ok": true,
+      "ids": [
+        "npc.Sandy"
+      ]
+    },
+    {
+      "npc": "Abigail",
+      "query": "\u8C01\u662F\u8D85\u5E02\u7ECF\u7406",
+      "ok": true,
+      "ids": [
+        "npc.Morris"
+      ]
+    },
+    {
+      "npc": "Sam",
+      "query": "\u79D1\u7F57\u5E03\u65AF\u7684\u751F\u65E5",
+      "ok": true,
+      "ids": []
+    },
+    {
+      "npc": "Willy",
+      "query": "\u4ECA\u5929\u662F\u4EC0\u4E48\u8282\u65E5",
+      "ok": true,
+      "ids": [
+        "calendar.NightMarket"
+      ]
+    },
+    {
+      "npc": "Abigail",
+      "query": "\u8FD9\u91CC\u662F\u4EC0\u4E48\u5730\u65B9",
+      "ok": true,
+      "ids": [
+        "town"
+      ]
+    },
+    {
+      "npc": "Abigail",
+      "query": "\u6211\u6709\u70B9\u7D2F",
+      "ok": true,
+      "ids": []
+    }
+  ]
+}

@@ -1,172 +1,115 @@
 # SV_SOUL
 
-<p align="center">
-  <a href="README.md">中文</a> · <a href="README_EN.md">English</a>
-</p>
+[中文](README.md) · [English](README_EN.md)
 
-AI-powered chat NPCs for Stardew Valley. SV_SOUL gives in-game NPCs AI dialogue, character-specific personas, persistent memory, real-time game-state awareness, and a native-style chat UI.
+An AI NPC mod for Stardew Valley. Characters respond using individual personalities, relationships, save-scoped memories, current game state, and relevant background knowledge.
+
+Source version: **1.7.0**. Targets Stardew Valley 1.6; builds were verified against game 1.6.15 and SMAPI 4.5.2.
 
 ## Features
 
-- **Independent agents**: each NPC is an independent AI instance with its own personality, speaking style, and memory.
-- **Real-time awareness**: NPCs can respond to the current season, weather, time, location, and friendship level.
-- **Persistent memory**: NPCs remember conversations and experiences across game restarts.
-- **Native-style UI**: full-screen chat bubble interface with portraits, scrolling, and thinking animation.
-- **Five built-in characters**: Abigail, Shane, Sebastian, Elliott, and Haley.
-- **Easy extension**: add a JSON personality file to enable AI dialogue for another NPC.
+- 48 character profiles with distinct romance, social, child, and roommate boundaries.
+- Conversation history and memories scoped to the save, player, and NPC. Memories follow normal game saving and roll back when exiting without saving. Currently supports single-player and the multiplayer host.
+- Current relationships, residence, weather, time, birthdays, and festivals take precedence over older background.
+- 107 bundled background cards plus facts from effective game assets. The tested vanilla 1.6.15 corpus contains 509 entries, including 329 common item descriptions and 12 festival calendars.
+- Local Lucene.NET retrieval with character knowledge and disclosure conditions. At most three snippets and 1,000 characters per request; indexing runs in the background with no additional model calls.
+- Reopened conversation history, paged scrolling, shared pending requests, and local quick replies for controller users.
+- OpenAI-compatible Chat Completions and Anthropic Messages support.
 
-## Branches
+## Install and configure
 
-| Branch | Purpose | Contents |
-| --- | --- | --- |
-| `main` | Source code | Full project source for developers |
-| `release` | Player release | Built mod files ready to install |
-
-## Player Installation (`release` branch)
-
-1. Install [SMAPI](https://smapi.io/) 4.0.0+.
-2. Download the `SV_SOUL` folder from the `release` branch.
-3. Place the `SV_SOUL` folder under `Stardew Valley/Mods/`.
-4. Start the game once so SMAPI generates `config.json`.
-5. Edit `Stardew Valley/Mods/SV_SOUL/config.json` and set your API key:
+1. Install the game and [SMAPI](https://smapi.io/). The verified combination is game 1.6.15 / SMAPI 4.5.2.
+2. Obtain a matching build or build `main` below. The independent `release` branch has its own version; check its `manifest.json`.
+3. Exit the game and extract the `SV_SOUL` folder into the game's `Mods/` directory.
+4. Copy [config.openai.example.json](config.openai.example.json) to `Mods/SV_SOUL/config.json`, then set your key, endpoint, and model.
+5. Launch through SMAPI.
 
 ```json
 {
-  "ApiKey": "your-api-key",
-  "Model": "claude-sonnet-4-20250514"
+  "ApiProvider": "OpenAI",
+  "ApiKey": "YOUR_API_KEY",
+  "BaseUrl": "https://api.openai.com/v1",
+  "Model": "YOUR_MODEL_ID",
+  "UseMaxCompletionTokens": true,
+  "SendTemperature": true,
+  "MaxTokens": 200,
+  "Language": "en"
 }
 ```
 
-6. Enter the game, approach a supported NPC, and interact to start chatting.
+Use a model supported by your provider. `BaseUrl` accepts a service root, `/v1` prefix, or complete `/chat/completions` endpoint. For other version prefixes, provide the full endpoint. Set `UseMaxCompletionTokens=false` for providers requiring `max_tokens`, and `SendTemperature=false` when temperature is unsupported.
 
-## Developer Build (`main` branch)
+For Anthropic, set `ApiProvider="Anthropic"` and a suitable model. `BaseUrl=null` selects the default provider endpoint. Anthropic remains the code default for older configurations. Conversations are sent to the configured API service.
 
-### Requirements
+Preserve your configuration and game saves when updating, and exit the game before replacing files. Keep keys, player data, and game assets out of Git.
 
-- .NET 6.0 SDK
-- Stardew Valley 1.6+ for automatic game assembly references
+## Controls
 
-### Build
+Hold **Left Alt / Option** while interacting with social or service NPCs to open AI chat; normal interaction retains shops and quests. Romance characters use normal interaction according to their profile. Press **Y** on a controller to chat with a nearby NPC. Game appearance, event, and language requirements still apply.
+
+| Action | Keyboard / mouse | Controller |
+|---|---|---|
+| Send typed text | Enter | X sends an existing draft |
+| Select a quick reply | Click; Tab then arrows | D-pad / left stick |
+| Send selected reply | Enter / click | A |
+| Next quick-reply page | Space in choices / page button | Y |
+| Scroll history | Wheel | LB/RB or right stick up/down |
+| Close | Esc | B |
+
+Quick replies are generated locally. `ControllerChatButton` changes the opening button.
+
+## Configuration
+
+| Setting | Default | Purpose |
+|---|---|---|
+| `EnabledNPCs` | `["*"]` | All NPCs, or an internal-ID allowlist |
+| `ExcludedNPCs` | `[]` | Excluded NPC IDs |
+| `SocialChatKey` | `LeftAlt` | Social AI interaction modifier |
+| `ControllerChatButton` | `ControllerY` | Controller opening button |
+| `TriggerKey` | `null` | Optional additional interaction modifier |
+| `MaxHistoryTurns` | `8` | Recent model conversation limit; separate from UI history |
+| `MaxTokens` | `200` | Reply token limit |
+| `Temperature` | `0.9` | Sent when enabled and supported |
+| `Language` | `zh` | Default reply language |
+| `EnableTestBridge` | `false` | Developer game-control test bridge |
+| `DebugMode` | `false` | Debug logging |
+
+See [ModConfig.cs](Config/ModConfig.cs) for all fields and [memory lifecycle](docs/memory-lifecycle.md) for legacy imports.
+
+## Build and test
+
+Requires .NET 6 SDK and legally installed game assemblies with SMAPI.
 
 ```bash
 git clone https://github.com/JamesRaoXiaoJian/SV_Soul.git
 cd SV_Soul
-dotnet build
+dotnet build -c Release -p:GamePath="/path/to/Stardew Valley" -p:EnableModDeploy=false
 ```
 
-After building:
+The DLL and versioned ZIP are written to `bin/Release/net6.0/`. Disabling deployment keeps builds from changing the game installation.
 
-- DLL output: `bin/Debug/net6.0/SV_SOUL.dll`
-- Auto-deploy target: `Stardew Valley/Mods/SV_SOUL/`
-- Release zip: `bin/Debug/net6.0/`
+Offline checks:
 
-## Project Structure
-
-```text
-SV_Soul/
-├── ModEntry.cs                  # SMAPI entry and event hooks
-├── SV_SOUL.csproj               # Project file
-├── SV_SOUL.sln                  # Solution
-├── manifest.json                # SMAPI mod metadata
-├── Agents/
-│   ├── AgentManager.cs          # Agent lifecycle management
-│   ├── NPCAgent.cs              # NPC AI core: prompts, API calls, memory extraction
-│   └── GameStateProvider.cs     # Reads real-time game state
-├── Config/
-│   └── ModConfig.cs             # Config model
-├── Models/
-│   └── NPCPersonality.cs        # NPC personality schema
-├── Storage/
-│   ├── StorageManager.cs        # JSON persistence
-│   ├── NPCMemory.cs             # Memory schema
-│   └── ConversationTurn.cs      # Conversation turn schema
-├── UI/
-│   ├── ChatMenu.cs              # Full-screen chat bubble UI
-│   └── TextInputBox.cs          # Text input widget
-└── assets/
-    └── personalities/           # NPC personality JSON files
-        ├── abigail.json
-        ├── shane.json
-        ├── sebastian.json
-        ├── elliott.json
-        └── haley.json
+```bash
+dotnet run --project tests/Core
+python3 scripts/validate-lore-corpus.py
 ```
 
-## Configuration
+The optional `--native-lore` suite requires locally extracted game fixtures. See the [background guide](docs/history-and-lore.md). API scripts use a supplied local configuration and incur API usage. The developer test bridge can control the game and must be explicitly enabled.
 
-Edit `config.json`, generated after the first run:
+Version 1.7.0 passed **467 offline checks and 91/91 labelled retrieval queries** on Linux, Windows, and macOS ARM64. Warm retrieval P95 over 10,000 synthetic entries was 0.190, 0.066, and 0.088 ms respectively. These measure retrieval, not model response time. This round did not launch the game or validate its UI; see [validation](docs/lore-validation.md).
 
-| Option | Description | Default |
-| --- | --- | --- |
-| `ApiKey` | API key | `""` |
-| `BaseUrl` | API base URL; `null` uses the official endpoint | `null` |
-| `EnabledNPCs` | NPCs with AI dialogue enabled | All 5 built-in NPCs |
-| `MaxTokens` | Maximum tokens per reply | `200` |
-| `Temperature` | Response randomness | `0.9` |
-| `MaxHistoryTurns` | Maximum conversation turns kept in history | `50` |
-| `Model` | Model identifier | `mimo-v2.5-pro` |
-| `Language` | Default dialogue language | `zh` |
-| `TriggerKey` | Key that must be held to trigger chat; `null` means direct interaction | `null` |
-| `DebugMode` | Debug logging switch | `false` |
+## Repository
 
-### Proxy API
+- `Agents/`: conversations, API requests, and game-state capture.
+- `Models/`: personalities, relationship rules, voice, and quick replies.
+- `Storage/`: save memories, knowledge records, and indexes.
+- `UI/`: chat window, text input, and controller handling.
+- `assets/personalities/` and `assets/lore/`: profiles and attributed knowledge.
+- `tests/`, `scripts/`, and `docs/`: tests, utilities, and design/validation notes.
 
-```json
-{
-  "BaseUrl": "https://your-proxy.example.com/anthropic",
-  "Model": "your-model-name"
-}
-```
-
-API calls follow the Anthropic Messages API format. The endpoint is `{BaseUrl}/v1/messages`.
-
-## Usage
-
-1. Approach a supported NPC: Abigail, Shane, Sebastian, Elliott, or Haley.
-2. Press the interaction key, usually Space or right mouse button.
-3. Type a message in the chat UI and press Enter.
-4. Press Esc to close the UI.
-
-| Action | Key |
-| --- | --- |
-| Send message | Enter |
-| Close chat | Esc |
-| Scroll history | Mouse wheel |
-| Focus input box | Mouse click |
-
-## Add a Custom NPC
-
-Create a JSON file under `assets/personalities/`:
-
-```json
-{
-  "Name": "Penny",
-  "DisplayName": "Penny",
-  "SystemPrompt": "You are Penny from Stardew Valley. You are a shy, bookish young woman who teaches Jas and Vincent. You live in a trailer with your mother Pam. You love reading and dream of a stable family life. You speak gently and sometimes nervously.",
-  "Topics": ["books", "teaching", "cooking"],
-  "MoodResponses": {
-    "raining": "Perfect reading weather...",
-    "night": "I should get home soon..."
-  }
-}
-```
-
-Add `"Penny"` to `EnabledNPCs` in `config.json`, then restart the game.
-
-## Architecture
-
-```text
-Player interaction -> ModEntry (SMAPI events)
-                   -> AgentManager (agent management)
-                     -> NPCAgent (AI core)
-                       ├─ BuildSystemPrompt() <- persona + game state + memory
-                       ├─ CallApiAsync()      <- LLM API
-                       └─ ExtractMemoriesAsync()
-                     -> GameStateProvider (real-time game state)
-                     -> StorageManager (JSON persistence)
-                   -> ChatMenu (chat bubble UI)
-```
+Game files, local tools, build caches, and most runtime artifacts stay local. Only selected public retrieval evidence is tracked. Start with the [documentation index](docs/README.md).
 
 ## License
 
-MIT License
+Code: [MIT](LICENSE). Wiki-derived background data: **CC BY-NC-SA 3.0**, with individual sources and terms in [the data notice](assets/lore/NOTICE.md). Third-party notices are in [assets/licenses/](assets/licenses/).

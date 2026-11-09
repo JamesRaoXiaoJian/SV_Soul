@@ -1,0 +1,33 @@
+{
+  "platforms": [
+    {
+      "platform": "DSW/Linux",
+      "checks": 467,
+      "queries": 91,
+      "p95Milliseconds": 0.19
+    },
+    {
+      "platform": "Windows",
+      "checks": 467,
+      "queries": 91,
+      "p95Milliseconds": 0.066
+    },
+    {
+      "platform": "macOS ARM64",
+      "checks": 467,
+      "queries": 91,
+      "p95Milliseconds": 0.088
+    }
+  ],
+  "packagedBackgroundEntries": 107,
+  "effectiveNativeEntries": 402,
+  "effectiveTotalEntries": 509,
+  "apiSamples": {
+    "initial": 8,
+    "targetedRetest": 3
+  },
+  "gameStarted": false,
+  "gameUiOperated": false,
+  "package": "bin/Release/net6.0/SV_SOUL 1.7.0.zip",
+  "sha256": "b1df44d129e68743e49c61c6778b1e56d16f48f7032bea911493115bbf88b0ec"
+}

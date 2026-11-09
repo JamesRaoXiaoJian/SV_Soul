@@ -1,0 +1,10 @@
+MSBuild version 17.3.4+a400405ba for .NET
+CSC : warning CS9057: The analyzer assembly '/root/RXJ/environments/nuget/packages/pathoschild.stardew.modbuildconfig/4.4.0/analyzers/dotnet/cs/SMAPI.ModBuildConfig.Analyzer.dll' references version '4.9.0.0' of the compiler, which is newer than the currently running version '4.3.0.0'. [/root/RXJ/SV_Soul/SV_SOUL.csproj]
+
+Build succeeded.
+
+CSC : warning CS9057: The analyzer assembly '/root/RXJ/environments/nuget/packages/pathoschild.stardew.modbuildconfig/4.4.0/analyzers/dotnet/cs/SMAPI.ModBuildConfig.Analyzer.dll' references version '4.9.0.0' of the compiler, which is newer than the currently running version '4.3.0.0'. [/root/RXJ/SV_Soul/SV_SOUL.csproj]
+    1 Warning(s)
+    0 Error(s)
+
+Time Elapsed 00:00:03.62

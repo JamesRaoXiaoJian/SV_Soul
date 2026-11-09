@@ -1,0 +1,472 @@
+[
+  {
+    "Id": "festival.desert",
+    "FactKey": "festival.desert",
+    "EntityIds": [
+      "festival:DesertFestival"
+    ],
+    "Kind": "festival",
+    "Text": "沙漠节在春季举行，有商摊、比赛和挑战活动。",
+    "Aliases": [
+      "沙漠节",
+      "Desert Festival"
+    ],
+    "Source": "https://stardewvalleywiki.com/Festivals",
+    "KnownBy": [],
+    "ReviewedAt": "2026-11-07",
+    "GameVersion": "1.6",
+    "Locale": "zh-CN"
+  },
+  {
+    "Id": "festival.fair",
+    "FactKey": "festival.fair",
+    "EntityIds": [
+      "festival:fall16"
+    ],
+    "Kind": "festival",
+    "Text": "星露谷展览会有农产品展示和游艺活动。",
+    "Aliases": [
+      "星露谷展览会",
+      "展览会",
+      "Stardew Valley Fair"
+    ],
+    "Source": "https://stardewvalleywiki.com/Festivals",
+    "KnownBy": [],
+    "ReviewedAt": "2026-11-07",
+    "GameVersion": "1.6",
+    "Locale": "zh-CN"
+  },
+  {
+    "Id": "festival.spirits",
+    "FactKey": "festival.spirits",
+    "EntityIds": [
+      "festival:fall27"
+    ],
+    "Kind": "festival",
+    "Text": "万灵节是秋季的夜间节庆，有节日装饰和迷宫。",
+    "Aliases": [
+      "万灵节",
+      "Spirit's Eve"
+    ],
+    "Source": "https://stardewvalleywiki.com/Festivals",
+    "KnownBy": [],
+    "ReviewedAt": "2026-11-07",
+    "GameVersion": "1.6",
+    "Locale": "zh-CN"
+  },
+  {
+    "Id": "festival.ice",
+    "FactKey": "festival.ice",
+    "EntityIds": [
+      "festival:winter8"
+    ],
+    "Kind": "festival",
+    "Text": "冰雪节有冰雕和冰上钓鱼比赛。",
+    "Aliases": [
+      "冰雪节",
+      "Festival of Ice"
+    ],
+    "Source": "https://stardewvalleywiki.com/Festivals",
+    "KnownBy": [],
+    "ReviewedAt": "2026-11-07",
+    "GameVersion": "1.6",
+    "Locale": "zh-CN"
+  },
+  {
+    "Id": "festival.squid",
+    "FactKey": "festival.squid",
+    "EntityIds": [
+      "festival:SquidFest"
+    ],
+    "Kind": "festival",
+    "Text": "鱿鱼节在冬季沙滩举行，以钓鱿鱼和领取奖品为主要活动。",
+    "Aliases": [
+      "鱿鱼节",
+      "SquidFest"
+    ],
+    "Source": "https://stardewvalleywiki.com/Festivals",
+    "KnownBy": [],
+    "ReviewedAt": "2026-11-07",
+    "GameVersion": "1.6",
+    "Locale": "zh-CN"
+  },
+  {
+    "Id": "festival.market",
+    "FactKey": "festival.market",
+    "EntityIds": [
+      "festival:NightMarket"
+    ],
+    "Kind": "festival",
+    "Text": "夜市在冬季的沙滩码头举行，有商船、人鱼演出和潜艇钓鱼。",
+    "Aliases": [
+      "夜市",
+      "Night Market"
+    ],
+    "Source": "https://stardewvalleywiki.com/Festivals",
+    "KnownBy": [],
+    "ReviewedAt": "2026-11-07",
+    "GameVersion": "1.6",
+    "Locale": "zh-CN"
+  },
+  {
+    "Id": "festival.star",
+    "FactKey": "festival.star",
+    "EntityIds": [
+      "festival:winter25"
+    ],
+    "Kind": "festival",
+    "Text": "冬日星盛宴的传统是秘密交换礼物；不能从传统推断今年谁给谁送礼。",
+    "Aliases": [
+      "冬日星盛宴",
+      "冬星节",
+      "Feast of the Winter Star"
+    ],
+    "Source": "https://stardewvalleywiki.com/Festivals",
+    "KnownBy": [],
+    "ReviewedAt": "2026-11-07",
+    "GameVersion": "1.6",
+    "Locale": "zh-CN"
+  },
+  {
+    "Id": "region.desert",
+    "FactKey": "region.desert",
+    "EntityIds": [
+      "region.desert"
+    ],
+    "Kind": "background",
+    "Text": "卡利科沙漠在鹈鹕镇远处的西北方，绿洲商店由桑迪经营。能否乘车前往取决于巴士修复状态。",
+    "Aliases": [
+      "卡利科沙漠",
+      "沙漠",
+      "Calico Desert",
+      "Desert"
+    ],
+    "Source": "https://stardewvalleywiki.com/Calico_Desert",
+    "KnownBy": [],
+    "ReviewedAt": "2026-11-07",
+    "GameVersion": "1.6",
+    "Locale": "zh-CN"
+  },
+  {
+    "Id": "region.skull",
+    "FactKey": "region.skull",
+    "EntityIds": [
+      "region.skull"
+    ],
+    "Kind": "background",
+    "Text": "骷髅洞穴的入口在沙漠西北部；入口能否开启取决于是否具备所需钥匙。",
+    "Aliases": [
+      "骷髅洞穴",
+      "骷髅矿洞",
+      "Skull Cavern"
+    ],
+    "Source": "https://stardewvalleywiki.com/Calico_Desert",
+    "KnownBy": [
+      "Sandy",
+      "Marlon",
+      "Gil",
+      "Mister Qi"
+    ],
+    "ReviewedAt": "2026-11-07",
+    "GameVersion": "1.6",
+    "Locale": "zh-CN"
+  },
+  {
+    "Id": "region.gemsea",
+    "FactKey": "region.gemsea",
+    "EntityIds": [
+      "region.gemsea"
+    ],
+    "Kind": "background",
+    "Text": "宝石海位于鹈鹕镇南方。",
+    "Aliases": [
+      "宝石海",
+      "Gem Sea"
+    ],
+    "Source": "https://stardewvalleywiki.com/Setting",
+    "KnownBy": [],
+    "ReviewedAt": "2026-11-07",
+    "GameVersion": "1.6",
+    "Locale": "zh-CN"
+  },
+  {
+    "Id": "region.fern",
+    "FactKey": "region.fern",
+    "EntityIds": [
+      "region.fern"
+    ],
+    "Kind": "background",
+    "Text": "芬群岛是宝石海中的群岛，属于 Ferngill Republic。",
+    "Aliases": [
+      "芬群岛",
+      "Fern Islands"
+    ],
+    "Source": "https://stardewvalleywiki.com/Setting",
+    "KnownBy": [],
+    "ReviewedAt": "2026-11-07",
+    "GameVersion": "1.6",
+    "Locale": "zh-CN"
+  },
+  {
+    "Id": "region.ginger",
+    "FactKey": "region.ginger",
+    "EntityIds": [
+      "region.ginger"
+    ],
+    "Kind": "background",
+    "Text": "姜岛是芬群岛的一部分；前往岛屿需要具备当前游戏认可的交通条件。",
+    "Aliases": [
+      "姜岛",
+      "Ginger Island",
+      "IslandNorth",
+      "IslandSouth"
+    ],
+    "Source": "https://stardewvalleywiki.com/Setting",
+    "KnownBy": [],
+    "ReviewedAt": "2026-11-07",
+    "GameVersion": "1.6",
+    "Locale": "zh-CN"
+  },
+  {
+    "Id": "region.castle",
+    "FactKey": "region.castle",
+    "EntityIds": [
+      "region.castle"
+    ],
+    "Kind": "background",
+    "Text": "Castle Village 以手工天鹅绒闻名，具体位置未知。",
+    "Aliases": [
+      "城堡村",
+      "Castle Village"
+    ],
+    "Source": "https://stardewvalleywiki.com/Setting",
+    "KnownBy": [],
+    "ReviewedAt": "2026-11-07",
+    "GameVersion": "1.6",
+    "Locale": "zh-CN"
+  },
+  {
+    "Id": "region.grampleton",
+    "FactKey": "region.grampleton",
+    "EntityIds": [
+      "region.grampleton"
+    ],
+    "Kind": "background",
+    "Text": "Grampleton 是山谷外、被居民和电影提及的地方。",
+    "Aliases": [
+      "格兰普顿",
+      "Grampleton"
+    ],
+    "Source": "https://stardewvalleywiki.com/Setting",
+    "KnownBy": [],
+    "ReviewedAt": "2026-11-07",
+    "GameVersion": "1.6",
+    "Locale": "zh-CN"
+  },
+  {
+    "Id": "region.prairie",
+    "FactKey": "region.prairie",
+    "EntityIds": [
+      "region.prairie"
+    ],
+    "Kind": "background",
+    "Text": "Prairie Island 位于宝石海以西，有多种生态与浣熊。",
+    "Aliases": [
+      "草原岛",
+      "Prairie Island"
+    ],
+    "Source": "https://stardewvalleywiki.com/Setting",
+    "KnownBy": [],
+    "ReviewedAt": "2026-11-07",
+    "GameVersion": "1.6",
+    "Locale": "zh-CN"
+  },
+  {
+    "Id": "world.junimo",
+    "FactKey": "world.junimo",
+    "EntityIds": [
+      "world.junimo"
+    ],
+    "Kind": "background",
+    "Text": "祝尼魔是与树木有关的森林精灵。",
+    "Aliases": [
+      "祝尼魔",
+      "朱尼魔",
+      "Junimo"
+    ],
+    "Source": "https://stardewvalleywiki.com/Setting",
+    "KnownBy": [
+      "Wizard",
+      "Krobus",
+      "Dwarf"
+    ],
+    "ReviewedAt": "2026-11-07",
+    "GameVersion": "1.6",
+    "Locale": "zh-CN"
+  },
+  {
+    "Id": "world.dwarves",
+    "FactKey": "world.dwarves",
+    "EntityIds": [
+      "world.dwarves"
+    ],
+    "Kind": "background",
+    "Text": "矮人自称 Smoluanu，与地下生活和古代技术有关。",
+    "Aliases": [
+      "矮人族",
+      "Smoluanu"
+    ],
+    "Source": "https://stardewvalleywiki.com/Setting",
+    "KnownBy": [
+      "Dwarf",
+      "Wizard",
+      "Gunther"
+    ],
+    "ReviewedAt": "2026-11-07",
+    "GameVersion": "1.6",
+    "Locale": "zh-CN"
+  },
+  {
+    "Id": "world.elemental",
+    "FactKey": "world.elemental",
+    "EntityIds": [
+      "world.elemental"
+    ],
+    "Kind": "background",
+    "Text": "元素战争是矮人与影子人的古老战争。",
+    "Aliases": [
+      "元素战争",
+      "Elemental Wars"
+    ],
+    "Source": "https://stardewvalleywiki.com/Setting",
+    "KnownBy": [
+      "Wizard",
+      "Dwarf",
+      "Krobus"
+    ],
+    "ReviewedAt": "2026-11-07",
+    "GameVersion": "1.6",
+    "Locale": "zh-CN",
+    "RequiredAll": [
+      "hearts:6"
+    ]
+  },
+  {
+    "Id": "world.goblins",
+    "FactKey": "world.goblins",
+    "EntityIds": [
+      "world.goblins"
+    ],
+    "Kind": "background",
+    "Text": "图书馆记载哥布林喜欢虚空蛋黄酱。",
+    "Aliases": [
+      "哥布林",
+      "Goblins",
+      "虚空蛋黄酱"
+    ],
+    "Source": "https://stardewvalleywiki.com/Setting",
+    "KnownBy": [
+      "Wizard",
+      "Henchman",
+      "Gunther"
+    ],
+    "ReviewedAt": "2026-11-07",
+    "GameVersion": "1.6",
+    "Locale": "zh-CN"
+  },
+  {
+    "Id": "world.yoba",
+    "FactKey": "world.yoba",
+    "EntityIds": [
+      "world.yoba"
+    ],
+    "Kind": "background",
+    "Text": "由巴是星露谷世界中的信仰对象；居民对信仰的态度并不完全相同。",
+    "Aliases": [
+      "由巴",
+      "Yoba"
+    ],
+    "Source": "https://stardewvalleywiki.com/Yoba",
+    "KnownBy": [],
+    "ReviewedAt": "2026-11-07",
+    "GameVersion": "1.6",
+    "Locale": "zh-CN"
+  },
+  {
+    "Id": "service.clinic",
+    "FactKey": "service.clinic",
+    "EntityIds": [
+      "service.clinic"
+    ],
+    "Kind": "background",
+    "Text": "哈维的诊所为镇上居民提供医疗服务。",
+    "Aliases": [
+      "诊所",
+      "医院",
+      "Clinic"
+    ],
+    "Source": "https://stardewvalleywiki.com/Harvey",
+    "KnownBy": [],
+    "ReviewedAt": "2026-11-07",
+    "GameVersion": "1.6",
+    "Locale": "zh-CN"
+  },
+  {
+    "Id": "service.blacksmith",
+    "FactKey": "service.blacksmith",
+    "EntityIds": [
+      "service.blacksmith"
+    ],
+    "Kind": "background",
+    "Text": "克林特经营铁匠铺，工作与金属和工具有关。",
+    "Aliases": [
+      "铁匠铺",
+      "铁匠",
+      "Blacksmith"
+    ],
+    "Source": "https://stardewvalleywiki.com/Clint",
+    "KnownBy": [],
+    "ReviewedAt": "2026-11-07",
+    "GameVersion": "1.6",
+    "Locale": "zh-CN"
+  },
+  {
+    "Id": "service.general",
+    "FactKey": "service.general",
+    "EntityIds": [
+      "service.general"
+    ],
+    "Kind": "background",
+    "Text": "皮埃尔的杂货店售卖种子并收购农产品；营业日程可能随游戏进展变化。",
+    "Aliases": [
+      "杂货店",
+      "种子商店",
+      "General Store",
+      "SeedShop"
+    ],
+    "Source": "https://stardewvalleywiki.com/Pierre",
+    "KnownBy": [],
+    "ReviewedAt": "2026-11-07",
+    "GameVersion": "1.6",
+    "Locale": "zh-CN"
+  },
+  {
+    "Id": "service.tv",
+    "FactKey": "service.tv",
+    "EntityIds": [
+      "service.tv"
+    ],
+    "Kind": "background",
+    "Text": "电视提供天气预报、占卜和生活节目；播报内容不能由 NPC 凭空编造。",
+    "Aliases": [
+      "电视",
+      "天气预报",
+      "Television"
+    ],
+    "Source": "https://stardewvalleywiki.com/Television",
+    "KnownBy": [],
+    "ReviewedAt": "2026-11-07",
+    "GameVersion": "1.6",
+    "Locale": "zh-CN"
+  }
+]

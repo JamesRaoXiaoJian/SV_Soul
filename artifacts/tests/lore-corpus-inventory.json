@@ -1,0 +1,570 @@
+{
+  "gameSeries": "1.6",
+  "schemaVersion": 1,
+  "packagedEntries": 107,
+  "characterProfiles": 48,
+  "characterCoverage": [
+    "???",
+    "Abigail",
+    "Alex",
+    "Bear",
+    "Birdie",
+    "Bouncer",
+    "Caroline",
+    "Clint",
+    "Demetrius",
+    "Dwarf",
+    "Elliott",
+    "Emily",
+    "Evelyn",
+    "George",
+    "Gil",
+    "Governor",
+    "Grandpa",
+    "Gunther",
+    "Gus",
+    "Haley",
+    "Harvey",
+    "Henchman",
+    "Jas",
+    "Jodi",
+    "Kent",
+    "Krobus",
+    "Leah",
+    "Leo",
+    "Lewis",
+    "Linus",
+    "Marlon",
+    "Marnie",
+    "Maru",
+    "Mister Qi",
+    "Morris",
+    "Old Mariner",
+    "Pam",
+    "Penny",
+    "Pierre",
+    "Robin",
+    "Sam",
+    "Sandy",
+    "Sebastian",
+    "Shane",
+    "Vincent",
+    "Welwick",
+    "Willy",
+    "Wizard"
+  ],
+  "festivalCoverage": [
+    "festival:DesertFestival",
+    "festival:NightMarket",
+    "festival:SquidFest",
+    "festival:TroutDerby",
+    "festival:fall16",
+    "festival:fall27",
+    "festival:spring13",
+    "festival:spring24",
+    "festival:summer11",
+    "festival:summer28",
+    "festival:winter25",
+    "festival:winter8"
+  ],
+  "kinds": {
+    "background": 47,
+    "character": 48,
+    "festival": 12
+  },
+  "sourceInventory": [
+    {
+      "source": "game:Data/Characters/???/DisplayName",
+      "ids": [
+        "npc.???"
+      ]
+    },
+    {
+      "source": "https://stardewvalleywiki.com/Abigail",
+      "ids": [
+        "npc.Abigail"
+      ]
+    },
+    {
+      "source": "https://stardewvalleywiki.com/Adventurer%27s_Guild",
+      "ids": [
+        "guild"
+      ]
+    },
+    {
+      "source": "https://stardewvalleywiki.com/Alex",
+      "ids": [
+        "npc.Alex"
+      ]
+    },
+    {
+      "source": "https://stardewvalleywiki.com/Backwoods",
+      "ids": [
+        "region.backwoods"
+      ]
+    },
+    {
+      "source": "https://stardewvalleywiki.com/Bear%27s_Knowledge",
+      "ids": [
+        "npc.Bear"
+      ]
+    },
+    {
+      "source": "https://stardewvalleywiki.com/Birdie",
+      "ids": [
+        "npc.Birdie"
+      ]
+    },
+    {
+      "source": "https://stardewvalleywiki.com/Bouncer",
+      "ids": [
+        "npc.Bouncer"
+      ]
+    },
+    {
+      "source": "https://stardewvalleywiki.com/Bus_Stop",
+      "ids": [
+        "region.busstop"
+      ]
+    },
+    {
+      "source": "https://stardewvalleywiki.com/Calico_Desert",
+      "ids": [
+        "region.desert",
+        "region.skull"
+      ]
+    },
+    {
+      "source": "https://stardewvalleywiki.com/Caroline",
+      "ids": [
+        "npc.Caroline"
+      ]
+    },
+    {
+      "source": "https://stardewvalleywiki.com/Cindersap_Forest",
+      "ids": [
+        "forest.region",
+        "forest.ranch",
+        "forest.cart",
+        "forest.tower"
+      ]
+    },
+    {
+      "source": "https://stardewvalleywiki.com/Clint",
+      "ids": [
+        "npc.Clint",
+        "service.blacksmith"
+      ]
+    },
+    {
+      "source": "https://stardewvalleywiki.com/Community_Center",
+      "ids": [
+        "community"
+      ]
+    },
+    {
+      "source": "https://stardewvalleywiki.com/Demetrius",
+      "ids": [
+        "npc.Demetrius"
+      ]
+    },
+    {
+      "source": "https://stardewvalleywiki.com/Dwarf",
+      "ids": [
+        "npc.Dwarf"
+      ]
+    },
+    {
+      "source": "https://stardewvalleywiki.com/Elliott",
+      "ids": [
+        "npc.Elliott"
+      ]
+    },
+    {
+      "source": "https://stardewvalleywiki.com/Emily",
+      "ids": [
+        "npc.Emily"
+      ]
+    },
+    {
+      "source": "https://stardewvalleywiki.com/Evelyn",
+      "ids": [
+        "npc.Evelyn"
+      ]
+    },
+    {
+      "source": "https://stardewvalleywiki.com/Festivals",
+      "ids": [
+        "festival.egg",
+        "festival.flower",
+        "festival.luau",
+        "festival.trout",
+        "festival.jellies",
+        "festival.desert",
+        "festival.fair",
+        "festival.spirits",
+        "festival.ice",
+        "festival.squid",
+        "festival.market",
+        "festival.star"
+      ]
+    },
+    {
+      "source": "https://stardewvalleywiki.com/George",
+      "ids": [
+        "npc.George"
+      ]
+    },
+    {
+      "source": "https://stardewvalleywiki.com/Gil",
+      "ids": [
+        "npc.Gil"
+      ]
+    },
+    {
+      "source": "https://stardewvalleywiki.com/Governor",
+      "ids": [
+        "npc.Governor"
+      ]
+    },
+    {
+      "source": "https://stardewvalleywiki.com/Grandpa",
+      "ids": [
+        "npc.Grandpa"
+      ]
+    },
+    {
+      "source": "https://stardewvalleywiki.com/Gunther",
+      "ids": [
+        "npc.Gunther"
+      ]
+    },
+    {
+      "source": "https://stardewvalleywiki.com/Gus",
+      "ids": [
+        "npc.Gus"
+      ]
+    },
+    {
+      "source": "https://stardewvalleywiki.com/Haley",
+      "ids": [
+        "npc.Haley"
+      ]
+    },
+    {
+      "source": "https://stardewvalleywiki.com/Harvey",
+      "ids": [
+        "npc.Harvey",
+        "service.clinic"
+      ]
+    },
+    {
+      "source": "https://stardewvalleywiki.com/Henchman",
+      "ids": [
+        "npc.Henchman"
+      ]
+    },
+    {
+      "source": "https://stardewvalleywiki.com/Island_Field_Office",
+      "ids": [
+        "region.fieldoffice"
+      ]
+    },
+    {
+      "source": "https://stardewvalleywiki.com/Jas",
+      "ids": [
+        "npc.Jas"
+      ]
+    },
+    {
+      "source": "https://stardewvalleywiki.com/Jodi",
+      "ids": [
+        "npc.Jodi"
+      ]
+    },
+    {
+      "source": "https://stardewvalleywiki.com/JojaMart",
+      "ids": [
+        "joja"
+      ]
+    },
+    {
+      "source": "https://stardewvalleywiki.com/Kent",
+      "ids": [
+        "npc.Kent"
+      ]
+    },
+    {
+      "source": "https://stardewvalleywiki.com/Krobus",
+      "ids": [
+        "npc.Krobus"
+      ]
+    },
+    {
+      "source": "https://stardewvalleywiki.com/Leah",
+      "ids": [
+        "npc.Leah"
+      ]
+    },
+    {
+      "source": "https://stardewvalleywiki.com/Leo",
+      "ids": [
+        "npc.Leo"
+      ]
+    },
+    {
+      "source": "https://stardewvalleywiki.com/Lewis",
+      "ids": [
+        "npc.Lewis"
+      ]
+    },
+    {
+      "source": "https://stardewvalleywiki.com/Linus",
+      "ids": [
+        "npc.Linus"
+      ]
+    },
+    {
+      "source": "https://stardewvalleywiki.com/Marlon",
+      "ids": [
+        "npc.Marlon"
+      ]
+    },
+    {
+      "source": "https://stardewvalleywiki.com/Marnie",
+      "ids": [
+        "npc.Marnie"
+      ]
+    },
+    {
+      "source": "https://stardewvalleywiki.com/Maru",
+      "ids": [
+        "npc.Maru"
+      ]
+    },
+    {
+      "source": "https://stardewvalleywiki.com/Morris",
+      "ids": [
+        "npc.Morris"
+      ]
+    },
+    {
+      "source": "https://stardewvalleywiki.com/Movie_Theater",
+      "ids": [
+        "region.cinema"
+      ]
+    },
+    {
+      "source": "https://stardewvalleywiki.com/Mr._Qi",
+      "ids": [
+        "npc.Mister Qi"
+      ]
+    },
+    {
+      "source": "https://stardewvalleywiki.com/Museum",
+      "ids": [
+        "museum"
+      ]
+    },
+    {
+      "source": "https://stardewvalleywiki.com/Old_Mariner",
+      "ids": [
+        "npc.Old Mariner"
+      ]
+    },
+    {
+      "source": "https://stardewvalleywiki.com/Pam",
+      "ids": [
+        "npc.Pam"
+      ]
+    },
+    {
+      "source": "https://stardewvalleywiki.com/Pelican_Town",
+      "ids": [
+        "town"
+      ]
+    },
+    {
+      "source": "https://stardewvalleywiki.com/Penny",
+      "ids": [
+        "npc.Penny"
+      ]
+    },
+    {
+      "source": "https://stardewvalleywiki.com/Pierre",
+      "ids": [
+        "npc.Pierre",
+        "service.general"
+      ]
+    },
+    {
+      "source": "https://stardewvalleywiki.com/Quarry",
+      "ids": [
+        "region.quarry"
+      ]
+    },
+    {
+      "source": "https://stardewvalleywiki.com/Railroad",
+      "ids": [
+        "region.railroad"
+      ]
+    },
+    {
+      "source": "https://stardewvalleywiki.com/Robin",
+      "ids": [
+        "npc.Robin"
+      ]
+    },
+    {
+      "source": "https://stardewvalleywiki.com/Sam",
+      "ids": [
+        "npc.Sam"
+      ]
+    },
+    {
+      "source": "https://stardewvalleywiki.com/Sandy",
+      "ids": [
+        "npc.Sandy"
+      ]
+    },
+    {
+      "source": "https://stardewvalleywiki.com/Sebastian",
+      "ids": [
+        "npc.Sebastian"
+      ]
+    },
+    {
+      "source": "https://stardewvalleywiki.com/Secret_Woods",
+      "ids": [
+        "region.secretwoods"
+      ]
+    },
+    {
+      "source": "https://stardewvalleywiki.com/Setting",
+      "ids": [
+        "world",
+        "region.gemsea",
+        "region.fern",
+        "region.ginger",
+        "region.castle",
+        "region.grampleton",
+        "region.prairie",
+        "world.junimo",
+        "world.dwarves",
+        "world.elemental",
+        "world.goblins"
+      ]
+    },
+    {
+      "source": "https://stardewvalleywiki.com/Shane",
+      "ids": [
+        "npc.Shane"
+      ]
+    },
+    {
+      "source": "https://stardewvalleywiki.com/Spa",
+      "ids": [
+        "region.spa"
+      ]
+    },
+    {
+      "source": "https://stardewvalleywiki.com/Television",
+      "ids": [
+        "npc.Welwick",
+        "service.tv"
+      ]
+    },
+    {
+      "source": "https://stardewvalleywiki.com/The_Beach",
+      "ids": [
+        "beach.region",
+        "beach.shop",
+        "beach.tide"
+      ]
+    },
+    {
+      "source": "https://stardewvalleywiki.com/The_Farm",
+      "ids": [
+        "region.farm"
+      ]
+    },
+    {
+      "source": "https://stardewvalleywiki.com/The_Mountain",
+      "ids": [
+        "mountain.region",
+        "mountain.carpenter",
+        "mountain.mines"
+      ]
+    },
+    {
+      "source": "https://stardewvalleywiki.com/The_Sewers",
+      "ids": [
+        "region.sewers"
+      ]
+    },
+    {
+      "source": "https://stardewvalleywiki.com/The_Stardrop_Saloon",
+      "ids": [
+        "saloon"
+      ]
+    },
+    {
+      "source": "https://stardewvalleywiki.com/Vincent",
+      "ids": [
+        "npc.Vincent"
+      ]
+    },
+    {
+      "source": "https://stardewvalleywiki.com/Volcano_Dungeon",
+      "ids": [
+        "region.volcano"
+      ]
+    },
+    {
+      "source": "https://stardewvalleywiki.com/Willy",
+      "ids": [
+        "npc.Willy"
+      ]
+    },
+    {
+      "source": "https://stardewvalleywiki.com/Witch%27s_Swamp",
+      "ids": [
+        "region.witchswamp"
+      ]
+    },
+    {
+      "source": "https://stardewvalleywiki.com/Wizard",
+      "ids": [
+        "npc.Wizard"
+      ]
+    },
+    {
+      "source": "https://stardewvalleywiki.com/Yoba",
+      "ids": [
+        "world.yoba"
+      ]
+    },
+    {
+      "source": "https://stardewvalleywiki.com/Zuzu_City",
+      "ids": [
+        "zuzu"
+      ]
+    }
+  ],
+  "runtimeSources": [
+    "Data/Characters",
+    "Data/Objects",
+    "Data/Festivals/FestivalDates",
+    "Data/Festivals/<key>",
+    "Data/PassiveFestivals",
+    "localized Strings assets"
+  ],
+  "unknownCanon": [
+    "??? has no confirmed real identity; retain unknown rather than inventing a biography."
+  ],
+  "excludedByDesign": [
+    "Unreviewed event scripts and alternate outcomes",
+    "Quest solutions and hidden item descriptions without appropriate knowledge",
+    "Numeric gameplay guides unrelated to NPC conversation"
+  ]
+}

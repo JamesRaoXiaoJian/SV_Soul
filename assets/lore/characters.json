@@ -1,0 +1,926 @@
+[
+  {
+    "Id": "npc.Abigail",
+    "FactKey": "npc.Abigail.identity",
+    "EntityIds": [
+      "Abigail"
+    ],
+    "Kind": "character",
+    "Text": "阿比盖尔是皮埃尔和卡罗琳的女儿，与山姆和塞巴斯蒂安是朋友。",
+    "Aliases": [
+      "Abigail",
+      "阿比盖尔"
+    ],
+    "Source": "https://stardewvalleywiki.com/Abigail",
+    "KnownBy": [],
+    "ReviewedAt": "2026-11-07",
+    "GameVersion": "1.6",
+    "Locale": "zh-CN"
+  },
+  {
+    "Id": "npc.Alex",
+    "FactKey": "npc.Alex.identity",
+    "EntityIds": [
+      "Alex"
+    ],
+    "Kind": "character",
+    "Text": "亚历克斯是艾芙琳和乔治的外孙，对运动很投入。",
+    "Aliases": [
+      "Alex",
+      "亚历克斯"
+    ],
+    "Source": "https://stardewvalleywiki.com/Alex",
+    "KnownBy": [],
+    "ReviewedAt": "2026-11-07",
+    "GameVersion": "1.6",
+    "Locale": "zh-CN"
+  },
+  {
+    "Id": "npc.Elliott",
+    "FactKey": "npc.Elliott.identity",
+    "EntityIds": [
+      "Elliott"
+    ],
+    "Kind": "character",
+    "Text": "艾利欧特是一位作家，想写出优秀的小说，表达常带文学色彩。",
+    "Aliases": [
+      "Elliott",
+      "艾利欧特"
+    ],
+    "Source": "https://stardewvalleywiki.com/Elliott",
+    "KnownBy": [],
+    "ReviewedAt": "2026-11-07",
+    "GameVersion": "1.6",
+    "Locale": "zh-CN"
+  },
+  {
+    "Id": "npc.Harvey",
+    "FactKey": "npc.Harvey.identity",
+    "EntityIds": [
+      "Harvey"
+    ],
+    "Kind": "character",
+    "Text": "哈维是鹈鹕镇的医生，在诊所工作，重视居民的健康。",
+    "Aliases": [
+      "Harvey",
+      "哈维",
+      "医生",
+      "大夫",
+      "doctor"
+    ],
+    "Source": "https://stardewvalleywiki.com/Harvey",
+    "KnownBy": [],
+    "ReviewedAt": "2026-11-07",
+    "GameVersion": "1.6",
+    "Locale": "zh-CN"
+  },
+  {
+    "Id": "npc.Sam",
+    "FactKey": "npc.Sam.identity",
+    "EntityIds": [
+      "Sam"
+    ],
+    "Kind": "character",
+    "Text": "山姆是乔迪和肯特的儿子、文森特的哥哥，与塞巴斯蒂安和阿比盖尔一起玩音乐。",
+    "Aliases": [
+      "Sam",
+      "山姆"
+    ],
+    "Source": "https://stardewvalleywiki.com/Sam",
+    "KnownBy": [],
+    "ReviewedAt": "2026-11-07",
+    "GameVersion": "1.6",
+    "Locale": "zh-CN"
+  },
+  {
+    "Id": "npc.Sebastian",
+    "FactKey": "npc.Sebastian.identity",
+    "EntityIds": [
+      "Sebastian"
+    ],
+    "Kind": "character",
+    "Text": "塞巴斯蒂安是罗宾的儿子、玛鲁同母异父的哥哥，喜欢电脑游戏、漫画和科幻小说。",
+    "Aliases": [
+      "Sebastian",
+      "塞巴斯蒂安"
+    ],
+    "Source": "https://stardewvalleywiki.com/Sebastian",
+    "KnownBy": [],
+    "ReviewedAt": "2026-11-07",
+    "GameVersion": "1.6",
+    "Locale": "zh-CN"
+  },
+  {
+    "Id": "npc.Shane",
+    "FactKey": "npc.Shane.identity",
+    "EntityIds": [
+      "Shane"
+    ],
+    "Kind": "character",
+    "Text": "谢恩是玛妮的外甥、贾斯的教父；是否仍在 Joja 上班取决于镇上的变化。",
+    "Aliases": [
+      "Shane",
+      "谢恩"
+    ],
+    "Source": "https://stardewvalleywiki.com/Shane",
+    "KnownBy": [],
+    "ReviewedAt": "2026-11-07",
+    "GameVersion": "1.6",
+    "Locale": "zh-CN"
+  },
+  {
+    "Id": "npc.Emily",
+    "FactKey": "npc.Emily.identity",
+    "EntityIds": [
+      "Emily"
+    ],
+    "Kind": "character",
+    "Text": "艾米丽是海莉的姐姐，在星之果实餐吧工作。",
+    "Aliases": [
+      "Emily",
+      "艾米丽"
+    ],
+    "Source": "https://stardewvalleywiki.com/Emily",
+    "KnownBy": [],
+    "ReviewedAt": "2026-11-07",
+    "GameVersion": "1.6",
+    "Locale": "zh-CN"
+  },
+  {
+    "Id": "npc.Haley",
+    "FactKey": "npc.Haley.identity",
+    "EntityIds": [
+      "Haley"
+    ],
+    "Kind": "character",
+    "Text": "海莉是艾米丽的妹妹，重视外表与自己的生活品味。",
+    "Aliases": [
+      "Haley",
+      "海莉"
+    ],
+    "Source": "https://stardewvalleywiki.com/Haley",
+    "KnownBy": [],
+    "ReviewedAt": "2026-11-07",
+    "GameVersion": "1.6",
+    "Locale": "zh-CN"
+  },
+  {
+    "Id": "npc.Leah",
+    "FactKey": "npc.Leah.identity",
+    "EntityIds": [
+      "Leah"
+    ],
+    "Kind": "character",
+    "Text": "莉亚是一位艺术家，喜欢户外、采集和观察季节带来的变化。",
+    "Aliases": [
+      "Leah",
+      "莉亚"
+    ],
+    "Source": "https://stardewvalleywiki.com/Leah",
+    "KnownBy": [],
+    "ReviewedAt": "2026-11-07",
+    "GameVersion": "1.6",
+    "Locale": "zh-CN"
+  },
+  {
+    "Id": "npc.Maru",
+    "FactKey": "npc.Maru.identity",
+    "EntityIds": [
+      "Maru"
+    ],
+    "Kind": "character",
+    "Text": "玛鲁对制作小装置和机械很有兴趣，也会在本地诊所帮忙。",
+    "Aliases": [
+      "Maru",
+      "玛鲁"
+    ],
+    "Source": "https://stardewvalleywiki.com/Maru",
+    "KnownBy": [],
+    "ReviewedAt": "2026-11-07",
+    "GameVersion": "1.6",
+    "Locale": "zh-CN"
+  },
+  {
+    "Id": "npc.Penny",
+    "FactKey": "npc.Penny.identity",
+    "EntityIds": [
+      "Penny"
+    ],
+    "Kind": "character",
+    "Text": "潘妮是潘姆的女儿，喜欢读书，在图书馆教贾斯和文森特。",
+    "Aliases": [
+      "Penny",
+      "潘妮",
+      "教孩子",
+      "教小孩",
+      "孩子的老师",
+      "教书",
+      "tutor"
+    ],
+    "Source": "https://stardewvalleywiki.com/Penny",
+    "KnownBy": [],
+    "ReviewedAt": "2026-11-07",
+    "GameVersion": "1.6",
+    "Locale": "zh-CN"
+  },
+  {
+    "Id": "npc.Caroline",
+    "FactKey": "npc.Caroline.identity",
+    "EntityIds": [
+      "Caroline"
+    ],
+    "Kind": "character",
+    "Text": "卡罗琳是皮埃尔的妻子、阿比盖尔的母亲。",
+    "Aliases": [
+      "Caroline",
+      "卡罗琳",
+      "卡洛琳"
+    ],
+    "Source": "https://stardewvalleywiki.com/Caroline",
+    "KnownBy": [],
+    "ReviewedAt": "2026-11-07",
+    "GameVersion": "1.6",
+    "Locale": "zh-CN"
+  },
+  {
+    "Id": "npc.Clint",
+    "FactKey": "npc.Clint.identity",
+    "EntityIds": [
+      "Clint"
+    ],
+    "Kind": "character",
+    "Text": "克林特经营镇上的铁匠铺，提供与工具和金属有关的服务。",
+    "Aliases": [
+      "Clint",
+      "克林特",
+      "铁匠",
+      "打铁",
+      "blacksmith"
+    ],
+    "Source": "https://stardewvalleywiki.com/Clint",
+    "KnownBy": [],
+    "ReviewedAt": "2026-11-07",
+    "GameVersion": "1.6",
+    "Locale": "zh-CN"
+  },
+  {
+    "Id": "npc.Demetrius",
+    "FactKey": "npc.Demetrius.identity",
+    "EntityIds": [
+      "Demetrius"
+    ],
+    "Kind": "character",
+    "Text": "德米特里厄斯是研究山谷动植物的科学家，会在实验室工作或到户外记录观察。",
+    "Aliases": [
+      "Demetrius",
+      "德米特里厄斯",
+      "科学家",
+      "研究动植物",
+      "scientist"
+    ],
+    "Source": "https://stardewvalleywiki.com/Demetrius",
+    "KnownBy": [],
+    "ReviewedAt": "2026-11-07",
+    "GameVersion": "1.6",
+    "Locale": "zh-CN"
+  },
+  {
+    "Id": "npc.Evelyn",
+    "FactKey": "npc.Evelyn.identity",
+    "EntityIds": [
+      "Evelyn"
+    ],
+    "Kind": "character",
+    "Text": "艾芙琳照料镇上的花，是乔治的妻子、亚历克斯的外婆。",
+    "Aliases": [
+      "Evelyn",
+      "艾芙琳"
+    ],
+    "Source": "https://stardewvalleywiki.com/Evelyn",
+    "KnownBy": [],
+    "ReviewedAt": "2026-11-07",
+    "GameVersion": "1.6",
+    "Locale": "zh-CN"
+  },
+  {
+    "Id": "npc.George",
+    "FactKey": "npc.George.identity",
+    "EntityIds": [
+      "George"
+    ],
+    "Kind": "character",
+    "Text": "乔治是艾芙琳的丈夫、亚历克斯的外公。",
+    "Aliases": [
+      "George",
+      "乔治"
+    ],
+    "Source": "https://stardewvalleywiki.com/George",
+    "KnownBy": [],
+    "ReviewedAt": "2026-11-07",
+    "GameVersion": "1.6",
+    "Locale": "zh-CN"
+  },
+  {
+    "Id": "npc.Gus",
+    "FactKey": "npc.Gus.identity",
+    "EntityIds": [
+      "Gus"
+    ],
+    "Kind": "character",
+    "Text": "格斯经营星之果实餐吧，为镇上的居民提供餐饮。",
+    "Aliases": [
+      "Gus",
+      "格斯"
+    ],
+    "Source": "https://stardewvalleywiki.com/Gus",
+    "KnownBy": [],
+    "ReviewedAt": "2026-11-07",
+    "GameVersion": "1.6",
+    "Locale": "zh-CN"
+  },
+  {
+    "Id": "npc.Jas",
+    "FactKey": "npc.Jas.identity",
+    "EntityIds": [
+      "Jas"
+    ],
+    "Kind": "character",
+    "Text": "贾斯是镇上的小女孩，文森特是她的好朋友，潘妮教他们读书。",
+    "Aliases": [
+      "Jas",
+      "贾斯"
+    ],
+    "Source": "https://stardewvalleywiki.com/Jas",
+    "KnownBy": [],
+    "ReviewedAt": "2026-11-07",
+    "GameVersion": "1.6",
+    "Locale": "zh-CN"
+  },
+  {
+    "Id": "npc.Jodi",
+    "FactKey": "npc.Jodi.identity",
+    "EntityIds": [
+      "Jodi"
+    ],
+    "Kind": "character",
+    "Text": "乔迪是肯特的妻子，山姆和文森特的母亲。",
+    "Aliases": [
+      "Jodi",
+      "乔迪"
+    ],
+    "Source": "https://stardewvalleywiki.com/Jodi",
+    "KnownBy": [],
+    "ReviewedAt": "2026-11-07",
+    "GameVersion": "1.6",
+    "Locale": "zh-CN"
+  },
+  {
+    "Id": "npc.Kent",
+    "FactKey": "npc.Kent.identity",
+    "EntityIds": [
+      "Kent"
+    ],
+    "Kind": "character",
+    "Text": "肯特有军旅背景，是乔迪的丈夫、山姆和文森特的父亲；他是否已返乡要以当前存档为准。",
+    "Aliases": [
+      "Kent",
+      "肯特"
+    ],
+    "Source": "https://stardewvalleywiki.com/Kent",
+    "KnownBy": [],
+    "ReviewedAt": "2026-11-07",
+    "GameVersion": "1.6",
+    "Locale": "zh-CN"
+  },
+  {
+    "Id": "npc.Lewis",
+    "FactKey": "npc.Lewis.identity",
+    "EntityIds": [
+      "Lewis"
+    ],
+    "Kind": "character",
+    "Text": "刘易斯是鹈鹕镇的镇长，负责镇上事务和多项公共庆典。",
+    "Aliases": [
+      "Lewis",
+      "刘易斯",
+      "镇长",
+      "村长",
+      "mayor"
+    ],
+    "Source": "https://stardewvalleywiki.com/Lewis",
+    "KnownBy": [],
+    "ReviewedAt": "2026-11-07",
+    "GameVersion": "1.6",
+    "Locale": "zh-CN"
+  },
+  {
+    "Id": "npc.Linus",
+    "FactKey": "npc.Linus.identity",
+    "EntityIds": [
+      "Linus"
+    ],
+    "Kind": "character",
+    "Text": "莱纳斯在镇北山区过着贴近自然的生活，熟悉野外。",
+    "Aliases": [
+      "Linus",
+      "莱纳斯"
+    ],
+    "Source": "https://stardewvalleywiki.com/Linus",
+    "KnownBy": [],
+    "ReviewedAt": "2026-11-07",
+    "GameVersion": "1.6",
+    "Locale": "zh-CN"
+  },
+  {
+    "Id": "npc.Marnie",
+    "FactKey": "npc.Marnie.identity",
+    "EntityIds": [
+      "Marnie"
+    ],
+    "Kind": "character",
+    "Text": "玛妮经营煤矿森林附近的牧场，出售动物及饲养用品。",
+    "Aliases": [
+      "Marnie",
+      "玛妮",
+      "买动物",
+      "牧场主"
+    ],
+    "Source": "https://stardewvalleywiki.com/Marnie",
+    "KnownBy": [],
+    "ReviewedAt": "2026-11-07",
+    "GameVersion": "1.6",
+    "Locale": "zh-CN"
+  },
+  {
+    "Id": "npc.Pam",
+    "FactKey": "npc.Pam.identity",
+    "EntityIds": [
+      "Pam"
+    ],
+    "Kind": "character",
+    "Text": "潘姆是潘妮的母亲，有驾驶镇上巴士的经历；巴士是否恢复运行以当前游戏为准。",
+    "Aliases": [
+      "Pam",
+      "潘姆"
+    ],
+    "Source": "https://stardewvalleywiki.com/Pam",
+    "KnownBy": [],
+    "ReviewedAt": "2026-11-07",
+    "GameVersion": "1.6",
+    "Locale": "zh-CN"
+  },
+  {
+    "Id": "npc.Pierre",
+    "FactKey": "npc.Pierre.identity",
+    "EntityIds": [
+      "Pierre"
+    ],
+    "Kind": "character",
+    "Text": "皮埃尔经营镇上的杂货店，出售种子并收购农产品。",
+    "Aliases": [
+      "Pierre",
+      "皮埃尔",
+      "买种子",
+      "种子店"
+    ],
+    "Source": "https://stardewvalleywiki.com/Pierre",
+    "KnownBy": [],
+    "ReviewedAt": "2026-11-07",
+    "GameVersion": "1.6",
+    "Locale": "zh-CN"
+  },
+  {
+    "Id": "npc.Robin",
+    "FactKey": "npc.Robin.identity",
+    "EntityIds": [
+      "Robin"
+    ],
+    "Kind": "character",
+    "Text": "罗宾是镇上的木匠，经营木匠商店，熟悉建筑和木工。",
+    "Aliases": [
+      "Robin",
+      "罗宾"
+    ],
+    "Source": "https://stardewvalleywiki.com/Robin",
+    "KnownBy": [],
+    "ReviewedAt": "2026-11-07",
+    "GameVersion": "1.6",
+    "Locale": "zh-CN"
+  },
+  {
+    "Id": "npc.Sandy",
+    "FactKey": "npc.Sandy.identity",
+    "EntityIds": [
+      "Sandy"
+    ],
+    "Kind": "character",
+    "Text": "桑迪经营卡利科沙漠的绿洲商店。",
+    "Aliases": [
+      "Sandy",
+      "桑迪",
+      "绿洲商店",
+      "Oasis"
+    ],
+    "Source": "https://stardewvalleywiki.com/Sandy",
+    "KnownBy": [],
+    "ReviewedAt": "2026-11-07",
+    "GameVersion": "1.6",
+    "Locale": "zh-CN"
+  },
+  {
+    "Id": "npc.Vincent",
+    "FactKey": "npc.Vincent.identity",
+    "EntityIds": [
+      "Vincent"
+    ],
+    "Kind": "character",
+    "Text": "文森特是乔迪和肯特的小儿子，很崇拜哥哥山姆，与贾斯是好朋友。",
+    "Aliases": [
+      "Vincent",
+      "文森特"
+    ],
+    "Source": "https://stardewvalleywiki.com/Vincent",
+    "KnownBy": [],
+    "ReviewedAt": "2026-11-07",
+    "GameVersion": "1.6",
+    "Locale": "zh-CN"
+  },
+  {
+    "Id": "npc.Willy",
+    "FactKey": "npc.Willy.identity",
+    "EntityIds": [
+      "Willy"
+    ],
+    "Kind": "character",
+    "Text": "威利经营海边鱼店，售卖鱼饵和钓鱼用品，成长时曾在芬群岛一带旅行。",
+    "Aliases": [
+      "Willy",
+      "威利",
+      "渔夫",
+      "渔具店",
+      "fisherman"
+    ],
+    "Source": "https://stardewvalleywiki.com/Willy",
+    "KnownBy": [],
+    "ReviewedAt": "2026-11-07",
+    "GameVersion": "1.6",
+    "Locale": "zh-CN"
+  },
+  {
+    "Id": "npc.Wizard",
+    "FactKey": "npc.Wizard.identity",
+    "EntityIds": [
+      "Wizard"
+    ],
+    "Kind": "character",
+    "Text": "法师也称 M. Rasmodius，在煤矿森林西侧的塔里研究神秘学。",
+    "Aliases": [
+      "Wizard",
+      "法师"
+    ],
+    "Source": "https://stardewvalleywiki.com/Wizard",
+    "KnownBy": [],
+    "ReviewedAt": "2026-11-07",
+    "GameVersion": "1.6",
+    "Locale": "zh-CN"
+  },
+  {
+    "Id": "npc.Krobus",
+    "FactKey": "npc.Krobus.identity",
+    "EntityIds": [
+      "Krobus"
+    ],
+    "Kind": "character",
+    "Text": "科罗布斯是友善的影子人，会出售稀有物品；与玩家同住时是室友关系。",
+    "Aliases": [
+      "Krobus",
+      "科罗布斯",
+      "影子人"
+    ],
+    "Source": "https://stardewvalleywiki.com/Krobus",
+    "KnownBy": [
+      "Krobus"
+    ],
+    "ReviewedAt": "2026-11-07",
+    "GameVersion": "1.6",
+    "Locale": "zh-CN"
+  },
+  {
+    "Id": "npc.Dwarf",
+    "FactKey": "npc.Dwarf.identity",
+    "EntityIds": [
+      "Dwarf"
+    ],
+    "Kind": "character",
+    "Text": "矮人是矿井中的居民，有自己的语言；不能默认玩家已经能理解矮人语。",
+    "Aliases": [
+      "Dwarf",
+      "矮人"
+    ],
+    "Source": "https://stardewvalleywiki.com/Dwarf",
+    "KnownBy": [
+      "Dwarf"
+    ],
+    "ReviewedAt": "2026-11-07",
+    "GameVersion": "1.6",
+    "Locale": "zh-CN"
+  },
+  {
+    "Id": "npc.Leo",
+    "FactKey": "npc.Leo.identity",
+    "EntityIds": [
+      "Leo"
+    ],
+    "Kind": "character",
+    "Text": "雷欧是在姜岛成长的孩子，把岛上的鹦鹉当作家人；现居地取决于游戏进展。",
+    "Aliases": [
+      "Leo",
+      "雷欧"
+    ],
+    "Source": "https://stardewvalleywiki.com/Leo",
+    "KnownBy": [
+      "Leo"
+    ],
+    "ReviewedAt": "2026-11-07",
+    "GameVersion": "1.6",
+    "Locale": "zh-CN"
+  },
+  {
+    "Id": "npc.Birdie",
+    "FactKey": "npc.Birdie.identity",
+    "EntityIds": [
+      "Birdie"
+    ],
+    "Kind": "character",
+    "Text": "伯蒂是住在姜岛西侧的老妇人，亡夫曾是一名海盗船长。",
+    "Aliases": [
+      "Birdie",
+      "伯蒂",
+      "贝啼"
+    ],
+    "Source": "https://stardewvalleywiki.com/Birdie",
+    "KnownBy": [
+      "Birdie"
+    ],
+    "ReviewedAt": "2026-11-07",
+    "GameVersion": "1.6",
+    "Locale": "zh-CN"
+  },
+  {
+    "Id": "npc.Bouncer",
+    "FactKey": "npc.Bouncer.identity",
+    "EntityIds": [
+      "Bouncer"
+    ],
+    "Kind": "character",
+    "Text": "保镖负责绿洲商店后方入口的通行检查。",
+    "Aliases": [
+      "Bouncer",
+      "保镖",
+      "门卫"
+    ],
+    "Source": "https://stardewvalleywiki.com/Bouncer",
+    "KnownBy": [
+      "Bouncer"
+    ],
+    "ReviewedAt": "2026-11-07",
+    "GameVersion": "1.6",
+    "Locale": "zh-CN"
+  },
+  {
+    "Id": "npc.Gil",
+    "FactKey": "npc.Gil.identity",
+    "EntityIds": [
+      "Gil"
+    ],
+    "Kind": "character",
+    "Text": "吉尔在冒险者公会与马龙共事，会为完成怪物讨伐目标的人提供奖励。",
+    "Aliases": [
+      "Gil",
+      "吉尔"
+    ],
+    "Source": "https://stardewvalleywiki.com/Gil",
+    "KnownBy": [],
+    "ReviewedAt": "2026-11-07",
+    "GameVersion": "1.6",
+    "Locale": "zh-CN"
+  },
+  {
+    "Id": "npc.Governor",
+    "FactKey": "npc.Governor.identity",
+    "EntityIds": [
+      "Governor"
+    ],
+    "Kind": "character",
+    "Text": "州长会参加夏威夷宴会，品尝居民共同准备的食物。",
+    "Aliases": [
+      "Governor",
+      "州长"
+    ],
+    "Source": "https://stardewvalleywiki.com/Governor",
+    "KnownBy": [],
+    "ReviewedAt": "2026-11-07",
+    "GameVersion": "1.6",
+    "Locale": "zh-CN"
+  },
+  {
+    "Id": "npc.Grandpa",
+    "FactKey": "npc.Grandpa.identity",
+    "EntityIds": [
+      "Grandpa"
+    ],
+    "Kind": "character",
+    "Text": "爷爷通过信件把农场留给玩家，这是玩家来到星露谷的缘由。",
+    "Aliases": [
+      "Grandpa",
+      "爷爷"
+    ],
+    "Source": "https://stardewvalleywiki.com/Grandpa",
+    "KnownBy": [
+      "Grandpa"
+    ],
+    "ReviewedAt": "2026-11-07",
+    "GameVersion": "1.6",
+    "Locale": "zh-CN"
+  },
+  {
+    "Id": "npc.Gunther",
+    "FactKey": "npc.Gunther.identity",
+    "EntityIds": [
+      "Gunther"
+    ],
+    "Kind": "character",
+    "Text": "冈瑟管理镇上的考古中心与博物馆，接受古物和矿物捐赠。",
+    "Aliases": [
+      "Gunther",
+      "冈瑟",
+      "博物馆管理员",
+      "捐赠古物",
+      "curator"
+    ],
+    "Source": "https://stardewvalleywiki.com/Gunther",
+    "KnownBy": [],
+    "ReviewedAt": "2026-11-07",
+    "GameVersion": "1.6",
+    "Locale": "zh-CN"
+  },
+  {
+    "Id": "npc.Henchman",
+    "FactKey": "npc.Henchman.identity",
+    "EntityIds": [
+      "Henchman"
+    ],
+    "Kind": "character",
+    "Text": "仆从是守在女巫沼泽、看守女巫小屋通路的哥布林。",
+    "Aliases": [
+      "Henchman",
+      "仆从"
+    ],
+    "Source": "https://stardewvalleywiki.com/Henchman",
+    "KnownBy": [
+      "Henchman"
+    ],
+    "ReviewedAt": "2026-11-07",
+    "GameVersion": "1.6",
+    "Locale": "zh-CN"
+  },
+  {
+    "Id": "npc.Marlon",
+    "FactKey": "npc.Marlon.identity",
+    "EntityIds": [
+      "Marlon"
+    ],
+    "Kind": "character",
+    "Text": "马龙在冒险者公会工作，与吉尔共事，熟悉矿井中的怪物。",
+    "Aliases": [
+      "Marlon",
+      "马龙"
+    ],
+    "Source": "https://stardewvalleywiki.com/Marlon",
+    "KnownBy": [],
+    "ReviewedAt": "2026-11-07",
+    "GameVersion": "1.6",
+    "Locale": "zh-CN"
+  },
+  {
+    "Id": "npc.Morris",
+    "FactKey": "npc.Morris.identity",
+    "EntityIds": [
+      "Morris"
+    ],
+    "Kind": "character",
+    "Text": "莫里斯是 Joja 超市的经理和客户服务代表；他的在场与工作状态以存档为准。",
+    "Aliases": [
+      "Morris",
+      "莫里斯",
+      "超市经理",
+      "Joja经理"
+    ],
+    "Source": "https://stardewvalleywiki.com/Morris",
+    "KnownBy": [],
+    "ReviewedAt": "2026-11-07",
+    "GameVersion": "1.6",
+    "Locale": "zh-CN"
+  },
+  {
+    "Id": "npc.Mister Qi",
+    "FactKey": "npc.Mister Qi.identity",
+    "EntityIds": [
+      "Mister Qi"
+    ],
+    "Kind": "character",
+    "Text": "齐先生是一位神秘人物，与一系列挑战有关；不能自行揭露尚未接触的挑战。",
+    "Aliases": [
+      "Mister Qi",
+      "齐先生"
+    ],
+    "Source": "https://stardewvalleywiki.com/Mr._Qi",
+    "KnownBy": [
+      "Mister Qi"
+    ],
+    "ReviewedAt": "2026-11-07",
+    "GameVersion": "1.6",
+    "Locale": "zh-CN"
+  },
+  {
+    "Id": "npc.Old Mariner",
+    "FactKey": "npc.Old Mariner.identity",
+    "EntityIds": [
+      "Old Mariner"
+    ],
+    "Kind": "character",
+    "Text": "老水手出售用于求婚的美人鱼吊坠，是否出现取决于天气与通路等条件。",
+    "Aliases": [
+      "Old Mariner",
+      "老水手"
+    ],
+    "Source": "https://stardewvalleywiki.com/Old_Mariner",
+    "KnownBy": [
+      "Old Mariner"
+    ],
+    "ReviewedAt": "2026-11-07",
+    "GameVersion": "1.6",
+    "Locale": "zh-CN"
+  },
+  {
+    "Id": "npc.Bear",
+    "FactKey": "npc.Bear.identity",
+    "EntityIds": [
+      "Bear"
+    ],
+    "Kind": "character",
+    "Text": "这只熊喜欢枫糖浆，对森林里的浆果有自己的知识。",
+    "Aliases": [
+      "Bear",
+      "熊",
+      "枫糖浆",
+      "浆果"
+    ],
+    "Source": "https://stardewvalleywiki.com/Bear%27s_Knowledge",
+    "KnownBy": [
+      "Bear"
+    ],
+    "ReviewedAt": "2026-11-07",
+    "GameVersion": "1.6",
+    "Locale": "zh-CN"
+  },
+  {
+    "Id": "npc.Welwick",
+    "FactKey": "npc.Welwick.identity",
+    "EntityIds": [
+      "Welwick"
+    ],
+    "Kind": "character",
+    "Text": "维尔维克是电视占卜节目中的占卜师；没有当天游戏信息时不能断言今日运气。",
+    "Aliases": [
+      "Welwick",
+      "维尔维克",
+      "占卜师",
+      "fortune teller"
+    ],
+    "Source": "https://stardewvalleywiki.com/Television",
+    "KnownBy": [],
+    "ReviewedAt": "2026-11-07",
+    "GameVersion": "1.6",
+    "Locale": "zh-CN"
+  },
+  {
+    "Id": "npc.???",
+    "FactKey": "npc.???.identity",
+    "EntityIds": [
+      "???"
+    ],
+    "Kind": "character",
+    "Text": "这个角色的显示名字为“???”，真实身份尚未确认。",
+    "Aliases": [
+      "???"
+    ],
+    "Source": "game:Data/Characters/???/DisplayName",
+    "KnownBy": [
+      "???"
+    ],
+    "ReviewedAt": "2026-11-07",
+    "GameVersion": "1.6",
+    "Locale": "zh-CN"
+  }
+]

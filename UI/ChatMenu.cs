@@ -9,6 +9,7 @@ using StardewModdingAPI;
 using StardewValley;
 using StardewValley.Menus;
 using SV_SOUL.Agents;
+using SV_SOUL.Models;
 
 namespace SV_SOUL.UI;
 
@@ -19,9 +20,20 @@ public class ChatMenu : IClickableMenu
     private readonly Texture2D? _portrait;
     private readonly TextInputBox _textInput;
     private readonly List<ChatBubble> _bubbles = new();
-    private readonly ConcurrentQueue<string> _responseQueue = new();
     private readonly IMonitor _monitor;
+    private readonly QuickReplyPager _choices = new();
+    private readonly Func<string>? _contextProvider;
+    private Rectangle[] _choiceBounds = Array.Empty<Rectangle>();
+    private Rectangle _moreBounds;
+    private int _choiceRows = 2;
+    private bool _hasReply;
+    private string _lastNpcReply="";
+    private bool _controllerNavigation;
+    private const int ChoiceHeight = 48;
     private bool _awaitingResponse;
+    private long _viewRevision = -1;
+    private int _historyLimit = 50;
+    private bool _loadingOlder;
     private int _scrollOffset;
     private int _totalContentHeight;
     private bool _textInputFocused;
@@ -37,44 +49,101 @@ public class ChatMenu : IClickableMenu
     private const int BubbleSpacing = 14;
     private static readonly int LineHeight = (int)CharSize.Y + 6;
 
-    public ChatMenu(NPCAgent agent, Texture2D? portrait, IMonitor monitor, Action<string, string> onPlayerSubmit)
+    public ChatMenu(NPCAgent agent, Texture2D? portrait, IMonitor monitor, Action<string, string> onPlayerSubmit, string? greeting = null, Func<string>? contextProvider = null, bool controllerInput = false)
         : base(0, 0, 0, 0, true)
     {
         _agent = agent;
+        _contextProvider = contextProvider;
         _portrait = portrait;
         _monitor = monitor;
         _onPlayerSubmit = onPlayerSubmit;
 
-        _textInput = new TextInputBox();
+        _textInput = new TextInputBox { IsChinese = agent.IsChinese };
         _textInput.OnSubmit = OnPlayerMessage;
+        _controllerNavigation=controllerInput || Game1.options.gamepadControls;
+        _textInput.IsFocused = _textInputFocused = !_controllerNavigation;
 
         // Hook IME input
         Game1.game1.Window.TextInput += OnTextInput;
 
         _monitor.Log($"ChatMenu opened for {agent.DisplayName}", LogLevel.Debug);
 
-        // Position at bottom center: 80% width, double height
-        var viewW = Game1.uiViewport.Width;
-        var viewH = Game1.uiViewport.Height;
-        width = (int)(viewW * 0.8);
-        height = 600;
-        xPositionOnScreen = (viewW - width) / 2;
-        yPositionOnScreen = viewH - height - InputBoxHeight - BoxSpacing - BottomMargin;
-
+        RefreshChoices();
         UpdateLayout();
 
-        AddBubble(agent.DisplayName, "Hey there! What's on your mind?", false);
+        SyncConversation();
+        if (_bubbles.Count == 0) AddBubble(agent.DisplayName, greeting ?? agent.GetGreeting(), false);
     }
 
     private void UpdateLayout()
     {
+        var viewW = Game1.uiViewport.Width;
+        var viewH = Game1.uiViewport.Height;
+        _choiceRows = viewH < 600 ? 1 : 2;
+        _choices.SetPageSize(_choiceRows*2);
+        width = Math.Min(1000, Math.Max(240, viewW - 64));
+        height = Math.Min(560, Math.Max(120, viewH - InputBoxHeight - _choiceRows*(ChoiceHeight+BoxSpacing) - 80));
+        xPositionOnScreen = (viewW - width) / 2;
+        yPositionOnScreen = Math.Max(16, (viewH - height - InputBoxHeight - _choiceRows*(ChoiceHeight+BoxSpacing) - 48) / 2);
+        _totalContentHeight = 0;
+        foreach (var bubble in _bubbles)
+        {
+            bubble.WrappedLines = WrapText(bubble.Text, Math.Max(1, GetChatArea().Width - 32));
+            bubble.Height = (bubble.WrappedLines.Count + 1) * LineHeight + 12;
+            _totalContentHeight += bubble.Height + BubbleSpacing;
+        }
+        _scrollOffset = Math.Max(0, _totalContentHeight - GetChatArea().Height);
         _textInput.Bounds = new Rectangle(
             xPositionOnScreen,
             yPositionOnScreen + height + BoxSpacing,
-            width,
+            width - 120,
             InputBoxHeight
         );
+        _moreBounds = new Rectangle(_textInput.Bounds.Right+8,_textInput.Bounds.Y,112,InputBoxHeight);
+        _choiceBounds = Enumerable.Range(0,_choiceRows*2).Select(i=>new Rectangle(xPositionOnScreen+(i%2)*((width-8)/2+8),_textInput.Bounds.Bottom+8+(i/2)*(ChoiceHeight+8),(width-8)/2,ChoiceHeight)).ToArray();
     }
+
+    private void RefreshChoices()
+    {
+        string world="{}";
+        try { world=_contextProvider?.Invoke() ?? "{}"; }
+        catch(Exception ex){_monitor.Log("Choice context unavailable: "+ex.GetType().Name,LogLevel.Debug);}
+        _choices.SetItems(QuickReplies.Create(_agent.Personality,world,_agent.IsChinese,_hasReply,_lastNpcReply));
+    }
+    private void FocusChoices() { _textInputFocused=false;_textInput.IsFocused=false; }
+    private void SendChoice()
+    {
+        if(_awaitingResponse)return;
+        if(_choices.Current is { } choice)SubmitTestMessage(choice.Text);
+    }
+    public bool HandleControllerButton(string button)
+    {
+        _controllerNavigation=true;
+        switch(button)
+        {
+            case "ControllerB": Game1.exitActiveMenu();return true;
+            case "ControllerA": FocusChoices();SendChoice();return true;
+            case "ControllerY": FocusChoices();_choices.NextPage();return true;
+            case "ControllerX":
+                if(!_awaitingResponse && !string.IsNullOrWhiteSpace(_textInput.Text))
+                {
+                    _textInput.IsFocused=true;_textInput.HandleKeyPress(Keys.Enter);FocusChoices();
+                }
+                return true;
+            case "DPadLeft": case "LeftThumbstickLeft": FocusChoices();_choices.Move(-1,0);return true;
+            case "DPadRight": case "LeftThumbstickRight": FocusChoices();_choices.Move(1,0);return true;
+            case "DPadUp": case "LeftThumbstickUp": FocusChoices();_choices.Move(0,-1);return true;
+            case "DPadDown": case "LeftThumbstickDown": FocusChoices();_choices.Move(0,1);return true;
+            case "LeftShoulder": _scrollOffset=Math.Max(0,_scrollOffset-Math.Max(40,GetChatArea().Height/2));return true;
+            case "RightShoulder": _scrollOffset=Math.Min(Math.Max(0,_totalContentHeight-GetChatArea().Height),_scrollOffset+Math.Max(40,GetChatArea().Height/2));return true;
+            case "RightThumbstickUp": receiveScrollWheelAction(1);return true;
+            case "RightThumbstickDown": receiveScrollWheelAction(-1);return true;
+            default:return false;
+        }
+    }
+    public object DescribeControls()=>new { Page=_choices.Page, Pages=_choices.PageCount, Selected=_choices.Selected, Choices=_choices.Visible, Waiting=_awaitingResponse, GamepadConnected=GamePad.GetState(PlayerIndex.One).IsConnected, Panel=new {X=xPositionOnScreen,Y=yPositionOnScreen,Width=width,Height=height}, Input=_textInput.Bounds, Buttons=_choiceBounds };
+    // SMAPI routes and suppresses controller buttons, avoiding a second native A-click.
+    public override void receiveGamePadButton(Buttons button) { }
 
     private void OnTextInput(object? sender, TextInputEventArgs e)
     {
@@ -84,19 +153,29 @@ public class ChatMenu : IClickableMenu
         }
     }
 
+    public bool SubmitTestMessage(string text)
+    {
+        if (_awaitingResponse || string.IsNullOrWhiteSpace(text)) return false;
+        OnPlayerMessage(text);
+        return true;
+    }
+
     private void OnPlayerMessage(string text)
     {
-        AddBubble("You", text, true);
+        if(_awaitingResponse || string.IsNullOrWhiteSpace(text))return;
+        if (!_agent.BeginRequest(text)) return;
+        AddBubble(_agent.IsChinese ? "你" : "You", text, true);
         _awaitingResponse = true;
+        _textInput.CanSubmit = false;
         _onPlayerSubmit(_agent.Name, text);
     }
 
     private void AddBubble(string speaker, string text, bool isPlayer)
     {
         var chatArea = GetChatArea();
-        var maxTextWidth = chatArea.Width - 24;
+        var maxTextWidth = Math.Max(1, chatArea.Width - 32);
         var wrappedLines = WrapText(text, maxTextWidth);
-        var bubbleHeight = wrappedLines.Count * LineHeight + 12;
+        var bubbleHeight = (wrappedLines.Count + 1) * LineHeight + 12;
 
         _bubbles.Add(new ChatBubble
         {
@@ -120,7 +199,7 @@ public class ChatMenu : IClickableMenu
 
         var headerBottom = contentY + PortraitSize + 12;
         // Extra 16px bottom padding to prevent clipping
-        return new Rectangle(contentX, headerBottom, contentW, contentY + contentH - headerBottom - 16);
+        return new Rectangle(contentX, headerBottom, contentW, Math.Max(1,contentY + contentH - headerBottom - 16));
     }
 
     private static bool IsCjk(char c)
@@ -203,14 +282,34 @@ public class ChatMenu : IClickableMenu
         return lines;
     }
 
+    protected override void cleanupBeforeExit()
+    {
+        Game1.game1.Window.TextInput -= OnTextInput;
+        base.cleanupBeforeExit();
+    }
+
     public override void receiveKeyPress(Keys key)
     {
+        _controllerNavigation=false;
         if (key == Keys.Escape)
         {
             Game1.exitActiveMenu();
             return;
         }
 
+        if(key==Keys.Tab) { _textInputFocused=!_textInputFocused;_textInput.IsFocused=_textInputFocused;return; }
+        if(key==Keys.PageUp){receiveScrollWheelAction(1);return;}
+        if(key==Keys.PageDown){receiveScrollWheelAction(-1);return;}
+        if(!_textInputFocused)
+        {
+            if(key==Keys.Left)_choices.Move(-1,0);
+            if(key==Keys.Right)_choices.Move(1,0);
+            if(key==Keys.Up)_choices.Move(0,-1);
+            if(key==Keys.Down)_choices.Move(0,1);
+            if(key==Keys.Enter)SendChoice();
+            if(key==Keys.Space)_choices.NextPage();
+            return;
+        }
         if (_textInputFocused)
         {
             _textInput.OnKeyDown(key);
@@ -220,12 +319,16 @@ public class ChatMenu : IClickableMenu
 
     public override void receiveScrollWheelAction(int direction)
     {
-        _scrollOffset -= direction * 40;
+        _scrollOffset -= Math.Sign(direction) * 40;
         _scrollOffset = Math.Clamp(_scrollOffset, 0, Math.Max(0, _totalContentHeight - GetChatArea().Height));
     }
 
     public override void receiveLeftClick(int x, int y, bool playSound = true)
     {
+        _controllerNavigation=false;
+        if(_moreBounds.Contains(x,y)){FocusChoices();_choices.NextPage();return;}
+        for(int i=0;i<_choices.Visible.Count;i++)
+            if(_choiceBounds[i].Contains(x,y)){FocusChoices();_choices.Select(i);SendChoice();return;}
         var inputRect = _textInput.Bounds;
         if (inputRect.Contains(x, y))
         {
@@ -244,35 +347,50 @@ public class ChatMenu : IClickableMenu
     {
         _textInput.Update(time);
 
-        if (_awaitingResponse && _responseQueue.TryDequeue(out var response))
-        {
-            _awaitingResponse = false;
-            AddBubble(_agent.DisplayName, response, false);
-        }
+        if (_scrollOffset == 0 && _bubbles.Count >= _historyLimit) { _historyLimit += 50; _viewRevision = -1; _loadingOlder=true; }
+        SyncConversation();
+    }
+
+    private void SyncConversation()
+    {
+        if (_agent.ViewRevision == _viewRevision) return;
+        var view = _agent.ConversationView(_historyLimit);
+        if (view.Revision == _viewRevision) return;
+        var oldHeight = _totalContentHeight;
+        var oldOffset = _scrollOffset;
+        var bottom = oldHeight == 0 || oldOffset >= oldHeight - GetChatArea().Height - 8;
+        _viewRevision = view.Revision;
+        _bubbles.Clear(); _totalContentHeight = 0;
+        foreach (var turn in view.Messages)
+            AddBubble(turn.Role == "user" ? (_agent.IsChinese ? "你" : "You") : _agent.DisplayName, turn.Content, turn.Role == "user");
+        if (view.Draft != null) AddBubble(_agent.IsChinese ? "你" : "You", view.Draft, true);
+        if (view.Error != null) AddBubble(_agent.IsChinese ? "请求状态" : "Request status", view.Error, false);
+        _awaitingResponse = view.Pending; _textInput.CanSubmit = !view.Pending;
+        _lastNpcReply = view.Messages.LastOrDefault(t => t.Role == "assistant")?.Content ?? "";
+        _hasReply = _lastNpcReply.Length > 0;
+        if (!bottom || _loadingOlder) _scrollOffset = Math.Max(0, oldOffset + (_loadingOlder ? _totalContentHeight - oldHeight : 0));
+        _loadingOlder=false;
+        RefreshChoices();
     }
 
     public void EnqueueResponse(string response)
     {
         _monitor.Log($"[{_agent.Name}] Enqueueing response: {response.Substring(0, Math.Min(100, response.Length))}...", LogLevel.Debug);
-        _responseQueue.Enqueue(response);
+        // Replies are observed through the shared conversation revision.
     }
 
     public override void gameWindowSizeChanged(Rectangle oldBounds, Rectangle newBounds)
     {
         base.gameWindowSizeChanged(oldBounds, newBounds);
-        var viewW = Game1.uiViewport.Width;
-        var viewH = Game1.uiViewport.Height;
-        width = (int)(viewW * 0.8);
-        height = 600;
-        xPositionOnScreen = (viewW - width) / 2;
-        yPositionOnScreen = viewH - height - InputBoxHeight - BoxSpacing - BottomMargin;
         UpdateLayout();
     }
 
     public override void draw(SpriteBatch b)
     {
+        b.Draw(Game1.staminaRect, new Rectangle(0, 0, Game1.uiViewport.Width, Game1.uiViewport.Height), Color.Black * 0.35f);
         // Main dialogue box at bottom center
-        Game1.drawDialogueBox(xPositionOnScreen, yPositionOnScreen, width, height, false, true);
+        IClickableMenu.drawTextureBox(b, Game1.mouseCursors, new Rectangle(384, 396, 15, 15),
+            xPositionOnScreen, yPositionOnScreen, width, height, Color.White, 4f, false);
 
         var chatArea = GetChatArea();
 
@@ -292,6 +410,9 @@ public class ChatMenu : IClickableMenu
         var nameY = portraitY + 16;
         DrawText(b, _agent.DisplayName, new Vector2(nameX, nameY), Game1.textColor);
 
+        if (_awaitingResponse)
+            DrawText(b, _agent.IsChinese ? "正在思考…" : "Thinking…", new Vector2(nameX, nameY + LineHeight), Color.Gray);
+
         // Chat messages (scrollable, clipped)
         var prevScissor = b.GraphicsDevice.ScissorRectangle;
         b.End();
@@ -308,16 +429,6 @@ public class ChatMenu : IClickableMenu
             bubbleY += bubble.Height + BubbleSpacing;
         }
 
-        if (_awaitingResponse)
-        {
-            var thinkingY = bubbleY;
-            if (thinkingY > chatArea.Y && thinkingY < chatArea.Bottom)
-            {
-                var dots = new string('.', (int)(Game1.ticks / 15) % 4);
-                DrawText(b, $"{_agent.DisplayName} is thinking{dots}", new Vector2(chatArea.X + 4, thinkingY + 4), Color.Gray);
-            }
-        }
-
         b.End();
         b.GraphicsDevice.ScissorRectangle = prevScissor;
         b.Begin(SpriteSortMode.Deferred, BlendState.AlphaBlend, SamplerState.PointClamp);
@@ -329,10 +440,23 @@ public class ChatMenu : IClickableMenu
             new Color(249, 239, 200, 180), 2f, false);
         _textInput.Draw(b);
 
-        // Close hint
-        var hintX = xPositionOnScreen + width - 160;
-        var hintY = inputBounds.Y + inputBounds.Height + 4;
-        DrawText(b, "[Esc] to close", new Vector2(hintX, hintY), Color.Gray);
+        IClickableMenu.drawTextureBox(b,Game1.mouseCursors,new Rectangle(384,396,15,15),_moreBounds.X,_moreBounds.Y,_moreBounds.Width,_moreBounds.Height,Color.White,2f,false);
+        DrawText(b,_agent.IsChinese?"换话题":"More",new Vector2(_moreBounds.X+12,_moreBounds.Y+18),Game1.textColor);
+        var visible=_choices.Visible;
+        for(int i=0;i<visible.Count;i++)
+        {
+            var bounds=_choiceBounds[i];
+            var tint=_awaitingResponse?new Color(205,198,180):!_textInputFocused&&i==_choices.Selected?new Color(255,217,120):new Color(249,239,200);
+            IClickableMenu.drawTextureBox(b,Game1.mouseCursors,new Rectangle(384,396,15,15),bounds.X,bounds.Y,bounds.Width,bounds.Height,tint,2f,false);
+            var label=visible[i].Text;
+            while(label.Length>1 && Font.MeasureString(label+"…").X>bounds.Width-24)label=label[..^1];
+            if(label!=visible[i].Text)label+="…";
+            DrawText(b,label,new Vector2(bounds.X+12,bounds.Y+(bounds.Height-CharSize.Y)/2),_awaitingResponse?Color.Gray:Game1.textColor);
+        }
+        var hint=_agent.IsChinese?$"A 发送  B 关闭  Y 换页  LB/RB 滚动  {_choices.Page+1}/{_choices.PageCount}":$"A Send  B Close  Y Next  LB/RB Scroll  {_choices.Page+1}/{_choices.PageCount}";
+        if(!_controllerNavigation)hint=_agent.IsChinese?$"Tab 切换输入/选项  回车发送  空格换页  Esc 关闭  {_choices.Page+1}/{_choices.PageCount}":$"Tab Focus  Enter Send  Space Next  Esc Close  {_choices.Page+1}/{_choices.PageCount}";
+        while(hint.Length>0 && Font.MeasureString(hint).X>width)hint=hint[..^1];
+        DrawText(b,hint,new Vector2(xPositionOnScreen,_choiceBounds[^1].Bottom+6),Color.LightGray);
 
         drawMouse(b);
     }

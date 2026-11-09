@@ -1,0 +1,471 @@
+PASS married stage context
+PASS unknown dates protected
+PASS reply 0
+PASS reply 1
+PASS reply 2
+PASS reply 3
+PASS reply 4
+PASS reply 5
+PASS reply 6
+PASS reply 7
+PASS reply 8
+PASS reply 9
+PASS slow extraction does not block reply
+PASS one background extraction
+PASS evidence-backed extraction
+PASS bounded prompt history
+PASS stable evidence and timestamp
+PASS failed request not persisted
+PASS rollback restores saved memory
+PASS save isolation
+PASS NPC isolation
+PASS temporal supersession
+PASS invented evidence rejected
+PASS Anthropic compatibility
+PASS bilingual retrieval 钓鱼
+PASS bilingual retrieval fishing
+PASS bilingual retrieval 紫水晶
+PASS bilingual retrieval amethyst
+PASS bilingual retrieval 南瓜
+PASS bilingual retrieval pumpkin
+Warm 10k recall P95: 2.02 ms
+PASS game calendar season boundary
+PASS enum season capitalization compatibility
+PASS historical facts can be recalled
+PASS obsolete facts excluded from current recall
+PASS long biography cannot evict facts or language
+PASS export is detached snapshot
+PASS relationship memory reset
+PASS old session cancellation
+PASS recency follows game time before real time
+PASS dialogue scene hides raw stat fields
+PASS roommate remains distinct from marriage
+PASS subjective wishes remain distinct from completed actions
+PASS marriage examples do not leak to strangers
+PASS marriage example selected for spouse
+PASS Abigail complete profile
+PASS Abigail romance context
+PASS Abigail relationship stages
+PASS Alex complete profile
+PASS Alex romance context
+PASS Alex relationship stages
+PASS Bear complete profile
+PASS Bear rejects unconfirmed romance
+PASS Bear social profile preserves vanilla
+PASS Birdie complete profile
+PASS Birdie rejects unconfirmed romance
+PASS Birdie social profile preserves vanilla
+PASS Bouncer complete profile
+PASS Bouncer rejects unconfirmed romance
+PASS Bouncer social profile preserves vanilla
+PASS Caroline complete profile
+PASS Caroline rejects unconfirmed romance
+PASS Caroline social profile preserves vanilla
+PASS Clint complete profile
+PASS Clint rejects unconfirmed romance
+PASS Clint social profile preserves vanilla
+PASS Demetrius complete profile
+PASS Demetrius rejects unconfirmed romance
+PASS Demetrius social profile preserves vanilla
+PASS Dwarf complete profile
+PASS Dwarf rejects unconfirmed romance
+PASS Dwarf social profile preserves vanilla
+PASS Elliott complete profile
+PASS Elliott romance context
+PASS Elliott relationship stages
+PASS Emily complete profile
+PASS Emily romance context
+PASS Emily relationship stages
+PASS Evelyn complete profile
+PASS Evelyn rejects unconfirmed romance
+PASS Evelyn social profile preserves vanilla
+PASS George complete profile
+PASS George rejects unconfirmed romance
+PASS George social profile preserves vanilla
+PASS Gil complete profile
+PASS Gil rejects unconfirmed romance
+PASS Gil social profile preserves vanilla
+PASS Governor complete profile
+PASS Governor rejects unconfirmed romance
+PASS Governor social profile preserves vanilla
+PASS Grandpa complete profile
+PASS Grandpa rejects unconfirmed romance
+PASS Grandpa social profile preserves vanilla
+PASS Gunther complete profile
+PASS Gunther rejects unconfirmed romance
+PASS Gunther social profile preserves vanilla
+PASS Gus complete profile
+PASS Gus rejects unconfirmed romance
+PASS Gus social profile preserves vanilla
+PASS Haley complete profile
+PASS Haley romance context
+PASS Haley relationship stages
+PASS Harvey complete profile
+PASS Harvey romance context
+PASS Harvey relationship stages
+PASS Henchman complete profile
+PASS Henchman rejects unconfirmed romance
+PASS Henchman social profile preserves vanilla
+PASS Jas complete profile
+PASS Jas rejects unconfirmed romance
+PASS Jas social profile preserves vanilla
+PASS Jodi complete profile
+PASS Jodi rejects unconfirmed romance
+PASS Jodi social profile preserves vanilla
+PASS Kent complete profile
+PASS Kent rejects unconfirmed romance
+PASS Kent social profile preserves vanilla
+PASS Krobus complete profile
+PASS Krobus rejects unconfirmed romance
+PASS Krobus social profile preserves vanilla
+PASS Leah complete profile
+PASS Leah romance context
+PASS Leah relationship stages
+PASS Leo complete profile
+PASS Leo rejects unconfirmed romance
+PASS Leo social profile preserves vanilla
+PASS Lewis complete profile
+PASS Lewis rejects unconfirmed romance
+PASS Lewis social profile preserves vanilla
+PASS Linus complete profile
+PASS Linus rejects unconfirmed romance
+PASS Linus social profile preserves vanilla
+PASS Marlon complete profile
+PASS Marlon rejects unconfirmed romance
+PASS Marlon social profile preserves vanilla
+PASS Marnie complete profile
+PASS Marnie rejects unconfirmed romance
+PASS Marnie social profile preserves vanilla
+PASS Maru complete profile
+PASS Maru romance context
+PASS Maru relationship stages
+PASS Mister Qi complete profile
+PASS Mister Qi rejects unconfirmed romance
+PASS Mister Qi social profile preserves vanilla
+PASS Morris complete profile
+PASS Morris rejects unconfirmed romance
+PASS Morris social profile preserves vanilla
+PASS ??? complete profile
+PASS ??? rejects unconfirmed romance
+PASS ??? social profile preserves vanilla
+PASS Old Mariner complete profile
+PASS Old Mariner rejects unconfirmed romance
+PASS Old Mariner social profile preserves vanilla
+PASS Pam complete profile
+PASS Pam rejects unconfirmed romance
+PASS Pam social profile preserves vanilla
+PASS Penny complete profile
+PASS Penny romance context
+PASS Penny relationship stages
+PASS Pierre complete profile
+PASS Pierre rejects unconfirmed romance
+PASS Pierre social profile preserves vanilla
+PASS Robin complete profile
+PASS Robin rejects unconfirmed romance
+PASS Robin social profile preserves vanilla
+PASS Sam complete profile
+PASS Sam romance context
+PASS Sam relationship stages
+PASS Sandy complete profile
+PASS Sandy rejects unconfirmed romance
+PASS Sandy social profile preserves vanilla
+PASS Sebastian complete profile
+PASS Sebastian romance context
+PASS Sebastian relationship stages
+PASS Shane complete profile
+PASS Shane romance context
+PASS Shane relationship stages
+PASS Vincent complete profile
+PASS Vincent rejects unconfirmed romance
+PASS Vincent social profile preserves vanilla
+PASS Welwick complete profile
+PASS Welwick rejects unconfirmed romance
+PASS Welwick social profile preserves vanilla
+PASS Willy complete profile
+PASS Willy rejects unconfirmed romance
+PASS Willy social profile preserves vanilla
+PASS Wizard complete profile
+PASS Wizard rejects unconfirmed romance
+PASS Wizard social profile preserves vanilla
+PASS non-romance flirting does not change relationship
+PASS confirmed adult modded marriage respected
+PASS child policy takes priority
+PASS roommate date is not a wedding
+PASS all 48 catalogue profiles are unique
+PASS twelve romance profiles separated
+PASS three child profiles separated
+PASS all NPC mode enabled by default
+PASS birthday festival gift weather triggers
+PASS low-affection marriage preserves identity without assuming intimacy
+PASS service NPC without hearts is not automatically a stranger
+PASS children do not acquire romantic history
+PASS Abigail valid quick choices
+PASS Abigail no assumed relationship quick choice
+PASS Alex valid quick choices
+PASS Alex no assumed relationship quick choice
+PASS Bear valid quick choices
+PASS Bear no assumed relationship quick choice
+PASS Birdie valid quick choices
+PASS Birdie no assumed relationship quick choice
+PASS Bouncer valid quick choices
+PASS Bouncer no assumed relationship quick choice
+PASS Caroline valid quick choices
+PASS Caroline no assumed relationship quick choice
+PASS Clint valid quick choices
+PASS Clint no assumed relationship quick choice
+PASS Demetrius valid quick choices
+PASS Demetrius no assumed relationship quick choice
+PASS Dwarf valid quick choices
+PASS Dwarf no assumed relationship quick choice
+PASS Elliott valid quick choices
+PASS Elliott no assumed relationship quick choice
+PASS Emily valid quick choices
+PASS Emily no assumed relationship quick choice
+PASS Evelyn valid quick choices
+PASS Evelyn no assumed relationship quick choice
+PASS George valid quick choices
+PASS George no assumed relationship quick choice
+PASS Gil valid quick choices
+PASS Gil no assumed relationship quick choice
+PASS Governor valid quick choices
+PASS Governor no assumed relationship quick choice
+PASS Grandpa valid quick choices
+PASS Grandpa no assumed relationship quick choice
+PASS Gunther valid quick choices
+PASS Gunther no assumed relationship quick choice
+PASS Gus valid quick choices
+PASS Gus no assumed relationship quick choice
+PASS Haley valid quick choices
+PASS Haley no assumed relationship quick choice
+PASS Harvey valid quick choices
+PASS Harvey no assumed relationship quick choice
+PASS Henchman valid quick choices
+PASS Henchman no assumed relationship quick choice
+PASS Jas valid quick choices
+PASS Jas no assumed relationship quick choice
+PASS Jodi valid quick choices
+PASS Jodi no assumed relationship quick choice
+PASS Kent valid quick choices
+PASS Kent no assumed relationship quick choice
+PASS Krobus valid quick choices
+PASS Krobus no assumed relationship quick choice
+PASS Leah valid quick choices
+PASS Leah no assumed relationship quick choice
+PASS Leo valid quick choices
+PASS Leo no assumed relationship quick choice
+PASS Lewis valid quick choices
+PASS Lewis no assumed relationship quick choice
+PASS Linus valid quick choices
+PASS Linus no assumed relationship quick choice
+PASS Marlon valid quick choices
+PASS Marlon no assumed relationship quick choice
+PASS Marnie valid quick choices
+PASS Marnie no assumed relationship quick choice
+PASS Maru valid quick choices
+PASS Maru no assumed relationship quick choice
+PASS Mister Qi valid quick choices
+PASS Mister Qi no assumed relationship quick choice
+PASS Morris valid quick choices
+PASS Morris no assumed relationship quick choice
+PASS ??? valid quick choices
+PASS ??? no assumed relationship quick choice
+PASS Old Mariner valid quick choices
+PASS Old Mariner no assumed relationship quick choice
+PASS Pam valid quick choices
+PASS Pam no assumed relationship quick choice
+PASS Penny valid quick choices
+PASS Penny no assumed relationship quick choice
+PASS Pierre valid quick choices
+PASS Pierre no assumed relationship quick choice
+PASS Robin valid quick choices
+PASS Robin no assumed relationship quick choice
+PASS Sam valid quick choices
+PASS Sam no assumed relationship quick choice
+PASS Sandy valid quick choices
+PASS Sandy no assumed relationship quick choice
+PASS Sebastian valid quick choices
+PASS Sebastian no assumed relationship quick choice
+PASS Shane valid quick choices
+PASS Shane no assumed relationship quick choice
+PASS Vincent valid quick choices
+PASS Vincent no assumed relationship quick choice
+PASS Welwick valid quick choices
+PASS Welwick no assumed relationship quick choice
+PASS Willy valid quick choices
+PASS Willy no assumed relationship quick choice
+PASS Wizard valid quick choices
+PASS Wizard no assumed relationship quick choice
+PASS context and follow-up choices
+PASS non-romantic roommate choices
+PASS controller right navigation
+PASS controller down navigation
+PASS next page resets selection
+PASS compact viewport choices
+PASS partial page has no invisible focus
+PASS one page wraps safely
+PASS empty selection is safe
+PASS invitation offers acceptance and refusal
+PASS history page bounded
+PASS shared pending begins
+PASS shared pending rejects duplicate
+PASS reopened view restores pending
+PASS shared failure revision
+PASS emotional chat needs no lore
+PASS background entity retrieval
+PASS English alias retrieval
+PASS unsupported condition excluded
+PASS knowledge owner isolation
+PASS background enters prompt
+PASS unseen event not recalled
+PASS seen event permits owner knowledge
+PASS player progression does not give all NPCs knowledge
+PASS shared index does not leak prior save permission
+PASS followup resolves recent topic
+PASS unrelated emotional message does not inherit topic
+PASS full index includes documents beyond prior 512 cap
+Lore 10000 documents warm P95: 0.066 ms
+PASS warm retrieval P95 below 50ms
+PASS background build scheduled
+PASS chat remains available during blocked build
+PASS concurrent rebuild coalesced
+PASS stale build discarded after invalidation
+PASS detached background snapshot published
+PASS invalidated content cannot be recalled
+PASS bundled lore IDs unique
+PASS bundled background provenance present
+PASS bundled question: 鱼店在哪
+PASS bundled question: 木匠是谁
+PASS bundled question: 猪车卖什么
+PASS bundled question: 百乐汤是什么
+PASS bundled question: 哪里有珊瑚
+PASS AND and OR disclosure conditions satisfied
+PASS missing condition blocks disclosure
+PASS incompatible game version excluded
+PASS English entity aliases respect word boundaries
+PASS withheld knowledge signaled without disclosing facts
+PASS unknown NPC receives no private knowledge hint
+PASS implicit self family question
+PASS implicit self birthday question
+PASS player family does not retrieve NPC family
+PASS self knowledge remains scoped
+PASS all twelve native festival calendars
+PASS native common item descriptions populated
+PASS native localized strings fully resolved
+PASS native provenance and version retained
+PASS native corpus: 你生日是哪天
+PASS native corpus: 你妈妈是谁
+PASS native corpus: 紫水晶是什么
+PASS native corpus: 南瓜是什么
+PASS native corpus: 复活节什么时候
+PASS native corpus: 夜市什么时候
+PASS budget fixture request succeeds 0
+PASS total API prompt budget with long history 0
+PASS budget fixture request succeeds 1
+PASS total API prompt budget with long history 1
+PASS budget fixture request succeeds 2
+PASS total API prompt budget with long history 2
+PASS budget fixture request succeeds 3
+PASS total API prompt budget with long history 3
+PASS budget fixture request succeeds 4
+PASS total API prompt budget with long history 4
+PASS budget fixture request succeeds 5
+PASS total API prompt budget with long history 5
+PASS personal memory, lore and voice coexist under pressure
+PASS effective assets override same curated fact
+PASS retrieval budget for 你妈妈是谁
+PASS retrieval budget for 你的生日是哪天
+PASS retrieval budget for when is your birthday
+PASS retrieval budget for 你有哪些家人
+PASS retrieval budget for 你的母亲是谁
+PASS retrieval budget for 你是做什么工作的
+PASS retrieval budget for 介绍一下你自己
+PASS retrieval budget for 你是谁
+PASS retrieval budget for 鹈鹕镇是什么地方
+PASS retrieval budget for Joja 是什么公司
+PASS retrieval budget for 社区中心是干什么的
+PASS retrieval budget for 谁在经营酒吧
+PASS retrieval budget for 博物馆找谁
+PASS retrieval budget for 祖祖城是什么地方
+PASS retrieval budget for 芬群岛在哪
+PASS retrieval budget for 宝石海在哪
+PASS retrieval budget for 格兰普顿是什么
+PASS retrieval budget for 城堡村有什么特产
+PASS retrieval budget for 草原岛有什么
+PASS retrieval budget for 由巴是什么
+PASS retrieval budget for 鱼店是谁开的
+PASS retrieval budget for 木匠商店找谁
+PASS retrieval budget for 猪车卖东西吗
+PASS retrieval budget for 煤矿森林在哪
+PASS retrieval budget for 沙滩在哪边
+PASS retrieval budget for 采石场有什么
+PASS retrieval budget for 温泉在哪里
+PASS retrieval budget for 后山通向哪里
+PASS retrieval budget for 巴士站在哪
+PASS retrieval budget for 电影院是干什么的
+PASS retrieval budget for 秘密森林有什么
+PASS retrieval budget for 卡利科沙漠有什么商店
+PASS retrieval budget for 骷髅洞穴入口在哪
+PASS retrieval budget for 女巫沼泽在哪
+PASS retrieval budget for 火山在哪
+PASS retrieval budget for 考古帐篷做什么
+PASS retrieval budget for 紫水晶是什么
+PASS retrieval budget for 南瓜是什么
+PASS retrieval budget for Rainbow Trout 是什么
+PASS retrieval budget for 木材有什么用
+PASS retrieval budget for Copper Ore 是什么
+PASS retrieval budget for 介绍一下你自己
+PASS retrieval budget for 复活节有什么活动
+PASS retrieval budget for 花舞节怎么玩
+PASS retrieval budget for 百乐汤是什么
+PASS retrieval budget for 月光水母有什么看头
+PASS retrieval budget for 星露谷展览会有什么
+PASS retrieval budget for 万灵节有什么
+PASS retrieval budget for 冰雪节有什么活动
+PASS retrieval budget for 冬日星盛宴是干什么的
+PASS retrieval budget for 鳟鱼大赛怎么玩
+PASS retrieval budget for 鱿鱼节是什么
+PASS retrieval budget for 夜市有什么
+PASS retrieval budget for 沙漠节有什么活动
+PASS retrieval budget for 复活节什么时候
+PASS retrieval budget for 花舞节是哪天举行
+PASS retrieval budget for 夏威夷宴会几点开始
+PASS retrieval budget for 夜市什么时候开始
+PASS retrieval budget for 鳟鱼大赛什么时候
+PASS retrieval budget for 鱿鱼节什么时候
+PASS retrieval budget for 我今天很疲惫
+PASS retrieval budget for 我有点想你
+PASS retrieval budget for 陪我坐一会吧
+PASS retrieval budget for 谢谢你
+PASS retrieval budget for 我妈妈今天很难过
+PASS retrieval budget for same old day
+PASS retrieval budget for 那个不存在的火星国王是谁
+PASS retrieval budget for 你可以帮我写代码吗
+PASS retrieval budget for 秘密森林有什么
+PASS retrieval budget for 阿比盖尔的生日
+PASS retrieval budget for 元素战争是什么
+PASS retrieval budget for 元素战争是什么
+PASS retrieval budget for 元素战争是什么
+PASS retrieval budget for Joja是什么
+PASS retrieval budget for 那里有什么
+PASS retrieval budget for 那里在哪边
+PASS retrieval budget for 我好难过
+PASS retrieval budget for 沙漠节什么时候
+PASS retrieval budget for 沙漠节什么时候
+PASS retrieval budget for 镇上的医生是谁
+PASS retrieval budget for 孩子的老师是谁
+PASS retrieval budget for 谁是这里的镇长
+PASS retrieval budget for 镇上的科学家是谁
+PASS retrieval budget for 博物馆管理员叫什么
+PASS retrieval budget for 在哪里买动物
+PASS retrieval budget for 绿洲商店是谁开的
+PASS retrieval budget for 谁是超市经理
+PASS retrieval budget for 科罗布斯的生日
+PASS retrieval budget for 今天是什么节日
+PASS retrieval budget for 这里是什么地方
+PASS retrieval budget for 我有点累
+PASS labelled real corpus retrieval:
+Native corpus: 402 entries; item=329; calendar=12; combined=509
+PASS passive festival starts on first day
+PASS passive festival end-day boundary
+PASS unavailable passive festival excluded from today
+467 checks passed.

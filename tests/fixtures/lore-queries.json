@@ -1,0 +1,629 @@
+[
+  {
+    "Npc": "Abigail",
+    "Query": "你妈妈是谁",
+    "ExpectedIds": [
+      "family.Abigail"
+    ]
+  },
+  {
+    "Npc": "Abigail",
+    "Query": "你的生日是哪天",
+    "ExpectedIds": [
+      "birthday.Abigail"
+    ]
+  },
+  {
+    "Npc": "Abigail",
+    "Query": "when is your birthday",
+    "ExpectedIds": [
+      "birthday.Abigail"
+    ]
+  },
+  {
+    "Npc": "Robin",
+    "Query": "你有哪些家人",
+    "ExpectedIds": [
+      "family.Robin"
+    ]
+  },
+  {
+    "Npc": "Penny",
+    "Query": "你的母亲是谁",
+    "ExpectedIds": [
+      "family.Penny"
+    ]
+  },
+  {
+    "Npc": "Harvey",
+    "Query": "你是做什么工作的",
+    "ExpectedIds": [
+      "npc.Harvey"
+    ]
+  },
+  {
+    "Npc": "Leah",
+    "Query": "介绍一下你自己",
+    "ExpectedIds": [
+      "npc.Leah"
+    ]
+  },
+  {
+    "Npc": "Gus",
+    "Query": "你是谁",
+    "ExpectedIds": [
+      "npc.Gus"
+    ]
+  },
+  {
+    "Npc": "Abigail",
+    "Query": "鹈鹕镇是什么地方",
+    "ExpectedIds": [
+      "town"
+    ]
+  },
+  {
+    "Npc": "Penny",
+    "Query": "Joja 是什么公司",
+    "ExpectedIds": [
+      "joja"
+    ]
+  },
+  {
+    "Npc": "Lewis",
+    "Query": "社区中心是干什么的",
+    "ExpectedIds": [
+      "community"
+    ]
+  },
+  {
+    "Npc": "Abigail",
+    "Query": "谁在经营酒吧",
+    "ExpectedIds": [
+      "saloon"
+    ]
+  },
+  {
+    "Npc": "Penny",
+    "Query": "博物馆找谁",
+    "ExpectedIds": [
+      "museum"
+    ]
+  },
+  {
+    "Npc": "Abigail",
+    "Query": "祖祖城是什么地方",
+    "ExpectedIds": [
+      "zuzu"
+    ]
+  },
+  {
+    "Npc": "Leah",
+    "Query": "芬群岛在哪",
+    "ExpectedIds": [
+      "region.fern"
+    ]
+  },
+  {
+    "Npc": "Willy",
+    "Query": "宝石海在哪",
+    "ExpectedIds": [
+      "region.gemsea"
+    ]
+  },
+  {
+    "Npc": "Robin",
+    "Query": "格兰普顿是什么",
+    "ExpectedIds": [
+      "region.grampleton"
+    ]
+  },
+  {
+    "Npc": "Leah",
+    "Query": "城堡村有什么特产",
+    "ExpectedIds": [
+      "region.castle"
+    ]
+  },
+  {
+    "Npc": "Leo",
+    "Query": "草原岛有什么",
+    "ExpectedIds": [
+      "region.prairie"
+    ]
+  },
+  {
+    "Npc": "Gus",
+    "Query": "由巴是什么",
+    "ExpectedIds": [
+      "world.yoba"
+    ]
+  },
+  {
+    "Npc": "Abigail",
+    "Query": "鱼店是谁开的",
+    "ExpectedIds": [
+      "beach.shop"
+    ]
+  },
+  {
+    "Npc": "Abigail",
+    "Query": "木匠商店找谁",
+    "ExpectedIds": [
+      "mountain.carpenter"
+    ]
+  },
+  {
+    "Npc": "Penny",
+    "Query": "猪车卖东西吗",
+    "ExpectedIds": [
+      "forest.cart"
+    ]
+  },
+  {
+    "Npc": "Abigail",
+    "Query": "煤矿森林在哪",
+    "ExpectedIds": [
+      "forest.region"
+    ]
+  },
+  {
+    "Npc": "Penny",
+    "Query": "沙滩在哪边",
+    "ExpectedIds": [
+      "beach.region"
+    ]
+  },
+  {
+    "Npc": "Abigail",
+    "Query": "采石场有什么",
+    "ExpectedIds": [
+      "region.quarry"
+    ]
+  },
+  {
+    "Npc": "Penny",
+    "Query": "温泉在哪里",
+    "ExpectedIds": [
+      "region.spa"
+    ]
+  },
+  {
+    "Npc": "Robin",
+    "Query": "后山通向哪里",
+    "ExpectedIds": [
+      "region.backwoods"
+    ]
+  },
+  {
+    "Npc": "Abigail",
+    "Query": "巴士站在哪",
+    "ExpectedIds": [
+      "region.busstop"
+    ]
+  },
+  {
+    "Npc": "Lewis",
+    "Query": "电影院是干什么的",
+    "ExpectedIds": [
+      "region.cinema"
+    ]
+  },
+  {
+    "Npc": "Linus",
+    "Query": "秘密森林有什么",
+    "ExpectedIds": [
+      "region.secretwoods"
+    ]
+  },
+  {
+    "Npc": "Sandy",
+    "Query": "卡利科沙漠有什么商店",
+    "ExpectedIds": [
+      "region.desert"
+    ]
+  },
+  {
+    "Npc": "Marlon",
+    "Query": "骷髅洞穴入口在哪",
+    "ExpectedIds": [
+      "region.skull"
+    ]
+  },
+  {
+    "Npc": "Wizard",
+    "Query": "女巫沼泽在哪",
+    "ExpectedIds": [
+      "region.witchswamp"
+    ]
+  },
+  {
+    "Npc": "Leo",
+    "Query": "火山在哪",
+    "ExpectedIds": [
+      "region.volcano"
+    ]
+  },
+  {
+    "Npc": "Gunther",
+    "Query": "考古帐篷做什么",
+    "ExpectedIds": [
+      "region.fieldoffice"
+    ]
+  },
+  {
+    "Npc": "Abigail",
+    "Query": "紫水晶是什么",
+    "ExpectedIds": [
+      "object.66"
+    ]
+  },
+  {
+    "Npc": "Penny",
+    "Query": "南瓜是什么",
+    "ExpectedIds": [
+      "object.276"
+    ]
+  },
+  {
+    "Npc": "Willy",
+    "Query": "Rainbow Trout 是什么",
+    "ExpectedIds": [
+      "object.138"
+    ]
+  },
+  {
+    "Npc": "Robin",
+    "Query": "木材有什么用",
+    "ExpectedIds": [
+      "object.388"
+    ]
+  },
+  {
+    "Npc": "Clint",
+    "Query": "Copper Ore 是什么",
+    "ExpectedIds": [
+      "object.378"
+    ]
+  },
+  {
+    "Npc": "Bear",
+    "Query": "介绍一下你自己",
+    "ExpectedIds": [
+      "npc.Bear"
+    ]
+  },
+  {
+    "Npc": "Abigail",
+    "Query": "复活节有什么活动",
+    "ExpectedIds": [
+      "festival.egg"
+    ]
+  },
+  {
+    "Npc": "Abigail",
+    "Query": "花舞节怎么玩",
+    "ExpectedIds": [
+      "festival.flower"
+    ]
+  },
+  {
+    "Npc": "Abigail",
+    "Query": "百乐汤是什么",
+    "ExpectedIds": [
+      "festival.luau"
+    ]
+  },
+  {
+    "Npc": "Abigail",
+    "Query": "月光水母有什么看头",
+    "ExpectedIds": [
+      "festival.jellies"
+    ]
+  },
+  {
+    "Npc": "Lewis",
+    "Query": "星露谷展览会有什么",
+    "ExpectedIds": [
+      "festival.fair"
+    ]
+  },
+  {
+    "Npc": "Lewis",
+    "Query": "万灵节有什么",
+    "ExpectedIds": [
+      "festival.spirits"
+    ]
+  },
+  {
+    "Npc": "Willy",
+    "Query": "冰雪节有什么活动",
+    "ExpectedIds": [
+      "festival.ice"
+    ]
+  },
+  {
+    "Npc": "Lewis",
+    "Query": "冬日星盛宴是干什么的",
+    "ExpectedIds": [
+      "festival.star"
+    ]
+  },
+  {
+    "Npc": "Willy",
+    "Query": "鳟鱼大赛怎么玩",
+    "ExpectedIds": [
+      "festival.trout"
+    ]
+  },
+  {
+    "Npc": "Willy",
+    "Query": "鱿鱼节是什么",
+    "ExpectedIds": [
+      "festival.squid"
+    ]
+  },
+  {
+    "Npc": "Willy",
+    "Query": "夜市有什么",
+    "ExpectedIds": [
+      "festival.market"
+    ]
+  },
+  {
+    "Npc": "Sandy",
+    "Query": "沙漠节有什么活动",
+    "ExpectedIds": [
+      "festival.desert"
+    ]
+  },
+  {
+    "Npc": "Abigail",
+    "Query": "复活节什么时候",
+    "ExpectedIds": [
+      "calendar.spring13"
+    ]
+  },
+  {
+    "Npc": "Abigail",
+    "Query": "花舞节是哪天举行",
+    "ExpectedIds": [
+      "calendar.spring24"
+    ]
+  },
+  {
+    "Npc": "Gus",
+    "Query": "夏威夷宴会几点开始",
+    "ExpectedIds": [
+      "calendar.summer11"
+    ]
+  },
+  {
+    "Npc": "Willy",
+    "Query": "夜市什么时候开始",
+    "ExpectedIds": [
+      "calendar.NightMarket"
+    ]
+  },
+  {
+    "Npc": "Willy",
+    "Query": "鳟鱼大赛什么时候",
+    "ExpectedIds": [
+      "calendar.TroutDerby"
+    ]
+  },
+  {
+    "Npc": "Willy",
+    "Query": "鱿鱼节什么时候",
+    "ExpectedIds": [
+      "calendar.SquidFest"
+    ]
+  },
+  {
+    "Npc": "Abigail",
+    "Query": "我今天很疲惫",
+    "NoHit": true
+  },
+  {
+    "Npc": "Abigail",
+    "Query": "我有点想你",
+    "NoHit": true
+  },
+  {
+    "Npc": "Abigail",
+    "Query": "陪我坐一会吧",
+    "NoHit": true
+  },
+  {
+    "Npc": "Abigail",
+    "Query": "谢谢你",
+    "NoHit": true
+  },
+  {
+    "Npc": "Abigail",
+    "Query": "我妈妈今天很难过",
+    "NoHit": true
+  },
+  {
+    "Npc": "Abigail",
+    "Query": "same old day",
+    "NoHit": true
+  },
+  {
+    "Npc": "Abigail",
+    "Query": "那个不存在的火星国王是谁",
+    "NoHit": true
+  },
+  {
+    "Npc": "Abigail",
+    "Query": "你可以帮我写代码吗",
+    "NoHit": true
+  },
+  {
+    "Npc": "Abigail",
+    "Query": "秘密森林有什么",
+    "NoHit": true
+  },
+  {
+    "Npc": "Sam",
+    "Query": "阿比盖尔的生日",
+    "ExpectedIds": [
+      "birthday.Abigail"
+    ]
+  },
+  {
+    "Npc": "Abigail",
+    "Query": "元素战争是什么",
+    "NoHit": true
+  },
+  {
+    "Npc": "Wizard",
+    "Query": "元素战争是什么",
+    "World": {
+      "friendshipHearts": 6
+    },
+    "ExpectedIds": [
+      "world.elemental"
+    ]
+  },
+  {
+    "Npc": "Wizard",
+    "Query": "元素战争是什么",
+    "NoHit": true
+  },
+  {
+    "Npc": "Bear",
+    "Query": "Joja是什么",
+    "NoHit": true
+  },
+  {
+    "Npc": "Abigail",
+    "Query": "那里有什么",
+    "Recent": "我们说的是鹈鹕镇。",
+    "ExpectedIds": [
+      "town"
+    ]
+  },
+  {
+    "Npc": "Abigail",
+    "Query": "那里在哪边",
+    "Recent": "先说鹈鹕镇，后来改聊沙滩。",
+    "ExpectedIds": [
+      "beach.region"
+    ]
+  },
+  {
+    "Npc": "Abigail",
+    "Query": "我好难过",
+    "Recent": "之前提到鹈鹕镇。",
+    "NoHit": true
+  },
+  {
+    "Npc": "Sandy",
+    "Query": "沙漠节什么时候",
+    "NoHit": true
+  },
+  {
+    "Npc": "Sandy",
+    "Query": "沙漠节什么时候",
+    "World": {
+      "allowedGameQueries": [
+        "LOCATION_ACCESSIBLE Desert"
+      ]
+    },
+    "ExpectedIds": [
+      "calendar.DesertFestival"
+    ]
+  },
+  {
+    "Npc": "Abigail",
+    "Query": "镇上的医生是谁",
+    "ExpectedIds": [
+      "npc.Harvey"
+    ]
+  },
+  {
+    "Npc": "Abigail",
+    "Query": "孩子的老师是谁",
+    "ExpectedIds": [
+      "npc.Penny"
+    ]
+  },
+  {
+    "Npc": "Abigail",
+    "Query": "谁是这里的镇长",
+    "ExpectedIds": [
+      "npc.Lewis"
+    ]
+  },
+  {
+    "Npc": "Abigail",
+    "Query": "镇上的科学家是谁",
+    "ExpectedIds": [
+      "npc.Demetrius"
+    ]
+  },
+  {
+    "Npc": "Abigail",
+    "Query": "博物馆管理员叫什么",
+    "ExpectedIds": [
+      "npc.Gunther"
+    ]
+  },
+  {
+    "Npc": "Abigail",
+    "Query": "在哪里买动物",
+    "ExpectedIds": [
+      "npc.Marnie"
+    ]
+  },
+  {
+    "Npc": "Abigail",
+    "Query": "绿洲商店是谁开的",
+    "ExpectedIds": [
+      "npc.Sandy"
+    ]
+  },
+  {
+    "Npc": "Abigail",
+    "Query": "谁是超市经理",
+    "ExpectedIds": [
+      "npc.Morris"
+    ]
+  },
+  {
+    "Npc": "Sam",
+    "Query": "科罗布斯的生日",
+    "NoHit": true
+  },
+  {
+    "Npc": "Willy",
+    "Query": "今天是什么节日",
+    "World": {
+      "festivalName": "NightMarket"
+    },
+    "ExpectedIds": [
+      "festival.market",
+      "calendar.NightMarket"
+    ]
+  },
+  {
+    "Npc": "Abigail",
+    "Query": "这里是什么地方",
+    "World": {
+      "npcLocation": "Town"
+    },
+    "ExpectedIds": [
+      "town"
+    ]
+  },
+  {
+    "Npc": "Abigail",
+    "Query": "我有点累",
+    "World": {
+      "npcLocation": "Town",
+      "festivalName": "NightMarket"
+    },
+    "NoHit": true
+  }
+]
