@@ -2,9 +2,36 @@
 
 [中文](README.md) · [English](README_EN.md)
 
+![SV_SOUL concept illustration: individual personalities, shared memories, a living world, 48 character profiles and controller-friendly conversations](docs/images/sv-soul-features.png)
+
+*AI-generated feature concept illustration. Actual in-game screenshots appear below.*
+
 An AI NPC mod for Stardew Valley. Characters respond using individual personalities, relationships, save-scoped memories, current game state, and relevant background knowledge.
 
 Source version: **1.7.0**. Targets Stardew Valley 1.6; builds were verified against game 1.6.15 and SMAPI 4.5.2.
+
+## See it in action
+
+| Core experience | What it brings to play |
+|---|---|
+| Individual personalities | NPCs retain their interests, opinions, and voices. They can share wishes, disagree, or invite you to spend time together. |
+| Shared memories | Conversations and evidence-backed memories follow your save. Reopen chat to continue or revisit earlier messages. |
+| A shared world | Replies reflect relationships, weather, festivals, and the current situation, with relevant knowledge retrieved as needed. |
+| Conversation without typing | Choose topics and follow-ups with a controller or mouse, and switch to free-form text whenever you like. |
+
+### A character with plans of her own
+
+![Abigail talks about exploring the mines and practicing her flute, invites the player along, and offers follow-up choices below the conversation](docs/images/npc-personality-dialogue.png)
+
+Asked what she would like to do, Abigail shares her interests and wishes, then invites the player along. Invitations are conversational expressions; in-game actions remain player-controlled.
+
+### Controller-friendly quick replies
+
+![Four selectable topics below the chat window cover the day, interests, wishes, and quiet companionship, with controller hints underneath](docs/images/controller-quick-replies.png)
+
+Start with a question about the day, an interest, or simply spending a quiet moment together. Use the D-pad or left stick to select, A to send, Y to change pages, and LB/RB to scroll. Free-form text remains available.
+
+*These unaltered screenshots were captured during the 1.6-stage validation on November 6, 2026. For 1.7 memory and background retrieval, see the [background guide](docs/history-and-lore.md) and [validation scope](docs/lore-validation.md).*
 
 ## Features
 

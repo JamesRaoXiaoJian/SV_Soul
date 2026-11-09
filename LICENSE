@@ -22,3 +22,6 @@ SOFTWARE.
 
 Wiki-derived data in assets/lore/ is separately licensed as described in
 assets/lore/NOTICE.md. Third-party notices are in assets/licenses/.
+
+Game artwork visible in the screenshots under docs/images/ belongs to
+ConcernedApe and is not covered by this code license. See docs/images/README.md.
